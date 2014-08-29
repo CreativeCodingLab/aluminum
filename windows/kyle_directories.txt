@@ -1,0 +1,3 @@
+Executable Directories: E:\Libraries\freeglut-2.8.1\bin;$(VCInstallDir)bin;$(WindowsSDK_ExecutablePath_x86);$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);
+Include Directories: E:\Libraries\FreeImage\Dist;E:\Libraries\glew-1.10.0\include;E:\Libraries\freeglut-2.8.1\include;E:\Libraries\glm-0.9.4.4;$(IncludePath)
+Library Directories: E:\Libraries\FreeImage\Dist;E:\Libraries\glew-1.10.0\lib\Release\Win32\;E:\Libraries\freeglut-2.8.1\lib\;$(LibraryPath)
