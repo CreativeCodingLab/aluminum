@@ -1,0 +1,21 @@
+
+
+example usage:	./makeFontAtlas Vera.ttf 32 256
+
+will make the two files "Vera.png" and "Vera.fnt" 
+that represent the font atlas with a texture size of 256x256 for all characters in the font "Vera.ttf" with size 32, 
+and which can then be loaded via the allomin library.
+
+example usage:	./makeFontAtlas Vera.ttf 24 1024 myFont 
+
+will make the two files "myFont.png" and "myFont.fnt" 
+that represent the font atlas with a texture size of 1024x1024 for all characters in the font "Vera.ttf" with size 24, 
+and which can then be loaded via the allomin library.
+
+
+example usage:	./makeFontAtlas Vera.ttf 24 1024 myFont "abc123" 
+
+will make the two files "myFont.png" and "myFont.fnt" 
+that represent the font atlas with a texture size of 1024x1024 for only the characters "abc123" in the font "Vera.ttf" with size 24, 
+and which can then be loaded via the allomin library.
+

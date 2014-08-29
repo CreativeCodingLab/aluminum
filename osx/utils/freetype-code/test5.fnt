@@ -1,0 +1,4 @@
+info face="./Vera.ttf" size=128.000000 bold=0 italic=0 charset="" unicode=0 stretchH=0.000000 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=0 base=0 scaleW=1024 scaleH=1204 pages=0 packed=0
+page id=0 file="./Vera.ttf"
+chars count=-1

@@ -1,0 +1,10 @@
+info face="/Library/Fonts/Arial.ttf" size=128.000000 bold=0 italic=0 charset="" unicode=0 stretchH=147.190002 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=147 base=-27 scaleW=512 scaleH=512 pages=0 packed=0
+page id=0 file="/Library/Fonts/Arial.ttf"
+chars count=6
+char id=97 x=6 y=71 s0=0.011719 s1=0.132812 t0=0.001953 t1=0.138672 width=62 height=70 xoffset=4 yoffset=69 xadvance=71 letter="a" 
+char id=98 x=69 y=94 s0=0.134766 s1=0.248047 t0=0.001953 t1=0.183594 width=58 height=93 xoffset=8 yoffset=92 xadvance=71 letter="b" 
+char id=99 x=128 y=71 s0=0.250000 s1=0.363281 t0=0.001953 t1=0.138672 width=58 height=70 xoffset=5 yoffset=69 xadvance=64 letter="c" 
+char id=100 x=187 y=94 s0=0.365234 s1=0.478516 t0=0.001953 t1=0.183594 width=58 height=93 xoffset=4 yoffset=92 xadvance=71 letter="d" 
+char id=101 x=246 y=71 s0=0.480469 s1=0.601562 t0=0.001953 t1=0.138672 width=62 height=70 xoffset=4 yoffset=69 xadvance=71 letter="e" 
+char id=102 x=309 y=94 s0=0.603516 s1=0.679688 t0=0.001953 t1=0.183594 width=39 height=93 xoffset=1 yoffset=93 xadvance=35 letter="f" 

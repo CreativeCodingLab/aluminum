@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		838E24F21946570C002E2B79 /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 838E24F31946570C002E2B79 /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				838E24F8194657AB002E2B79 /* MultiPlatform Build */,
+			);
+			dependencies = (
+				838E24F7194657A7002E2B79 /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		838E249919464FE7002E2B79 /* Aluminum.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E243E19464E0E002E2B79 /* Aluminum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24C21946508B002E2B79 /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24AD1946508B002E2B79 /* Behavior.cpp */; };
+		838E24C31946508B002E2B79 /* Behavior.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24AE1946508B002E2B79 /* Behavior.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24C41946508B002E2B79 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24AF1946508B002E2B79 /* Camera.cpp */; };
+		838E24C51946508B002E2B79 /* Camera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24B01946508B002E2B79 /* Camera.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24C61946508B002E2B79 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24B11946508B002E2B79 /* FBO.cpp */; };
+		838E24C71946508B002E2B79 /* FBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24B21946508B002E2B79 /* FBO.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24C81946508B002E2B79 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24B31946508B002E2B79 /* Font.cpp */; };
+		838E24C91946508B002E2B79 /* Font.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24B41946508B002E2B79 /* Font.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24CA1946508B002E2B79 /* MeshBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24B51946508B002E2B79 /* MeshBuffer.cpp */; };
+		838E24CB1946508B002E2B79 /* MeshBuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24B61946508B002E2B79 /* MeshBuffer.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24CC1946508B002E2B79 /* MeshData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24B71946508B002E2B79 /* MeshData.cpp */; };
+		838E24CD1946508B002E2B79 /* MeshData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24B81946508B002E2B79 /* MeshData.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24CE1946508B002E2B79 /* MeshUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24B91946508B002E2B79 /* MeshUtils.cpp */; };
+		838E24CF1946508B002E2B79 /* MeshUtils.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24BA1946508B002E2B79 /* MeshUtils.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24D01946508B002E2B79 /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24BB1946508B002E2B79 /* Program.cpp */; };
+		838E24D11946508B002E2B79 /* Program.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24BC1946508B002E2B79 /* Program.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24D21946508B002E2B79 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24BD1946508B002E2B79 /* Shapes.cpp */; };
+		838E24D31946508B002E2B79 /* Shapes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24BE1946508B002E2B79 /* Shapes.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24D41946508B002E2B79 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838E24BF1946508B002E2B79 /* Texture.cpp */; };
+		838E24D51946508B002E2B79 /* Texture.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24C01946508B002E2B79 /* Texture.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24D61946508B002E2B79 /* Utils.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24C11946508B002E2B79 /* Utils.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24E41946509A002E2B79 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24D71946509A002E2B79 /* AppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24E51946509A002E2B79 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24D81946509A002E2B79 /* AppDelegate.mm */; };
+		838E24E61946509A002E2B79 /* CaptureManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24D91946509A002E2B79 /* CaptureManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24E71946509A002E2B79 /* CaptureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24DA1946509A002E2B79 /* CaptureManager.mm */; };
+		838E24E81946509A002E2B79 /* EAGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24DB1946509A002E2B79 /* EAGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24E91946509A002E2B79 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24DC1946509A002E2B79 /* EAGLView.mm */; };
+		838E24EA1946509A002E2B79 /* Includes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 838E24DD1946509A002E2B79 /* Includes.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24EB1946509A002E2B79 /* RendererIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24DE1946509A002E2B79 /* RendererIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24EC1946509A002E2B79 /* RendererIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24DF1946509A002E2B79 /* RendererIOS.mm */; };
+		838E24ED1946509A002E2B79 /* ResourceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24E01946509A002E2B79 /* ResourceHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24EE1946509A002E2B79 /* ResourceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24E11946509A002E2B79 /* ResourceHandler.mm */; };
+		838E24EF1946509A002E2B79 /* ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 838E24E21946509A002E2B79 /* ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		838E24F01946509A002E2B79 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 838E24E31946509A002E2B79 /* ViewController.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		838E24F6194657A7002E2B79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 838E242519464B75002E2B79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 838E242C19464B75002E2B79;
+			remoteInfo = Aluminum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		838E242B19464B75002E2B79 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		838E242D19464B75002E2B79 /* libAluminum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAluminum.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		838E243419464B75002E2B79 /* Aluminum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aluminum-Prefix.pch"; sourceTree = "<group>"; };
+		838E243E19464E0E002E2B79 /* Aluminum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Aluminum.h; sourceTree = "<group>"; };
+		838E24AD1946508B002E2B79 /* Behavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Behavior.cpp; sourceTree = "<group>"; };
+		838E24AE1946508B002E2B79 /* Behavior.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Behavior.hpp; sourceTree = "<group>"; };
+		838E24AF1946508B002E2B79 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		838E24B01946508B002E2B79 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		838E24B11946508B002E2B79 /* FBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FBO.cpp; sourceTree = "<group>"; };
+		838E24B21946508B002E2B79 /* FBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FBO.hpp; sourceTree = "<group>"; };
+		838E24B31946508B002E2B79 /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		838E24B41946508B002E2B79 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
+		838E24B51946508B002E2B79 /* MeshBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshBuffer.cpp; sourceTree = "<group>"; };
+		838E24B61946508B002E2B79 /* MeshBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MeshBuffer.hpp; sourceTree = "<group>"; };
+		838E24B71946508B002E2B79 /* MeshData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshData.cpp; sourceTree = "<group>"; };
+		838E24B81946508B002E2B79 /* MeshData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MeshData.hpp; sourceTree = "<group>"; };
+		838E24B91946508B002E2B79 /* MeshUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshUtils.cpp; sourceTree = "<group>"; };
+		838E24BA1946508B002E2B79 /* MeshUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MeshUtils.hpp; sourceTree = "<group>"; };
+		838E24BB1946508B002E2B79 /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
+		838E24BC1946508B002E2B79 /* Program.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Program.hpp; sourceTree = "<group>"; };
+		838E24BD1946508B002E2B79 /* Shapes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shapes.cpp; sourceTree = "<group>"; };
+		838E24BE1946508B002E2B79 /* Shapes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shapes.hpp; sourceTree = "<group>"; };
+		838E24BF1946508B002E2B79 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		838E24C01946508B002E2B79 /* Texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		838E24C11946508B002E2B79 /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		838E24D71946509A002E2B79 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
+		838E24D81946509A002E2B79 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ../../AppDelegate.mm; sourceTree = "<group>"; };
+		838E24D91946509A002E2B79 /* CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaptureManager.h; path = ../../CaptureManager.h; sourceTree = "<group>"; };
+		838E24DA1946509A002E2B79 /* CaptureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CaptureManager.mm; path = ../../CaptureManager.mm; sourceTree = "<group>"; };
+		838E24DB1946509A002E2B79 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EAGLView.h; path = ../../EAGLView.h; sourceTree = "<group>"; };
+		838E24DC1946509A002E2B79 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EAGLView.mm; path = ../../EAGLView.mm; sourceTree = "<group>"; };
+		838E24DD1946509A002E2B79 /* Includes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Includes.hpp; path = ../../Includes.hpp; sourceTree = "<group>"; };
+		838E24DE1946509A002E2B79 /* RendererIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RendererIOS.h; path = ../../RendererIOS.h; sourceTree = "<group>"; };
+		838E24DF1946509A002E2B79 /* RendererIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RendererIOS.mm; path = ../../RendererIOS.mm; sourceTree = "<group>"; };
+		838E24E01946509A002E2B79 /* ResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceHandler.h; path = ../../ResourceHandler.h; sourceTree = "<group>"; };
+		838E24E11946509A002E2B79 /* ResourceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourceHandler.mm; path = ../../ResourceHandler.mm; sourceTree = "<group>"; };
+		838E24E21946509A002E2B79 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../ViewController.h; sourceTree = "<group>"; };
+		838E24E31946509A002E2B79 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ViewController.mm; path = ../../ViewController.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		838E242A19464B75002E2B79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		838E242419464B75002E2B79 = {
+			isa = PBXGroup;
+			children = (
+				838E243219464B75002E2B79 /* Aluminum */,
+				838E242F19464B75002E2B79 /* Frameworks */,
+				838E242E19464B75002E2B79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		838E242E19464B75002E2B79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				838E242D19464B75002E2B79 /* libAluminum.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		838E242F19464B75002E2B79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		838E243219464B75002E2B79 /* Aluminum */ = {
+			isa = PBXGroup;
+			children = (
+				838E24AC1946508B002E2B79 /* src */,
+				838E248B19464F34002E2B79 /* ios */,
+				838E243E19464E0E002E2B79 /* Aluminum.h */,
+				838E243319464B75002E2B79 /* Supporting Files */,
+			);
+			path = Aluminum;
+			sourceTree = "<group>";
+		};
+		838E243319464B75002E2B79 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				838E243419464B75002E2B79 /* Aluminum-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		838E248B19464F34002E2B79 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				838E24D71946509A002E2B79 /* AppDelegate.h */,
+				838E24D81946509A002E2B79 /* AppDelegate.mm */,
+				838E24D91946509A002E2B79 /* CaptureManager.h */,
+				838E24DA1946509A002E2B79 /* CaptureManager.mm */,
+				838E24DB1946509A002E2B79 /* EAGLView.h */,
+				838E24DC1946509A002E2B79 /* EAGLView.mm */,
+				838E24DD1946509A002E2B79 /* Includes.hpp */,
+				838E24DE1946509A002E2B79 /* RendererIOS.h */,
+				838E24DF1946509A002E2B79 /* RendererIOS.mm */,
+				838E24E01946509A002E2B79 /* ResourceHandler.h */,
+				838E24E11946509A002E2B79 /* ResourceHandler.mm */,
+				838E24E21946509A002E2B79 /* ViewController.h */,
+				838E24E31946509A002E2B79 /* ViewController.mm */,
+			);
+			name = ios;
+			sourceTree = "<group>";
+		};
+		838E24AC1946508B002E2B79 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				838E24AD1946508B002E2B79 /* Behavior.cpp */,
+				838E24AE1946508B002E2B79 /* Behavior.hpp */,
+				838E24AF1946508B002E2B79 /* Camera.cpp */,
+				838E24B01946508B002E2B79 /* Camera.hpp */,
+				838E24B11946508B002E2B79 /* FBO.cpp */,
+				838E24B21946508B002E2B79 /* FBO.hpp */,
+				838E24B31946508B002E2B79 /* Font.cpp */,
+				838E24B41946508B002E2B79 /* Font.hpp */,
+				838E24B51946508B002E2B79 /* MeshBuffer.cpp */,
+				838E24B61946508B002E2B79 /* MeshBuffer.hpp */,
+				838E24B71946508B002E2B79 /* MeshData.cpp */,
+				838E24B81946508B002E2B79 /* MeshData.hpp */,
+				838E24B91946508B002E2B79 /* MeshUtils.cpp */,
+				838E24BA1946508B002E2B79 /* MeshUtils.hpp */,
+				838E24BB1946508B002E2B79 /* Program.cpp */,
+				838E24BC1946508B002E2B79 /* Program.hpp */,
+				838E24BD1946508B002E2B79 /* Shapes.cpp */,
+				838E24BE1946508B002E2B79 /* Shapes.hpp */,
+				838E24BF1946508B002E2B79 /* Texture.cpp */,
+				838E24C01946508B002E2B79 /* Texture.hpp */,
+				838E24C11946508B002E2B79 /* Utils.hpp */,
+			);
+			name = src;
+			path = ../../../src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		838E249819464FE0002E2B79 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				838E249919464FE7002E2B79 /* Aluminum.h in Headers */,
+				838E24C31946508B002E2B79 /* Behavior.hpp in Headers */,
+				838E24C51946508B002E2B79 /* Camera.hpp in Headers */,
+				838E24C71946508B002E2B79 /* FBO.hpp in Headers */,
+				838E24C91946508B002E2B79 /* Font.hpp in Headers */,
+				838E24CB1946508B002E2B79 /* MeshBuffer.hpp in Headers */,
+				838E24CD1946508B002E2B79 /* MeshData.hpp in Headers */,
+				838E24CF1946508B002E2B79 /* MeshUtils.hpp in Headers */,
+				838E24D11946508B002E2B79 /* Program.hpp in Headers */,
+				838E24D31946508B002E2B79 /* Shapes.hpp in Headers */,
+				838E24D51946508B002E2B79 /* Texture.hpp in Headers */,
+				838E24D61946508B002E2B79 /* Utils.hpp in Headers */,
+				838E24E41946509A002E2B79 /* AppDelegate.h in Headers */,
+				838E24E61946509A002E2B79 /* CaptureManager.h in Headers */,
+				838E24E81946509A002E2B79 /* EAGLView.h in Headers */,
+				838E24EA1946509A002E2B79 /* Includes.hpp in Headers */,
+				838E24EB1946509A002E2B79 /* RendererIOS.h in Headers */,
+				838E24ED1946509A002E2B79 /* ResourceHandler.h in Headers */,
+				838E24EF1946509A002E2B79 /* ViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		838E242C19464B75002E2B79 /* Aluminum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 838E243B19464B75002E2B79 /* Build configuration list for PBXNativeTarget "Aluminum" */;
+			buildPhases = (
+				838E242919464B75002E2B79 /* Sources */,
+				838E242A19464B75002E2B79 /* Frameworks */,
+				838E242B19464B75002E2B79 /* CopyFiles */,
+				838E249819464FE0002E2B79 /* Headers */,
+				838E24F1194655F3002E2B79 /* Build Framework */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aluminum;
+			productName = Aluminum;
+			productReference = 838E242D19464B75002E2B79 /* libAluminum.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		838E242519464B75002E2B79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Angus Forbes";
+			};
+			buildConfigurationList = 838E242819464B75002E2B79 /* Build configuration list for PBXProject "Aluminum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 838E242419464B75002E2B79;
+			productRefGroup = 838E242E19464B75002E2B79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				838E242C19464B75002E2B79 /* Aluminum */,
+				838E24F21946570C002E2B79 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		838E24F1194655F3002E2B79 /* Build Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n";
+		};
+		838E24F8194657AB002E2B79 /* MultiPlatform Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "MultiPlatform Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\n    exit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\n    RW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\n    RW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\n    RW_OTHER_PLATFORM=iphonesimulator\nelse\n    RW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\n    RW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find other platform build directory.\"\n    exit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\n    build_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n                 \"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n                 \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n      \"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		838E242919464B75002E2B79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				838E24C21946508B002E2B79 /* Behavior.cpp in Sources */,
+				838E24C41946508B002E2B79 /* Camera.cpp in Sources */,
+				838E24C61946508B002E2B79 /* FBO.cpp in Sources */,
+				838E24C81946508B002E2B79 /* Font.cpp in Sources */,
+				838E24CA1946508B002E2B79 /* MeshBuffer.cpp in Sources */,
+				838E24CC1946508B002E2B79 /* MeshData.cpp in Sources */,
+				838E24CE1946508B002E2B79 /* MeshUtils.cpp in Sources */,
+				838E24D01946508B002E2B79 /* Program.cpp in Sources */,
+				838E24D21946508B002E2B79 /* Shapes.cpp in Sources */,
+				838E24D41946508B002E2B79 /* Texture.cpp in Sources */,
+				838E24E51946509A002E2B79 /* AppDelegate.mm in Sources */,
+				838E24E71946509A002E2B79 /* CaptureManager.mm in Sources */,
+				838E24E91946509A002E2B79 /* EAGLView.mm in Sources */,
+				838E24EC1946509A002E2B79 /* RendererIOS.mm in Sources */,
+				838E24EE1946509A002E2B79 /* ResourceHandler.mm in Sources */,
+				838E24F01946509A002E2B79 /* ViewController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		838E24F7194657A7002E2B79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 838E242C19464B75002E2B79 /* Aluminum */;
+			targetProxy = 838E24F6194657A7002E2B79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		838E243919464B75002E2B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/local/include,
+					/usr/local/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		838E243A19464B75002E2B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/local/include,
+					/usr/local/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		838E243C19464B75002E2B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/Aluminum.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Aluminum/Aluminum-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		838E243D19464B75002E2B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/Aluminum.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Aluminum/Aluminum-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		838E24F41946570C002E2B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		838E24F51946570C002E2B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		838E242819464B75002E2B79 /* Build configuration list for PBXProject "Aluminum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				838E243919464B75002E2B79 /* Debug */,
+				838E243A19464B75002E2B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		838E243B19464B75002E2B79 /* Build configuration list for PBXNativeTarget "Aluminum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				838E243C19464B75002E2B79 /* Debug */,
+				838E243D19464B75002E2B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		838E24F31946570C002E2B79 /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				838E24F41946570C002E2B79 /* Debug */,
+				838E24F51946570C002E2B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 838E242519464B75002E2B79 /* Project object */;
+}

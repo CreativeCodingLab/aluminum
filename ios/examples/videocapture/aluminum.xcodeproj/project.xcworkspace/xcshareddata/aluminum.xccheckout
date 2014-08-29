@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4F58D67C-4B54-4AD9-AF8A-61F8C3A71100</string>
+	<key>IDESourceControlProjectName</key>
+	<string>aluminum</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0E2DAB8F-B137-46FA-AA2F-D5D0B015CD9F</key>
+		<string>https://github.com/CreativeCodingLab/aluminum.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/examples/videocapture/aluminum.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0E2DAB8F-B137-46FA-AA2F-D5D0B015CD9F</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CreativeCodingLab/aluminum.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0E2DAB8F-B137-46FA-AA2F-D5D0B015CD9F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E2DAB8F-B137-46FA-AA2F-D5D0B015CD9F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>aluminum</string>
+		</dict>
+	</array>
+</dict>
+</plist>

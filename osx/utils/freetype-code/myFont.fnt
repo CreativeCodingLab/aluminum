@@ -1,0 +1,8 @@
+info face="Vera.ttf" size=24.000000 bold=0 italic=0 charset="" unicode=0 stretchH=27.940001 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=27 base=-5 scaleW=1024 scaleH=1024 pages=0 packed=0
+page id=0 file="Vera.ttf"
+chars count=4
+char id=116 x=6 y=19 s0=0.005859 s1=0.014648 t0=0.000977 t1=0.018555 width=9 height=18 xoffset=0 yoffset=18 xadvance=9 letter="t" 
+char id=101 x=15 y=15 s0=0.014648 s1=0.027344 t0=0.000977 t1=0.014648 width=13 height=14 xoffset=1 yoffset=14 xadvance=14 letter="e" 
+char id=115 x=28 y=15 s0=0.027344 s1=0.038086 t0=0.000977 t1=0.014648 width=11 height=14 xoffset=1 yoffset=14 xadvance=12 letter="s" 
+char id=116 x=39 y=19 s0=0.038086 s1=0.046875 t0=0.000977 t1=0.018555 width=9 height=18 xoffset=0 yoffset=18 xadvance=9 letter="t" 
