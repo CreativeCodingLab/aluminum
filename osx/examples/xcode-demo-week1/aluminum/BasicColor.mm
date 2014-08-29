@@ -10,6 +10,8 @@
 
 using namespace aluminum;
 
+
+/* Simple demo that draws two triangles */
 class Basic : public RendererOSX {
 public:
   
@@ -19,16 +21,16 @@ public:
   //A Program object manages the loading, compiling, and interacting with a shader program
   Program program;
  
-  //OpenGL IDs for a default VertexArrayObject, a VertexBufferObject, and an IndexBufferObject
+  //OpenGL IDs for a default vertex array object, a vertex buffer object, and an index buffer object that will stored on the GPU.
   GLuint vao, vbo, ibo;
   
-  //This simple example defines three indices with a one-to-one correlation with each point in our triangle
+  //Defines six indices to represent the two triangles made from the four vertices.
   GLuint indices[6] = {0,1,2,2,1,3};
   
   //Defines an array of vertex data; 3 vec3s of position, followed by 3 vec3s of color info
   vec3 vertices[8] = {
-    vec3( -1.0, -1.0, 0.0 ), vec3( 0.0, 1.0, 0.0 ), vec3( 1.0, -1.0, 0.0 ), vec3( 1.0,1.0,0.0), //vertex
-    vec3( 1.0,0.0,0.0 ), vec3( 0.0,1.0,0.0 ), vec3( 0.0,0.0,1.0 ), vec3( 1.0,1.0,1.0 ) //color
+    vec3( -1.0, -1.0, 0.0 ), vec3( -1.0, 1.0, 0.0 ), vec3( 1.0, -1.0, 0.0 ), vec3( 1.0, 1.0, 0.0), //vertex
+    vec3( 1.0, 0.0, 0.0 ), vec3( 0.0, 1.0, 0.0 ), vec3( 0.0, 0.0, 1.0 ), vec3( 1.0, 1.0, 1.0 ) //color
   };
   
   //Defines the default locations for the attribute variables in the vertex shader
@@ -89,12 +91,11 @@ public:
     glBufferData( GL_ARRAY_BUFFER, sizeof(vertices), &vertices[0], GL_DYNAMIC_DRAW ); //pass data to the GPU
     
     //These two commands first enable the variable referenced by the ID stored in "posLoc" to receive data into the "vertexPosition" variable in the vertexShader (see the loadProgram method above), and then explain how to map the data in our "vertices" array to this vertexPosition variable when its streamed in.
-    //The glVertexAttribPointer method is defined so that a series of 3 floats (i.e., a vec3) are read from the 0th position in the buffer
-    
+    //The glVertexAttribPointer method defines the location and format of data mapped to a particular attribute. Here we are using a vec3 to store the x,y, and z position information (i.e., 3 floats). They will be read in from the beginning of our vertices array.
     glEnableVertexAttribArray( posLoc ); //enable this variable ("vertexPosition") to receive vertex data
     glVertexAttribPointer( posLoc, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0*sizeof(vec3))); //define how the data will be mapped to the "vertexPosition" variable
     
-    //Similar to above, we enable the "vertexColor" variable and read some amount of vec3s (3 floats) starting from the 4th vec3 (i.e., the 3rd position...)
+    //Similar to above, we enable the "vertexColor" variable associated with the "colLoc" ID and provide the location and format of the color data within our vertices array. We are using a vec3 to store an RGB color (i.e., 3 floats), and this data is located starting from the vec3 at index 4 (i.e., after the four position vec3s).
     glEnableVertexAttribArray( colLoc );
     glVertexAttribPointer( colLoc, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(4*sizeof(vec3)));
     
@@ -174,6 +175,7 @@ public:
   
 };
 
-int main(){
+int main() {
+  //instantiate our "Basic" program and call its parent's start() method to create a window with an active OpenGL context.
   return Basic().start("aluminum::Basic", 100, 100, 400, 300);
 }
