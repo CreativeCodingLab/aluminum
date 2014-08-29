@@ -4,8 +4,8 @@
 
 # Write-Host $x
 $BUILD="..\build"  # Our end result bundle
-$SRC="..\..\..\src"    # aluminum source code
-$WIN32="..\..\..\windows"    # windows source code
+$SRC="..\..\..\include\Aluminum"    # aluminum source code
+$WIN32="..\..\..\windows\include\Aluminum"    # windows source code
 $DEBUG=".\Debug"    # location of our lib file
 
 if (test-path $BUILD){

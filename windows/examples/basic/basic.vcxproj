@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(FREEGLUT_PATH)\include;$(GLM_PATH);$(GLEW_PATH)\include;$(FREEIMAGE_PATH)\Dist;$(ALUMINUM_PATH)\windows\Framework\Aluminumlib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(FREEIMAGE_PATH)\Dist;$(FREEGLUT_PATH)\lib;$(GLEW_PATH)\lib\Release\Win32;$(ALUMINUM_PATH)\windows\Framework\Aluminumlib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(FREEGLUT_PATH)\include;$(GLM_PATH);$(GLEW_PATH)\include;$(FREEIMAGE_PATH)\Dist;$(ALUMINUM_PATH)\windows\Framework\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(FREEIMAGE_PATH)\Dist;$(FREEGLUT_PATH)\lib;$(GLEW_PATH)\lib\Release\Win32;$(ALUMINUM_PATH)\windows\Framework\build\lib;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

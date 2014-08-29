@@ -56,7 +56,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ShowIncludes>true</ShowIncludes>
-      <AdditionalIncludeDirectories>$(ALUMINUM_PATH)\windows\Framework\Aluminum;$(ALUMINUM_PATH)\src;$(ALUMINUM_PATH)\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ALUMINUM_PATH)\include;$(ALUMINUM_PATH)\windows\include;$(ALUMINUM_PATH)\src;$(ALUMINUM_PATH)\windows\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseFullPaths>true</UseFullPaths>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -92,42 +92,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\Behavior.hpp" />
-    <ClInclude Include="..\..\..\src\Camera.hpp" />
-    <ClInclude Include="..\..\..\src\FBO.hpp" />
-    <ClInclude Include="..\..\..\src\Font.hpp" />
-    <ClInclude Include="..\..\..\src\MeshBuffer.hpp" />
-    <ClInclude Include="..\..\..\src\MeshData.hpp" />
-    <ClInclude Include="..\..\..\src\MeshUtils.hpp" />
-    <ClInclude Include="..\..\..\src\Program.hpp" />
-    <ClInclude Include="..\..\..\src\Shapes.hpp" />
-    <ClInclude Include="..\..\..\src\Texture.hpp" />
-    <ClInclude Include="..\..\..\src\Utils.hpp" />
-    <ClInclude Include="..\..\FreeGlutGLView.hpp" />
-    <ClInclude Include="..\..\Includes.hpp" />
-    <ClInclude Include="..\..\RendererWin32.hpp" />
-    <ClInclude Include="..\..\ResourceHandler.hpp" />
-    <ClInclude Include="Aluminum.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\src\Behavior.cpp" />
-    <ClCompile Include="..\..\..\src\Camera.cpp" />
-    <ClCompile Include="..\..\..\src\FBO.cpp" />
-    <ClCompile Include="..\..\..\src\Font.cpp" />
-    <ClCompile Include="..\..\..\src\MeshBuffer.cpp" />
-    <ClCompile Include="..\..\..\src\MeshData.cpp" />
-    <ClCompile Include="..\..\..\src\MeshUtils.cpp" />
-    <ClCompile Include="..\..\..\src\Program.cpp" />
-    <ClCompile Include="..\..\..\src\Shapes.cpp" />
-    <ClCompile Include="..\..\..\src\Texture.cpp" />
-    <ClCompile Include="..\..\FreeGlutGLView.cpp" />
-    <ClCompile Include="..\..\RendererWin32.cpp" />
-    <ClCompile Include="..\..\ResourceHandler.cpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Behavior.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Camera.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\FBO.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Font.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\MeshBuffer.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\MeshData.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\MeshUtils.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Program.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Shapes.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Texture.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Utils.hpp" />
+    <ClInclude Include="..\..\include\Aluminum\Includes.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostBuild.ps1">
       <FileType>Document</FileType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Aluminum\Behavior.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\Camera.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\FBO.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\Font.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\MeshBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\MeshData.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\MeshUtils.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\Program.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\Shapes.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\Texture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

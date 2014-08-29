@@ -1,4 +1,8 @@
-#include "Aluminum.h"
+#include "Aluminum/Program.hpp"
+#include "Aluminum/FreeGlutGLView.hpp"
+#include "Aluminum/RendererWin32.hpp"
+#include "Aluminum/ResourceHandler.hpp"
+
 #pragma comment ( lib, "Aluminum.lib" )
 
 #define BUFFER_OFFSET(i) (reinterpret_cast<void*>(i))
