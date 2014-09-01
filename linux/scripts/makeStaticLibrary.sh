@@ -1,14 +1,20 @@
 #!/bin/bash
 
+
+if [ $# -eq 0 ]
+  then
+    INCLUDE_DIR="/opt/local/include" #or wherever GLM includes live 
+
+  else
+    INCLUDE_DIR=$1 #assuming its been passed in from osx-specific run.command
+fi
+
 SCRIPTS_DIR="$( cd "$( dirname "$0" )" && pwd )"
 LINUX_DIR="$SCRIPTS_DIR/.."
 
 BASE_DIR="$LINUX_DIR/.."
 BUILD_DIR="$BASE_DIR/build"
-SRC_DIR="$BASE_DIR/src"
-
-#INCLUDE_DIR="/opt/local/include"
-INCLUDE_DIR="/home/evl/aforbes/include"
+SRC_DIR="$BASE_DIR/src/Aluminum"
 
 INCLUDE=" -I$BUILD_DIR/include -I$INCLUDE_DIR" 
 ALUMINUM_SRC="$SRC_DIR/*.cpp"

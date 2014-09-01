@@ -12,7 +12,11 @@
 #  clean by removing aluminum.a, the precompiled headers, and the application binary (this last one is optional)
 #   ./run.command -z
 #   ./run.command -z examples/stereo/MyApp.mm
- 
+
+#INCLUDE_DIR="/opt/local/include/"
+INCLUDE_DIR="/home/evl/aforbes/include/"
+
+
 
 LINUX_VERSION="$(sw_vers -productVersion | grep -o '[0-9][0-9]\.[0-9]')";
 echo -e "\n\nYou are running LINUX version $LINUX_VERSION\n\n"
@@ -109,14 +113,7 @@ BASE_DIR="$RUN_PATH/.."
 BUILD_DIR="$BASE_DIR/build"
 SRC_DIR="$BASE_DIR/src"
 LINUX_DIR="$RUN_PATH"
-LIB_DIR="/opt/local/lib"
 
-#INCLUDE_DIR="/opt/local/include/"
-INCLUDE_DIR="/home/evl/aforbes/include/"
-
-SYSTEM_INCLUDE="/usr/local/include/Aluminum"
-SYSTEM_LIB="/usr/local/lib"
-#INCLUDE_GLM_DIR="/usr/local/include"
 
 #FFMPEG="-L/opt/local/lib -lavformat -lavcodec -lswscale -lavutil"
 #ASSIMP="$LIB_DIR/libassimp.dylib"
@@ -176,7 +173,7 @@ if [ "$PRE" -eq 1 ]; then
   ### 1. PRECOMPILE headers (should only need to if Include.hpp has changed)
   echo -e "precomiling headers from Include.hpp into Include.hpp.gch...\n\n"
 
-  $LINUX_DIR/scripts/precompileHeaders.sh
+  $LINUX_DIR/scripts/precompileHeaders.sh $INCLUDE_DIR
 fi
 
 if [ "$BUILD" -eq 1 ]; then 
@@ -186,7 +183,7 @@ if [ "$BUILD" -eq 1 ]; then
   echo -e "\n\n\nBuilding static library using precompiled header Includes.hpp.gch...\n\n"
 
   echo "LINUX_DIR = $LINUX_DIR"
-  $LINUX_DIR/scripts/makeStaticLibrary.sh
+  $LINUX_DIR/scripts/makeStaticLibrary.sh $INCLUDE_DIR
 fi
 
 
