@@ -12,7 +12,10 @@
 #  clean by removing aluminum.a, the precompiled headers, and the application binary (this last one is optional)
 #   ./run.command -z
 #   ./run.command -z examples/stereo/MyApp.mm
- 
+
+INCLUDE_DIR="/opt/local/include/" #or wherever GLM includes live
+
+
 
 OSX_VERSION="$(sw_vers -productVersion | grep -o '[0-9][0-9]\.[0-9]')";
 echo -e "\n\nYou are running OSX version $OSX_VERSION\n\n"
@@ -109,15 +112,15 @@ BASE_DIR="$RUN_PATH/.."
 BUILD_DIR="$BASE_DIR/build"
 SRC_DIR="$BASE_DIR/src"
 OSX_DIR="$RUN_PATH"
-LIB_DIR="/opt/local/lib"
-INCLUDE_DIR="/opt/local/include/"
+#LIB_DIR="/opt/local/lib"
+
 SYSTEM_INCLUDE="/usr/local/include/Aluminum"
 SYSTEM_LIB="/usr/local/lib"
 #INCLUDE_GLM_DIR="/usr/local/include"
 
-FFMPEG="-L/opt/local/lib -lavformat -lavcodec -lswscale -lavutil"
-ASSIMP="$LIB_DIR/libassimp.dylib"
-FREEIMAGE="$LIB_DIR/libfreeimage.dylib" 
+#FFMPEG="-L/opt/local/lib -lavformat -lavcodec -lswscale -lavutil"
+#ASSIMP="$LIB_DIR/libassimp.dylib"
+#FREEIMAGE="$LIB_DIR/libfreeimage.dylib" 
 
 COCOA="-isysroot /Applications/XCode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX$OSX_VERSION.sdk -mmacosx-version-min=$OSX_VERSION -framework Cocoa -framework QuartzCore -framework OpenGL -framework AppKit -framework Foundation -framework AVFoundation -framework CoreMedia "
 
@@ -170,7 +173,7 @@ if [ "$PRE" -eq 1 ]; then
   ### 1. PRECOMPILE headers (should only need to if Include.hpp has changed)
   echo -e "precomiling headers from Include.hpp into Include.hpp.gch...\n\n"
 
-  $OSX_DIR/scripts/precompileHeaders.sh
+  $OSX_DIR/scripts/precompileHeaders.sh $INCLUDE_DIR
 fi
 
 if [ "$BUILD" -eq 1 ]; then 
@@ -180,7 +183,7 @@ if [ "$BUILD" -eq 1 ]; then
   echo -e "\n\n\nBuilding static library using precompiled header Includes.hpp.gch...\n\n"
 
   echo "OSX_DIR = $OSX_DIR"
-  $OSX_DIR/scripts/makeStaticLibrary.sh
+  $OSX_DIR/scripts/makeStaticLibrary.sh $INCLUDE_DIR
 fi
 
 
