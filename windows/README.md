@@ -10,14 +10,14 @@ Use the Martin Payne's [prepackaged release](http://files.transmissionzero.co.uk
 + [GLM](http://glm.g-truc.net/0.9.5/index.html): You can download the Headers [here](http://sourceforge.net/projects/ogl-math/files/latest/download?source=files)
 
 + [GLEW](http://glew.sourceforge.net/) The windows binaries can be downloaded [here](https://sourceforge.net/projects/glew/files/glew/1.11.0/glew-1.11.0-win32.zip/download)
->When installing glew, there are a few extra steps you have to perform in order to ensure everything works correctly. 
->Depending on your system's architecutre, you will need to copy the library to one of the following directories:
+>When installing glew, there are a few extra steps you have to perform in order to ensure everything works correctly.
+>Depending on your system's architecture, you will need to copy the library to one of the following directories:
 
 >>- glew\bin\Release\Win32\glew32.dll **to** %SystemRoot%/system32
 
 >>- glew\bin\Release\Win32\glew32.dll **to** %SystemRoot%/SysWOW64
 
->>> I recognize that I am refering to the same glew32.dll file for both architecutes. There is a glew32.dll under the 64bit architecture, however this appears to be a bug and VS (at least on my system) refuses to acknowledge the 64bsit file. So dont use it. Should you encounter any problems do not hesistate to [ask](kalmry2@uic.edu)\. 
+>>> I recognize that I am referring to the same glew32.dll file for both architectures. There is a glew32.dll under the 64bit architecture, however this appears to be a bug and VS (at least on my system) refuses to acknowledge the 64bit file. So dont use it. Should you encounter any problems do not hesitate to [ask](kalmry2@uic.edu)\.
 
 
 ***
@@ -27,7 +27,7 @@ The VS2013 project utilizes Global variables to allow for maximum flexibility on
 
 >>- **ALUMINUM_PATH** e.g. defines the base location of the aluminum library, ie, C:\aluminum
 - **GLM_PATH**
-- **GLEW_PATH** 
+- **GLEW_PATH**
 - **FREEIMAGE_PATH**
 - **FREEGLUT_PATH**
 
@@ -36,9 +36,11 @@ To define a global variable go to:
 >>- *Control Panel\System and Security\System*
 - Select "Advanced System Settings", the "System Properties" window will appear,
 - Select "Environmental Variables"
-- Define youre variables!
+- Define you're variables!
 
 
 
 ###Hints:
 **%SystemRoot%** == "**c:\Windows**"
+
+If you dont own a copy of Visual Studios 2013, you can download it for free from the University of Illinois [webstore](https://webstore.illinois.edu/shop/category.aspx?zcid=129&shopby=1)
