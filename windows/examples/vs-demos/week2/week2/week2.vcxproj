@@ -44,8 +44,8 @@
     <ClInclude Include="..\..\..\..\include\Aluminum\ResourceHandler.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\osx\examples\xcode-demos\week2\resources\basic_s.fsh" />
-    <None Include="..\..\..\..\..\osx\examples\xcode-demos\week2\resources\basic_s.vsh" />
+    <None Include="resources\basic_s.fsh" />
+    <None Include="resources\basic_s.vsh" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B811DFAF-C820-447D-A85A-637172FBD603}</ProjectGuid>

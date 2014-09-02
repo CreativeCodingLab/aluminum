@@ -23,20 +23,28 @@ public:
 
 	GLuint vao, vbo, ibo;
 
-	//Defines six indices to represent the two triangles made from the four vertices.
+	//Defines twelves indices to represent the four triangles made from the four vertices.
 	GLuint indices[12];
 
-	//Defines an array of vertex data; 3 vec3s of position, followed by 3 vec3s of color info
+	//Defines an array of vertex data; 4 vec3s of position, followed by 4 vec3s of color info
 	vec3 vertices[8];
 
 	//Defines the default locations for the attribute variables in the vertex shader
 	GLint posLoc = 0;
 	GLint colLoc = 1;
 
-	//mat4s for the projections matrix and modelview matrix passed in as uniforms to the vertex shader
-	mat4 proj, mv;
+	//mat4s for the projection, model, and view matrix passed in as uniforms to the vertex shader
+	mat4 p, m, v;
 
+	//angle of camera's rotation around the x and y axes
+	float cx = 0.0; 
+	float cy = 0.0;
 
+	//angle of model's rotation around the x and y axes
+	float rx = 0.2;
+	float ry = -0.1;
+	//position of camera along z axis
+	float pz = -5.0;
 
 
 	void loadProgram(Program &p, const std::string& name) {
@@ -80,10 +88,11 @@ public:
 
 		//Defines an array of vertex data; 3 vec3s of position, followed by 3 vec3s of color info
 		vec3 _vertices[8] = {
-			vec3(0.0, 1.0, 0.0), vec3(-1.0, -1.0, 1.0), vec3(1.0, -1.0, 1.0), vec3(0.0, -1.0, -1.0), //vertex
+			vec3(0.0, 1.0, 0.0), vec3(-1.0, -1.0, -1.0), vec3(1.0, -1.0, -1.0), vec3(0.0, -1.0, 1.0), //vertex
 			vec3(1.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 0.0, 1.0), vec3(1.0, 1.0, 1.0) //color
 		};
 		std::memcpy(vertices, _vertices, sizeof vertices);
+
 		//** Step 1 **//
 
 		// Load our shader program, by default looks for two files, a .vsh file and .fsh file
@@ -116,9 +125,12 @@ public:
 
 		//** Step 3 **//
 
-		// Set up Modelview and Projection matrix
-		proj = glm::perspective(45.0, 1.0, 0.1, 100.0); //defines how to project 3D data to 2D image
-		mv = glm::lookAt(vec3(0, 0, -5.0), vec3(0, 0, 0), vec3(0, 1, 0)); //defines where the camera is positioned
+		// Set up Projection matrix
+		p = glm::perspective(60.0, (double)width/(double)height, 0.1, 100.0); //defines how to project 3D data to 2D image
+
+		// Set the model and the view matrix to the identity matrix
+		m = glm::mat4(1.0);
+		v = glm::mat4(1.0);
 	}
 
 
@@ -129,11 +141,24 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clears color and depth info from the viewport
 		glEnable(GL_DEPTH_TEST);
 		glDisable(GL_BLEND);
+
+		//have the pyramid to rotate in place
+		m = glm::rotate(m, rx, vec3(1.0f, 0.0f, 0.0f));
+		m = glm::rotate(m, ry, vec3(0.0f, 1.0f, 0.0f));
+
+		//update the view matrix based on the camera's rotation
+		v = mat4(1.0); //reset to identity
+		v = glm::rotate(v, cx, vec3(1.0f, 0.0f, 0.0f)); //rotate sum amount around the x-axis
+		v = glm::rotate(v, cy, vec3(0.0f, 1.0f, 0.0f)); //rotate sum amount around the y-axis
+		v = glm::translate(v, vec3(0, 0, pz)); //translate the "cursor" forward five units ( = move the camera five units backwards)
+
+
 		// the program.bind() activates our shader program so that we can 1. pass data to it and 2. let it draw to the active viewport in our window
 		program.bind(); {
 
-			glUniformMatrix4fv(program.uniform("mv"), 1, 0, ptr(mv)); //pass in the view matrix
-			glUniformMatrix4fv(program.uniform("proj"), 1, 0, ptr(proj)); //pass in the projection matrix
+			glUniformMatrix4fv(program.uniform("m"), 1, 0, ptr(m)); //pass in the model matrix
+			glUniformMatrix4fv(program.uniform("v"), 1, 0, ptr(v)); //pass in the view matrix
+			glUniformMatrix4fv(program.uniform("p"), 1, 0, ptr(p)); //pass in the projection matrix
 
 			glBindVertexArray(vao); //binds our vertex array object, containing all our data and information about how it's organized and indexed
 			glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, BUFFER_OFFSET(0)); //passes the entire data buffer to the GPU as a set of triangles; that is, read the index array three items at a time.
@@ -145,29 +170,68 @@ public:
 
 	//examples of how to react to a mouse event
 	void mouseDragged(int px, int py) {
-		printf("in Basic: mouseDragged %d/%d\n", px, py);
+		printf("in Transformation: mouseDragged %d/%d\n", px, py);
 	}
 
 	void mouseMoved(int px, int py) {
-		printf("in Basic: mouseMoved %d/%d\n", px, py);
+		printf("in Transformation: mouseMoved %d/%d\n", px, py);
 	}
 
 	void mouseDown(int px, int py) {
-		printf("in Basic: mouseDown %d/%d\n", px, py);
+		printf("in Transformation: mouseDown %d/%d\n", px, py);
 	}
 
 	void mouseUp(int px, int py) {
-		printf("in Basic: mouseUp %d/%d\n", px, py);
+		printf("in Transformation: mouseUp %d/%d\n", px, py);
 	}
-	
+
 	//examples of how to react to a key event
-	void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
-		printf("in Basic: key = %c, shift=%d, control=%d, command=%d, option=%d, function=%d\n", key, shift, control, command, option, function);
+	virtual void keyboard(unsigned char key, int x, int y) {
 
 		switch (key) {
-		case 'a':
-			printf("you pressed an 'A'! \n");
-			break;
+			case 'a':
+				cx += 1.0;
+				printf("cx is %f", cx);
+				break;
+			case 'z':
+				cx -= 1.0;
+				printf("cx is %f", cx);
+				break;
+			case 's':
+				cy += 1.0;
+				printf("cy is %f", cy);
+				break;
+			case 'x':
+				cy -= 1.0;
+				printf("cy is %f", cy);
+				break;
+			case 'd':
+				pz += 0.1;
+				printf("pz is %f", pz);
+				break;
+			case 'c':
+				pz -= 0.1;
+				printf("pz is %f", pz);
+				break;
+			case 'f':
+				rx += 0.1;
+				printf("rx is %f", rx);
+				break;
+			case 'v':
+				rx -= 0.1;
+				printf("rx is %f", rx);
+				break;
+			case 'g':
+				ry += 0.1;
+				printf("ry is %f", ry);
+				break;
+			case 'b':
+				ry -= 0.1;
+				printf("ry is %f", ry);
+				break;
+			case 'p':
+				cout << glm::to_string(v) << "\n\n";
+				break;
 		}
 	}
 

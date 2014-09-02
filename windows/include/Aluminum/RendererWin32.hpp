@@ -22,6 +22,7 @@ namespace aluminum {
         virtual void mouseDown(int px, int py);
         virtual void mouseUp(int px, int py);
         virtual void mouseMoved(int px, int py);
+		virtual void keyboard(unsigned char key, int x, int y);
 
     protected:
     private:

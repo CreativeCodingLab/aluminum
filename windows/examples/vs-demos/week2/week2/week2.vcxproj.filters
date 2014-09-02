@@ -106,10 +106,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\osx\examples\xcode-demos\week2\resources\basic_s.fsh">
+    <None Include="resources\basic_s.fsh">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\..\..\..\osx\examples\xcode-demos\week2\resources\basic_s.vsh">
+    <None Include="resources\basic_s.vsh">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
