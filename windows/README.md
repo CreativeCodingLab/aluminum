@@ -36,7 +36,8 @@ To define a global variable go to:
 >>- *Control Panel\System and Security\System*
 - Select "Advanced System Settings", the "System Properties" window will appear,
 - Select "Environmental Variables"
-- Define you're variables!
+- Define you're variables...
+- Logout/Restart and you're done!
 
 
 
