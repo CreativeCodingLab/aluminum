@@ -13,6 +13,7 @@ Required libraries:
     glm@0.9.5.1 (OSX/iOS, Windows, Linux), 
     freeglut@2.8.1 (Windows, Linux), 
     freeimage@3.16.0 (Windows, Linux), 
+    glew@1.10.0+ (Windows),
     ~~assimp3~~
 
 *** 
@@ -31,4 +32,4 @@ Linux requires freeglut2.8.1 (or above?), see readme in linux directory. (may ne
 
 Issues - In OSX the MacPorts installation of FreeImage (installed into /opt/local/include/FreeImage.h) has some kind of type clash. Resolve by replacing all instances of BOOL in the FreeImage.h file with a unique name, like BOOL_FI. (In this header, BOOL is a tyepdef for int32, not sure what exactly the issue is, but easy enough to fix).
 
-Windows example projects and Static Library utilize Environmental Variables in build, must be defined by the the user in order to work: {GLM,FREEGLUT}_PATH
+

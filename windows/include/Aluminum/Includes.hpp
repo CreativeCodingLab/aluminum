@@ -14,6 +14,7 @@
 #include <GL/glew.h>
 #pragma comment(lib, "glew32.lib")
 #define GLEW_STATIC 
+
 /*
 #define FREEIMAGE_LIB
 #include <FreeImage.h>

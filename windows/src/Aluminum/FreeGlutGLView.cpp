@@ -131,12 +131,12 @@ namespace aluminum {
 		cout << "\tGLSL: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
 
 		// call this ONLY when linking with FreeImage as a static library
-		
+/*		
 		#ifdef FREEIMAGE_LIB
 				FreeImage_Initialise();
 				cout << "\tFreeImage: " << FreeImage_GetVersion() << endl;
 		#endif
-		
+*/		
 
     //	glutGameModeString("1280x1024:32@60");
     //	glutEnterGameMode();

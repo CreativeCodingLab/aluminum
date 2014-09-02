@@ -51,7 +51,7 @@ namespace aluminum {
 	}
 	
 	void ResourceHandler::loadTexture(Texture &t, const std::string &name) {
-		/*
+/*
 		FreeImage_Initialise();  // Need this call to ensure FreeImage works...
 
 		const char *filename = name.c_str();
@@ -138,7 +138,7 @@ namespace aluminum {
 
 		t = Texture(data, width, height, GL_RGBA, pixFormat, GL_UNSIGNED_BYTE);
 		FreeImage_Unload(dib);
-		*/
+*/
 	}
 		
 }
