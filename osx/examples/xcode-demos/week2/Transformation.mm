@@ -21,12 +21,12 @@ public:
  
   GLuint vao, vbo, ibo;
   
-  //Defines six indices to represent the two triangles made from the four vertices.
+  //Defines twelves indices to represent the four triangles made from the four vertices.
   GLuint indices[12] = {1,2,3, 0,1,2, 0,2,3, 0,3,1};
   
-  //Defines an array of vertex data; 3 vec3s of position, followed by 3 vec3s of color info
+  //Defines an array of vertex data; 4 vec3s of position, followed by 4 vec3s of color info
   vec3 vertices[8] = {
-    vec3( 0.0, 1.0, 0.0 ), vec3( -1.0, -1.0, 1.0 ), vec3( 1.0, -1.0, 1.0 ), vec3( 0.0, -1.0, -1.0), //vertex
+    vec3( 0.0, 1.0, 0.0 ), vec3( -1.0, -1.0, -1.0 ), vec3( 1.0, -1.0, -1.0 ), vec3( 0.0, -1.0, 1.0), //vertex
     vec3( 1.0, 0.0, 0.0 ), vec3( 0.0, 1.0, 0.0 ), vec3( 0.0, 0.0, 1.0 ), vec3( 1.0, 1.0, 1.0 ) //color
   };
   
@@ -34,10 +34,14 @@ public:
   GLint posLoc = 0;
   GLint colLoc = 1;
   
-  //mat4s for the projections matrix and modelview matrix passed in as uniforms to the vertex shader
-  mat4 proj, mv;
+  //mat4s for the projection, model, and view matrix passed in as uniforms to the vertex shader
+  mat4 p, m, v;
   
+  //angle of camera's rotation around the x and y axes
+  float cx, cy = 0.0;
   
+  //position of camera along z axis
+  float pz = -5.0;
   
   
   void loadProgram(Program &p, const std::string& name) {
@@ -103,15 +107,19 @@ public:
     
     //** Step 3 **//
     
-    // Set up Modelview and Projection matrix
-    proj = glm::perspective(45.0, 1.0, 0.1, 100.0); //defines how to project 3D data to 2D image
-    mv = glm::lookAt(vec3(0,0,-5.0), vec3(0,0,0), vec3(0,1,0) ); //defines where the camera is positioned
+    // Set up Projection matrix
+    p = glm::perspective(60.0, (double)width/(double)height, 0.1, 100.0); //defines how to project 3D data to 2D image
+    
+    // Set the model and the view matrix to the identity matrix
+    m = glm::mat4(1.0);
+    v = glm::mat4(1.0);
   }
   
   
   //onFrame syncs with the refresh rate of the display (e.g., 60fps). Here we can send information to the GPU to define exactly how the pixels on the window should look.
   virtual void onFrame(){
     
+
     handleKeys(); //checks if any keys events have occurred since the last frame
     handleMouse(); //checks if any mouse events have occured since the last frame
     
@@ -119,11 +127,24 @@ public:
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clears color and depth info from the viewport
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_BLEND);
+    
+    //have the pyramid to rotate in place
+    m = glm::rotate(m, 2.0f, vec3(1.0f,0.0f,0.0f));
+    m = glm::rotate(m, -1.0f, vec3(0.0f,1.0f,0.0f));
+    
+    //update the view matrix based on the camera's rotation
+    v = mat4(1.0); //reset to identity
+    v = glm::rotate(v, cx, vec3(1.0f, 0.0f, 0.0f)); //rotate sum amount around the x-axis
+    v = glm::rotate(v, cy, vec3(0.0f, 1.0f, 0.0f)); //rotate sum amount around the y-axis
+    v = glm::translate(v, vec3(0,0, pz)); //translate the "cursor" forward five units ( = move the camera five units backwards)
+    
+    
     // the program.bind() activates our shader program so that we can 1. pass data to it and 2. let it draw to the active viewport in our window
     program.bind(); {
       
-      glUniformMatrix4fv(program.uniform("mv"), 1, 0, ptr(mv)); //pass in the view matrix
-      glUniformMatrix4fv(program.uniform("proj"), 1, 0, ptr(proj)); //pass in the projection matrix
+      glUniformMatrix4fv(program.uniform("m"), 1, 0, ptr(m)); //pass in the model matrix
+      glUniformMatrix4fv(program.uniform("v"), 1, 0, ptr(v)); //pass in the view matrix
+      glUniformMatrix4fv(program.uniform("p"), 1, 0, ptr(p)); //pass in the projection matrix
       
       glBindVertexArray( vao ); //binds our vertex array object, containing all our data and information about how it's organized and indexed
       glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, BUFFER_OFFSET(0)); //passes the entire data buffer to the GPU as a set of triangles; that is, read the index array three items at a time.
@@ -161,14 +182,42 @@ public:
   void handleKeys() {
     
     if (keysDown[kVK_ANSI_A]) {
-      printf("you pressed an 'A'! \n");
+      cx += 1.0;
       keysDown[kVK_ANSI_A] = false;
     }
     
-    if (keysUp[kVK_ANSI_A]) {
-      printf("you released an 'A'! \n");
-      keysUp[kVK_ANSI_A] = false;
+    if (keysDown[kVK_ANSI_Z]) {
+      cx -= 1.0;
+      keysDown[kVK_ANSI_Z] = false;
     }
+
+    if (keysDown[kVK_ANSI_S]) {
+      cy += 1.0;
+      keysDown[kVK_ANSI_S] = false;
+    }
+    
+    if (keysDown[kVK_ANSI_X]) {
+      cy -= 1.0;
+      keysDown[kVK_ANSI_X] = false;
+    }
+  
+    
+    if (keysDown[kVK_ANSI_D]) {
+      pz += 0.1;
+      keysDown[kVK_ANSI_D] = false;
+    }
+    
+    if (keysDown[kVK_ANSI_C]) {
+      pz -= 0.1;
+      keysDown[kVK_ANSI_C] = false;
+    }
+    
+    
+    if (keysDown[kVK_ANSI_P]) {
+      cout << glm::to_string(v) << "\n\n";
+      keysDown[kVK_ANSI_P] = false;
+    }
+    
   }
   
 };

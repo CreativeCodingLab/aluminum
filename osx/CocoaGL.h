@@ -2,7 +2,6 @@
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/CVDisplayLink.h>
 
-
 @interface CocoaGL : NSOpenGLView {
     CVDisplayLinkRef displayLink;
     void *renderer;

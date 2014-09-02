@@ -9,7 +9,8 @@
 //allegedly... test this out...
 //you can change the OpenGL graphics context at any time using the setOpenGLContext: method. (ie to make it active stereo... or whatever)
 
-@interface CocoaGL (PrivateMethods)
+@interface CocoaGL (PrivateMethods) <NSFileManagerDelegate>
+//@interface CocoaGL (PrivateMethods)
   - (void)initGL;
 
   - (void)drawView;
