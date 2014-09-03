@@ -74,7 +74,6 @@
 		923C55F419AF7952001B8CAF /* basic_s.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = basic_s.vsh; path = resources/basic_s.vsh; sourceTree = SOURCE_ROOT; };
 		92E27497178E133A00279684 /* aluminum */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = aluminum; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2749A178E133A00279684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		92E274A0178E133A00279684 /* aluminum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aluminum-Prefix.pch"; sourceTree = "<group>"; };
 		92E274A8178E138800279684 /* CocoaGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaGL.h; path = ../../../CocoaGL.h; sourceTree = "<group>"; };
 		92E274A9178E138800279684 /* CocoaGL.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = CocoaGL.mm; path = ../../../CocoaGL.mm; sourceTree = "<group>"; };
 		92E274AA178E138800279684 /* Includes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Includes.hpp; path = ../../../Includes.hpp; sourceTree = "<group>"; };
@@ -157,7 +156,6 @@
 		92E2749F178E133A00279684 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				92E274A0178E133A00279684 /* aluminum-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -353,7 +351,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "aluminum/aluminum-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/usr/local/include,
@@ -378,7 +376,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "aluminum/aluminum-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/usr/local/include,

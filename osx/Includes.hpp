@@ -3,9 +3,6 @@
 
 // #define GLM_FORCE_RADIANS   // To get GLM to shutup // Until code base is updated, do not uncomment
 
-#import <Aluminum/CocoaGL.h>
-#import <Aluminum/RendererOSX.h>
-
 
 #ifdef __OBJC__
 
@@ -15,6 +12,11 @@
 #import <Carbon/Carbon.h>
 
 #endif
+
+
+#import <Aluminum/CocoaGL.h>
+#import <Aluminum/RendererOSX.h>
+
 
 #include <cstdio>
 #include <stdio.h>
