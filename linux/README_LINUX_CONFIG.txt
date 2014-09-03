@@ -39,4 +39,4 @@ Install FreeGlut2.6+ and GL3:
 
  sudo apt-get install freeglut3-dev
 
-Copy http://www.opengl.org/registry/api/gl3.h to /usr/include/GL3/gl3.h
+Copy http://www.opengl.org/registry/api/gl3.h to /usr/include/GL3/gl3.h (NOTE this should be necessary with newest version of freeglut!!!)

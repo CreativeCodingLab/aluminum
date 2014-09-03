@@ -20,14 +20,17 @@
 
  */
 
-#include "Includes.hpp"
+#include "FreeImage.h"
+#include "Aluminum/Includes.hpp"
+#include "Aluminum/RendererLinux.hpp"
+#include "Aluminum/Program.hpp"
+#include "Aluminum/Texture.hpp"
+#include "Aluminum/ResourceHandler.hpp"
 
-#include "MeshBuffer.hpp"
-#include "MeshData.hpp"
-#include "MeshUtils.hpp"
-#include "Program.hpp"
-#include "Shapes.hpp"
-#include "Texture.hpp"
+
+#include "Aluminum/MeshBuffer.hpp"
+#include "Aluminum/MeshData.hpp"
+#include "Aluminum/MeshUtils.hpp"
 
 using namespace aluminum;
 using glm::vec3;
@@ -46,12 +49,13 @@ class TextureExample : public RendererLinux {
 
     Texture texture;
     MeshBuffer mb1;
+	ResourceHandler rh;
 
     float bloomAmt = 0.0;
 
-    void loadTexture(Texture& t, const std::string& name) {
-      t.loadTexture(t, name);
-    } 
+//    void loadTexture(Texture& t, const std::string& name) {
+//      t.loadTexture(t, name);
+//    } 
 
     void loadProgram(Program &p, const std::string& name) {
 
@@ -69,7 +73,7 @@ class TextureExample : public RendererLinux {
     void onCreate() {
 
       loadProgram(program, "resources/texture");
-      loadTexture(texture, "resources/hubble.jpg");
+      rh.loadTexture(texture, "resources/hubble.jpg");
 
       mb1.init(MeshUtils::makeRectangle(), posLoc, -1, texCoordLoc, -1); 
 
