@@ -105,7 +105,7 @@ public:
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo); //activate this space so we can store indices there
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*12, indices, GL_DYNAMIC_DRAW);
     
-    //** Step 3 **//
+    //*** Step 3 ***//
     
     // Set up Projection matrix
     p = glm::perspective(60.0, (double)width/(double)height, 0.1, 100.0); //defines how to project 3D data to 2D image

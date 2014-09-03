@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92285B5419B6537200E296A6 /* BasicColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92285B5319B6537200E296A6 /* BasicColor.mm */; };
 		9232456B19B0E849008E2763 /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456119B0E849008E2763 /* Behavior.cpp */; };
 		9232456C19B0E849008E2763 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456219B0E849008E2763 /* Camera.cpp */; };
 		9232456D19B0E849008E2763 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456319B0E849008E2763 /* FBO.cpp */; };
@@ -17,7 +18,6 @@
 		9232457219B0E849008E2763 /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456819B0E849008E2763 /* Program.cpp */; };
 		9232457319B0E849008E2763 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456919B0E849008E2763 /* Shapes.cpp */; };
 		9232457419B0E849008E2763 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456A19B0E849008E2763 /* Texture.cpp */; };
-		923C55F219AF78A5001B8CAF /* BasicColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 923C55F119AF78A5001B8CAF /* BasicColor.mm */; };
 		923C55F519AF7961001B8CAF /* basic_s.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 923C55F319AF7952001B8CAF /* basic_s.fsh */; };
 		923C55F619AF7961001B8CAF /* basic_s.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 923C55F419AF7952001B8CAF /* basic_s.vsh */; };
 		92E2749B178E133A00279684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2749A178E133A00279684 /* Foundation.framework */; };
@@ -48,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		92285B5319B6537200E296A6 /* BasicColor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BasicColor.mm; sourceTree = SOURCE_ROOT; };
 		9232456119B0E849008E2763 /* Behavior.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Behavior.cpp; path = ../../../../src/Aluminum/Behavior.cpp; sourceTree = "<group>"; };
 		9232456219B0E849008E2763 /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Camera.cpp; path = ../../../../src/Aluminum/Camera.cpp; sourceTree = "<group>"; };
 		9232456319B0E849008E2763 /* FBO.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FBO.cpp; path = ../../../../src/Aluminum/FBO.cpp; sourceTree = "<group>"; };
@@ -69,12 +70,10 @@
 		9232457D19B0E87F008E2763 /* Shapes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Shapes.hpp; path = ../../../../include/Aluminum/Shapes.hpp; sourceTree = "<group>"; };
 		9232457E19B0E87F008E2763 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Texture.hpp; path = ../../../../include/Aluminum/Texture.hpp; sourceTree = "<group>"; };
 		9232457F19B0E87F008E2763 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = ../../../../include/Aluminum/Utils.hpp; sourceTree = "<group>"; };
-		923C55F119AF78A5001B8CAF /* BasicColor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BasicColor.mm; sourceTree = SOURCE_ROOT; };
 		923C55F319AF7952001B8CAF /* basic_s.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = basic_s.fsh; path = resources/basic_s.fsh; sourceTree = SOURCE_ROOT; };
 		923C55F419AF7952001B8CAF /* basic_s.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = basic_s.vsh; path = resources/basic_s.vsh; sourceTree = SOURCE_ROOT; };
 		92E27497178E133A00279684 /* aluminum */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = aluminum; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2749A178E133A00279684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		92E274A0178E133A00279684 /* aluminum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aluminum-Prefix.pch"; sourceTree = "<group>"; };
 		92E274A8178E138800279684 /* CocoaGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaGL.h; path = ../../../CocoaGL.h; sourceTree = "<group>"; };
 		92E274A9178E138800279684 /* CocoaGL.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = CocoaGL.mm; path = ../../../CocoaGL.mm; sourceTree = "<group>"; };
 		92E274AA178E138800279684 /* Includes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Includes.hpp; path = ../../../Includes.hpp; sourceTree = "<group>"; };
@@ -146,7 +145,7 @@
 		92E2749C178E133A00279684 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				923C55F119AF78A5001B8CAF /* BasicColor.mm */,
+				92285B5319B6537200E296A6 /* BasicColor.mm */,
 				92E3F2C61904AE2C006B9CD4 /* Resources */,
 				92E2749F178E133A00279684 /* Supporting Files */,
 			);
@@ -157,7 +156,6 @@
 		92E2749F178E133A00279684 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				92E274A0178E133A00279684 /* aluminum-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,7 +239,7 @@
 		92E2748F178E133A00279684 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Angus Forbes";
 			};
 			buildConfigurationList = 92E27492178E133A00279684 /* Build configuration list for PBXProject "aluminum" */;
@@ -270,8 +268,8 @@
 				9232457119B0E849008E2763 /* MeshUtils.cpp in Sources */,
 				9232457019B0E849008E2763 /* MeshData.cpp in Sources */,
 				9232456F19B0E849008E2763 /* MeshBuffer.cpp in Sources */,
+				92285B5419B6537200E296A6 /* BasicColor.mm in Sources */,
 				9232456E19B0E849008E2763 /* Font.cpp in Sources */,
-				923C55F219AF78A5001B8CAF /* BasicColor.mm in Sources */,
 				9232456B19B0E849008E2763 /* Behavior.cpp in Sources */,
 				9232456C19B0E849008E2763 /* Camera.cpp in Sources */,
 				92E274AF178E138800279684 /* CocoaGL.mm in Sources */,
@@ -291,7 +289,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -324,7 +321,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -350,13 +346,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "aluminum/aluminum-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/usr/local/include,
@@ -376,13 +371,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "aluminum/aluminum-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/usr/local/include,
