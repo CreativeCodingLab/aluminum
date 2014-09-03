@@ -67,8 +67,9 @@ namespace aluminum {
 
 
     void keyboard(unsigned char key, int x, int y) {
-	    switch(key) {
-
+		renderer->keyboard(key, x, y);
+		
+		switch(key) {
 		    case 27: 
 			    exit(0);
 			    break;
@@ -78,9 +79,6 @@ namespace aluminum {
 			    break;
 		    case '2':
 			    glutReshapeWindow(400,400);
-			    break;
-		    default: 
-			    printf("you pressed %c\n", key);
 			    break;
 	    }
 
@@ -145,7 +143,7 @@ namespace aluminum {
 
 	    glutDisplayFunc(&display);
 	    glutReshapeFunc(&reshape);
-	    glutKeyboardFunc(&keyboard);
+		glutKeyboardFunc(&keyboard);
 	    glutMouseFunc(&pressed);
 	    glutMotionFunc(&dragged);
 	    glutPassiveMotionFunc(&moved);
