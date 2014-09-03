@@ -1,6 +1,5 @@
-﻿Build started 9/2/2014 5:24:39 PM.
+﻿Build started 9/3/2014 3:55:13 PM.
      1>Project "C:\aluminum\windows\examples\vs-demos\week2\week2\week2.vcxproj" on node 2 (Rebuild target(s)).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'c:\aluminum\windows\examples\vs-demos\week2\debug\week2.pdb' because it is being used by another process.
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\aluminum\src /IC:\aluminum\windows\src /IC:\aluminum\include /IC:\aluminum\windows\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\..\..\src\Aluminum\Behavior.cpp ..\..\..\..\..\src\Aluminum\Camera.cpp ..\..\..\..\..\src\Aluminum\FBO.cpp ..\..\..\..\..\src\Aluminum\Font.cpp ..\..\..\..\..\src\Aluminum\MeshBuffer.cpp ..\..\..\..\..\src\Aluminum\MeshData.cpp ..\..\..\..\..\src\Aluminum\MeshUtils.cpp ..\..\..\..\..\src\Aluminum\Program.cpp ..\..\..\..\..\src\Aluminum\Shapes.cpp ..\..\..\..\..\src\Aluminum\Texture.cpp ..\..\..\..\src\Aluminum\FreeGlutGLView.cpp ..\..\..\..\src\Aluminum\RendererWin32.cpp ..\..\..\..\src\Aluminum\ResourceHandler.cpp Transformation.cpp
          Transformation.cpp
@@ -113,4 +112,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.84
+Time Elapsed 00:00:12.10

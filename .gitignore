@@ -63,4 +63,4 @@ nifti/
 
 # Visual Studio stuff
 *.sdf
-
+Debug/

@@ -6,6 +6,8 @@ Building Aluminum Library on Visual Studio 2013
 
 + [freeglut](http://freeglut.sourceforge.net/ )
 Use the Martin Payne's [prepackaged release](http://files.transmissionzero.co.uk/software/development/GLUT/freeglut-MSVC.zip), unless you want to compile from source
+> Be sure to put a copy of the freeglut library file to the following directory:
+>>- freeglut\bin\freeglut.dll **to** %SystemRoot%/SysWOW64
 
 + [GLM](http://glm.g-truc.net/0.9.5/index.html): You can download the Headers [here](http://sourceforge.net/projects/ogl-math/files/latest/download?source=files)
 
