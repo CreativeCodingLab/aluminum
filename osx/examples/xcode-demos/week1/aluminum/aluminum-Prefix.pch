@@ -1,0 +1,48 @@
+//
+// Prefix header for all source files of the 'aluminum' target in the 'aluminum' project
+//
+
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+  #import <OpenGL/gl3.h>
+  #import <Cocoa/Cocoa.h>
+  #import <QuartzCore/CVDisplayLink.h>
+  #import <Carbon/Carbon.h>
+
+#endif
+
+
+#include <cstdio>
+#include <stdio.h>
+#include <string.h>
+#include <string>
+#include <chrono>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <map>
+#include <algorithm>
+
+#include <glm/glm.hpp>
+//#include <glm/core/_fixes.hpp>
+#include <glm/gtx/string_cast.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_access.hpp>
+#include <glm/gtc/type_ptr.hpp>
+//#include <glm/gtc/random.hpp>
+#include <glm/gtx/random.hpp>
+
+/*
+#include "assimp/Importer.hpp"
+#include "assimp/scene.h"
+#include "assimp/postprocess.h"
+#include "assimp/cimport.h"
+#include "assimp/types.h"
+#include "assimp/matrix4x4.h"
+
+#include "FreeImage.h"
+*/
+
+//#include "CocoaGL.h"
+//#include "RendererOSX.h"

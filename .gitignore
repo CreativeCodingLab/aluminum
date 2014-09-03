@@ -30,7 +30,7 @@ DerivedData
 
 # Precompiled Headers
 *.hpp.gch
-*.pch
+#*.pch
 
 # Compiled Dynamic libraries
 *.so
