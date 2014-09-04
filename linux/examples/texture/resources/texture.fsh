@@ -24,7 +24,6 @@ void main(){
       sum += texture(tex0, texCoord.st + vec2(j, i)*0.0015) * 0.20;           
     }
   }
-
   outColor = (sum*sum* bloom) + texture(tex0, texCoord);
 
   outputFrag = outColor;
