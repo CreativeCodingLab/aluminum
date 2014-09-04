@@ -16,6 +16,8 @@ Required libraries:
     --glew@1.10.0+ (Windows),
     ~~assimp3~~
 
+Instructions for installing and using Aluminum with [Visual Studio](windows/README.md)
+
 *** 
 
 Features: active, passive, and anaglyph stereo rendering; signed-distance fonts; textured fonts; high resolution timing/animation methods (via C++11's chrono); model loading (via assimp3); texture reading/writing (via freeimage); 6DOF vector camera class; etc. 

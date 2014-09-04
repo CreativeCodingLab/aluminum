@@ -68,5 +68,6 @@ nifti/
 *.exe
 *.ilk
 *.pdb
+*.opensdf
 Release/
 Debug/
