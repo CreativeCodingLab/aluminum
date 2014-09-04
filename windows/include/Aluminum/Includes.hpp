@@ -15,11 +15,11 @@
 #pragma comment(lib, "glew32.lib")
 #define GLEW_STATIC 
 
-/*
+
 #define FREEIMAGE_LIB
 #include <FreeImage.h>
 #pragma comment(lib, "FreeImaged.lib")
-*/
+
 
 #include <GL/freeglut.h>
 
