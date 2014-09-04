@@ -32,7 +32,7 @@ namespace aluminum {
     void RendererWin32::mouseDown(int px, int py) {}
     void RendererWin32::mouseUp(int px, int py) {}
     void RendererWin32::mouseMoved(int px, int py) {}
-	void RendererWin32::keyboard(unsigned char key, int x, int y) {}
+	  void RendererWin32::keyboard(unsigned char key, int x, int y) {}
 
 }
 

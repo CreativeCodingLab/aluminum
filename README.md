@@ -10,10 +10,10 @@ Aluminum was initially created for the Allosphere Research Facility at UC Santa 
 *** 
 
 Required libraries: 
-    glm@0.9.5.1 (OSX/iOS, Windows, Linux), 
-    freeglut@2.8.1 (Windows, Linux), 
-    freeimage@3.16.0 (Windows, Linux), 
-    glew@1.10.0+ (Windows),
+    --glm@0.9.5.1 (OSX/iOS, Windows, Linux), 
+    --freeglut@2.8.1 (Windows, Linux), 
+    --freeimage@3.16.0 (Windows, Linux), 
+    --glew@1.10.0+ (Windows),
     ~~assimp3~~
 
 *** 
