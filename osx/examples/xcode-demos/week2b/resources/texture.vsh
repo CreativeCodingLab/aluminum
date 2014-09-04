@@ -7,7 +7,7 @@ uniform mat4 view;
 uniform mat4 model;
 
 in vec4 vertexPosition; 
-in vec4 vertexTexCoord;
+in vec3 vertexTexCoord;
 
 out vec2 texCoord;
 
