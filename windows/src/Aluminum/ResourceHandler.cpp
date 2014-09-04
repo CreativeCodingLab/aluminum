@@ -7,8 +7,7 @@ namespace aluminum {
 	ResourceHandler::ResourceHandler() { }
 
 	std::string ResourceHandler::contentsOfFile(std::string &filename) {
-		//printf("%s ", filename.c_str());
-		printf("%s ", filename); 
+		std::cout << filename.c_str() << " " << filename << std::endl;
 		std::ifstream file;
 		file.open(filename.c_str());
 
@@ -28,7 +27,7 @@ namespace aluminum {
 
 	string ResourceHandler::pathToResource(const std::string &resource, const std::string &type) {
 		string result = resource + "." + type; 
-		printf("%s", result);
+		std::cout << result << std::endl;
 		return result;
 	}
 	
