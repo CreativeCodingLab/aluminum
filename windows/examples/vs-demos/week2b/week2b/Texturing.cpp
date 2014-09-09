@@ -25,8 +25,6 @@ public:
 	MeshBuffer mb1;
 	ResourceHandler rh;
 
-	float bloomAmt = 0.0;
-
 	void loadProgram(Program &p, const std::string& name) {
 
 		p.create();
@@ -65,7 +63,6 @@ public:
 			glUniformMatrix4fv(program.uniform("view"), 1, 0, ptr(view));
 			glUniformMatrix4fv(program.uniform("proj"), 1, 0, ptr(proj));
 
-			glUniform1f(program.uniform("bloom"), bloomAmt);
 			glUniform1i(program.uniform("tex0"), 0);
 
 			texture.bind(GL_TEXTURE0); {
@@ -81,7 +78,6 @@ public:
 
 
 	void mouseMoved(int px, int py) {
-		bloomAmt = ((float)px / (float)width) * 0.02; //bloom between 0.00 -> 0.02
 	}
 
 };

@@ -129,7 +129,7 @@ namespace aluminum {
                 }
 
                 printf("LOG: %s\n", lg);
-                exit(0);
+                //exit(0);
             }
         }
 
@@ -169,7 +169,7 @@ namespace aluminum {
                     printf("   errors in fragment shader: \n");
                 }
                 printf("LOG: %s\n", lg);
-                exit(0);
+                //exit(0);
             }
         }
 

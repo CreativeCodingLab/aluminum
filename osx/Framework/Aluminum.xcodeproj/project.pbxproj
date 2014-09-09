@@ -322,7 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\necho -e \"zeebob15\\n\" | sudo -S ditto \"${RW_FRAMEWORK_LOCATION}\" \"/Library/Frameworks/${RW_FRAMEWORK_NAME}.framework\"";
+			shellScript = "set -e\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\nditto \"${RW_FRAMEWORK_LOCATION}\" \"/Library/Frameworks/${RW_FRAMEWORK_NAME}.framework\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
