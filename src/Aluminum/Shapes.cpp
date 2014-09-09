@@ -358,7 +358,7 @@ namespace aluminum {
                 int i11 = Nv + 1 + jp1 * slices + ip1;
                 V = vec3(T.r * P.i, T.i * P.i, P.r);
 
-                printf("st/sl = %d/%d : %f/%f/%f\n", j, i, V.x, V.y, V.z);
+                //printf("st/sl = %d/%d : %f/%f/%f\n", j, i, V.x, V.y, V.z);
                 //N = vec3(T.r*P.i, T.i*P.i, P.r).normalize();
                 N = glm::normalize(vec3(T.r * P.i, T.i * P.i, P.r));
 
@@ -386,7 +386,7 @@ namespace aluminum {
         for (int i = 0; i < slices; ++i) {
             V = vec3(T.r * P.i, T.i * P.i, P.r);
 
-            printf("sl = %d : %f/%f/%f\n", i, V.x, V.y, V.z);
+            //printf("sl = %d : %f/%f/%f\n", i, V.x, V.y, V.z);
 
             //N = vec3(T.r*P.i, T.i*P.i, P.r).normalize();
             N = glm::normalize(vec3(T.r * P.i, T.i * P.i, P.r));

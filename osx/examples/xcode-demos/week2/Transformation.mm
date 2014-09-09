@@ -134,6 +134,7 @@ public:
     
     //update the view matrix based on the camera's rotation
     v = mat4(1.0); //reset to identity
+    
     v = glm::rotate(v, cx, vec3(1.0f, 0.0f, 0.0f)); //rotate sum amount around the x-axis
     v = glm::rotate(v, cy, vec3(0.0f, 1.0f, 0.0f)); //rotate sum amount around the y-axis
     v = glm::translate(v, vec3(0,0, pz)); //translate the "cursor" forward five units ( = move the camera five units backwards)
