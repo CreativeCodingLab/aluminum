@@ -19,10 +19,12 @@ public:
   Camera camera;
   Program program;
   GLint posLoc = 0, normalLoc = 1;
-  mat4 model1, model2;
-  MeshData mesh1, mesh2;
-  MeshBuffer mb1, mb2;
+  mat4 model1, model2, model3, lightModel1, lightModel2;
+  MeshData mesh1, mesh2, mesh3, lightMesh;
+  MeshBuffer mb1, mb2, mb3, lmb1, lmb2;
   
+  
+  vec3 ambient = vec3(0.1,0.1,0.1);
   
   vec3 l1_diffuse = vec3(0.0,1.0,0.0);
   vec3 l1_specular = vec3(1.0,1.0,1.0);
@@ -49,21 +51,28 @@ public:
     rh.loadProgram(program, "phong", posLoc, normalLoc, -1, -1);
     
     
-    camera = Camera(60.0, (float)width/(float)height, 0.01, 100.0).translateZ(-10.0);
+    camera = Camera(60.0, (float)width/(float)height, 0.01, 100.0).translateZ(0.0);
     
 
     addSphere(mesh1, 2.0, 100, 100);
     addSphere(mesh2, 1.0, 100, 100);
+    addSphere(mesh3, 1.5, 100, 100);
+    addSphere(lightMesh, 0.3, 10, 10);
     
     mb1.init(mesh1, posLoc, normalLoc, -1, -1);
     mb2.init(mesh2, posLoc, normalLoc, -1, -1);
+    mb3.init(mesh3, posLoc, normalLoc, -1, -1);
+    lmb1.init(lightMesh, posLoc, normalLoc, -1, -1);
+    lmb2.init(lightMesh, posLoc, normalLoc, -1, -1);
     
-    model1 = glm::translate(mat4(), vec3(-2,0,0));
-    model2 = glm::translate(mat4(), vec3(2,0,0));
-  
+    model1 = glm::translate(mat4(), vec3(0,0,5));
+    model2 = glm::translate(mat4(), vec3(5,0,5));
+    model3 = glm::translate(mat4(), vec3(0,0,-15));
+    
     
     camera.printCameraInfo();
     
+    glEnable(GL_DEPTH_TEST);
   }
   
   int dir1 = 1;
@@ -76,31 +85,39 @@ public:
     
     /* update light positions */
     
-    pos1 += 0.1f * dir1;
+    pos1 += 0.2f * dir1;
     if (pos1 > 15.0 || pos1 < -15.0) {
       dir1 *= -1;
     }
     
-    vec3 l1_position = vec3(0.0, pos1, 4.0);
+    vec4 l1_position = vec4(0.0, pos1, 4.0, 1.0);
    
-    pos2 += 0.5f * dir2;
+    pos2 += 0.3f * dir2;
     if (pos2 > 15.0 || pos2 < -15.0) {
       dir2 *= -1;
     }
-    vec3 l2_position = vec3(pos2, 0.0, 5.0);
+    vec4 l2_position = vec4(pos2, 0.0, 5.0, 1.0);
    
+    l1_position = vec4(pos1,0.0,1.0,1.0);
+    l2_position = vec4(0.0,pos2,-1.0,1.0);
+    
+    lightModel1 = glm::translate(mat4(), vec3(l1_position));
+    lightModel2 = glm::translate(mat4(), vec3(l2_position));
+    
     /* bind our Phong lighting shader */
     
     program.bind(); {
       glUniformMatrix4fv(program.uniform("view"), 1, 0, ptr(view));
       glUniformMatrix4fv(program.uniform("proj"), 1, 0, ptr(proj));
+    
+      glUniform3fv(program.uniform("ambient"), 1, ptr(ambient));
       
-      glUniform3fv(program.uniform("l1_position"), 1, ptr(l1_position));
+      glUniform4fv(program.uniform("l1_position"), 1, ptr(l1_position));
       glUniform3fv(program.uniform("l1_diffuse"), 1, ptr(l1_diffuse));
       glUniform3fv(program.uniform("l1_specular"), 1, ptr(l1_specular));
   
       
-      glUniform3fv(program.uniform("l2_position"), 1, ptr(l2_position));
+      glUniform4fv(program.uniform("l2_position"), 1, ptr(l2_position));
       glUniform3fv(program.uniform("l2_diffuse"), 1, ptr(l2_diffuse));
       glUniform3fv(program.uniform("l2_specular"), 1, ptr(l2_specular));
       
@@ -111,6 +128,30 @@ public:
       /* Draw the second sphere */
       glUniformMatrix4fv(program.uniform("model"), 1, 0, ptr(model2));
       mb2.draw();
+    
+      /* Draw the third sphere */
+      glUniformMatrix4fv(program.uniform("model"), 1, 0, ptr(model3));
+      mb3.draw();
+   
+      
+      /* turn off the diffuse and speculars when drawing the positions of the lights */
+      glUniform3fv(program.uniform("l1_diffuse"), 1, ptr(vec3(0.0)));
+      glUniform3fv(program.uniform("l1_specular"), 1, ptr(vec3(0.0)));
+      
+      glUniform3fv(program.uniform("l2_diffuse"), 1, ptr(vec3(0.0)));
+      glUniform3fv(program.uniform("l2_specular"), 1, ptr(vec3(0.0)));
+      
+      /* draw light 1 */
+      glUniform3fv(program.uniform("ambient"), 1, ptr(l1_diffuse));
+      glUniformMatrix4fv(program.uniform("model"), 1, 0, ptr(lightModel1));
+      lmb1.draw();
+      
+      /* draw light 2 */
+      glUniform3fv(program.uniform("ambient"), 1, ptr(l2_diffuse));
+      glUniformMatrix4fv(program.uniform("model"), 1, 0, ptr(lightModel2));
+      lmb2.draw();
+      
+      
       
     } program.unbind();
     
