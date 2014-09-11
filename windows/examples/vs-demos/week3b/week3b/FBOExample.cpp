@@ -155,5 +155,6 @@ public:
 };
 
 int main(){
-  return FBOExample().start("aluminum::FBOExample", 400, 300);
+  FBOExample().start("aluminum::FBOExample", 400, 300);
+  return 0;
 }

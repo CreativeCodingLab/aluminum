@@ -196,5 +196,6 @@ public:
 };
 
 int main(){
-  return Cellular().start("aluminum::Cellular Automata", 800, 600);
+  Cellular().start("aluminum::Cellular Automata", 800, 600);
+  return 0
 }
