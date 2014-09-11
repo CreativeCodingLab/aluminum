@@ -16,8 +16,8 @@ public:
   bool caRunning = true;
   bool toggleFBOs = true;
   
-  int numCols = 20;
-  int numRows = 20;
+  int numCols = 100;
+  int numRows = 100;
   
   Program caProgram, outputProgram;
   FBO fboA, fboB;
