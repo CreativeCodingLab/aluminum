@@ -16,8 +16,8 @@ public:
   bool caRunning = true;
   bool toggleFBOs = true;
   
-  int numCols = 100;
-  int numRows = 100;
+  int numCols = 20;
+  int numRows = 20;
   
   Program caProgram, outputProgram;
   FBO fboA, fboB;
@@ -114,8 +114,10 @@ public:
     
     caProgram.bind(); {
       
-      glUniform1f(caProgram.uniform("du"), 1.0/numCols);
-      glUniform1f(caProgram.uniform("dv"), 1.0/numRows);
+    
+    glUniform1f(caProgram.uniform("du"), 1.0/numCols);
+    
+    glUniform1f(caProgram.uniform("dv"), 1.0/numRows);
       
       glUniform1i(caProgram.uniform("tex"), 0);
       

@@ -93,7 +93,7 @@ public:
     cubeMeshBuffer2.init(md2, posLoc, normalLoc, texCoordLoc, -1);
     
     
-    fbo.create(256, 256);
+    fbo.create(32, 32);
     
     rotateBehavior = Behavior(now()).delay(1000).length(5000).range(vec3(180.0, 90.0, 360.0)).reversing(true).repeats(-1).sine();
 
@@ -144,14 +144,15 @@ public:
       draw(model, cubeMeshBuffer1, texture, textureProgram);
       
     } fbo.unbind();
-    
+   
     //draw cube 2 with the offscreen texture using phong shading
     glViewport(0, 0, width, height);
     glClearColor(0.0,0.0,0.0,1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     draw(model, cubeMeshBuffer2, fbo.texture, phongProgram);
-  }
+  
+    }
   
 };
 
