@@ -14,8 +14,8 @@
 #   ./run.command -z examples/stereo/MyApp.mm
 
 #INCLUDE_DIR="/opt/local/include/"
-INCLUDE_DIR="/home/evl/aforbes/include/"  #where your headers live, for instance the GLM headers
-LIB_DIR="/home/evl/aforbes/lib/"  #where your static libs live, for instance libfreeiamge.a
+INCLUDE_DIR="/usr/include"  #where your headers live, for instance the GLM headers
+LIB_DIR="/usr/lib"  #where your static libs live, for instance libfreeiamge.a
 
 
 LINUX_VERSION="$(sw_vers -productVersion | grep -o '[0-9][0-9]\.[0-9]')";
@@ -121,7 +121,7 @@ LINUX_DIR="$RUN_PATH"
 
 #COCOA="-isysroot /Applications/XCode.app/Contents/Developer/Platforms/MacLINUX.platform/Developer/SDKs/MacLINUX$LINUX_VERSION.sdk -mmacosx-version-min=$LINUX_VERSION -framework Cocoa -framework QuartzCore -framework OpenGL -framework AppKit -framework Foundation -framework AVFoundation -framework CoreMedia "
 
-LINUX_LIBS=" -lglut -lGL -lm "
+LINUX_LIBS=" -lglut -lGL -lm -lfreeimage"
 
 OPTIONS="-O3 -Wreturn-type -Wformat -Wmissing-braces -Wparentheses -Wswitch -Wunused-variable -Wsign-compare -Wno-unknown-pragmas -Woverloaded-virtual"
 
@@ -203,10 +203,10 @@ if [ "$COMPILE" -eq 1 ]; then
   fi
 
   ### 2. COMPILE w/aluminum lib
-  echo -e "\n\n\nCOMPILING user code with aluminum static lib... \n\nc++ $LINUX_LIBS -std=c++11 $LIBS $INCLUDE $APP_PATH/*.cpp -o $APP_PATH/$APP $BASE_DIR/build/lib/libaluminum.a $LIB_DIR/libfreeimage.a"
+  echo -e "\n\n\nCOMPILING user code with aluminum static lib... \n\nc++ $LINUX_LIBS -std=c++11 $LIBS $INCLUDE $APP_PATH/*.cpp -o $APP_PATH/$APP $BASE_DIR/build/lib/libaluminum.a"
 
   #time c++ $COCOA $OPTIONS -std=c++11 -stdlib=libc++ $BASE_DIR/build/lib/aluminum.a $LIBS $INCLUDE $APP_PATH/*.mm -o $APP_PATH/$APP
-  time c++ $LINUX_LIBS -std=c++11 $LIBS $INCLUDE $APP_PATH/*.cpp -o $APP_PATH/$APP /home/evl/aforbes/lib/libfreeimage.a $BASE_DIR/build/lib/libaluminum.a $LIB_DIR/libfreeimage.a
+  time c++ $LINUX_LIBS -std=c++11 $LIBS $INCLUDE $APP_PATH/*.cpp -o $APP_PATH/$APP $BASE_DIR/build/lib/libaluminum.a
 
 fi 
 
