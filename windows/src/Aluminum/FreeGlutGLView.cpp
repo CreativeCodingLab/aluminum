@@ -52,16 +52,25 @@ namespace aluminum {
     }
 
     void pressed(int button, int state, int x, int y ) {
-    //	printf("button : %d %d %d %d\n", button, state, x, y);
+    	printf("button : %d %d %d %d\n", button, state, x, y);
 	    //check state to see if sending down or up...
-	    renderer->mouseDown(x,y);
+		if (state == 0)
+		{
+			renderer->mouseDown(x, y);
+		}
+		else if (state == 1)
+		{
+			renderer->mouseUp(x, y);
+		}
+		
+		
     }
     void dragged(int x, int y ) {
     //	printf("motion : %d %d\n", x, y);
 	    renderer->mouseDragged(x,y);
     }
     void moved(int x, int y ) {
-    //	printf("motion : %d %d\n", x, y);
+    	printf("motion : %d %d\n", x, y);
 	    renderer->mouseMoved(x,y);
     }
 

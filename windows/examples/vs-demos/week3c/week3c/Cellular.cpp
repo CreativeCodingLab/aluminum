@@ -1,9 +1,12 @@
+#include "Aluminum/Includes.hpp"
+#include "Aluminum/FreeGlutGLView.hpp"
+#include "Aluminum/RendererWin32.hpp"
 #include "Aluminum/Program.hpp"
 #include "Aluminum/MeshBuffer.hpp"
 #include "Aluminum/MeshData.hpp"
 #include "Aluminum/Utils.hpp"
 #include "Aluminum/MeshUtils.hpp"
-#include "Aluminum/ResourceHandler.h"
+#include "Aluminum/ResourceHandler.hpp"
 #include "Aluminum/FBO.hpp"
 
 
@@ -78,8 +81,8 @@ public:
 
   virtual void onCreate() {
 
-    rh.loadProgram(caProgram, "CA", 0, -1, 1, -1);
-    rh.loadProgram(outputProgram, "texture", 0, -1, 1, -1);
+    rh.loadProgram(caProgram, "resources/CA", 0, -1, 1, -1);
+    rh.loadProgram(outputProgram, "resources/texture", 0, -1, 1, -1);
 
     clipRect.init(MeshUtils::makeClipRectangle(), posLoc, -1, texCoordLoc, -1);
     outputRect.init(MeshUtils::makeClipRectangle(), posLoc, -1, texCoordLoc, -1);
@@ -131,9 +134,6 @@ public:
 
   virtual void onFrame(){
 
-    handleKeys();
-    handleMouse();
-
     if (caRunning) {
 
       if (toggleFBOs) {
@@ -176,11 +176,11 @@ public:
   }
 
 
-  void mouseDown(int px, int py) {
+  virtual void mouseDown(int px, int py) {
       caRunning = false;
   }
 
-  void mouseUp(int px, int py) {
+  virtual void mouseUp(int px, int py) {
       caRunning = true;
   }
 
@@ -196,6 +196,6 @@ public:
 };
 
 int main(){
-  Cellular().start("aluminum::Cellular Automata", 800, 600);
-  return 0
+	Cellular().start("aluminum::Cellular Automata", 800, 600);
+	return 0;
 }
