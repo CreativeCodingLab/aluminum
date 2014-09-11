@@ -11,7 +11,7 @@ namespace aluminum {
 		    FreeGlutGLView();
 			//~FreeGlutGLView();
 		    FreeGlutGLView* glView;
-
+			static FreeGlutGLView* start(void* _renderer, std::string name, int _width, int _height);
 		    static FreeGlutGLView* start(void* _renderer, std::string name);
 		    static FreeGlutGLView* start(void* _renderer);
 

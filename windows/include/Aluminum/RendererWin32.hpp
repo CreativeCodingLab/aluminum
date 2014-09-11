@@ -10,6 +10,7 @@ namespace aluminum {
         RendererWin32();
         void start();
         void start(std::string name);
+		void start(std::string name, int _width, int _height);
         virtual void onCreate();
         virtual void onFrame();
 

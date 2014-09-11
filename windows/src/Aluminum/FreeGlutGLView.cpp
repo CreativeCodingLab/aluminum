@@ -89,8 +89,11 @@ namespace aluminum {
 	    return FreeGlutGLView::start(_renderer, "allomin");
     }
 
+	FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
+		return FreeGlutGLView::start(_renderer, "allomin", 200, 200);
+	}
 
-    FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
+    FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name, int _width, int _height) {
 		printf("freglutglview start");
 	    renderer = (RendererWin32*) _renderer;
 
@@ -103,7 +106,7 @@ namespace aluminum {
 	    glutInitContextVersion(3,3);
 		
 		printf("freglutglview start");
-	    glutInitWindowSize(200,200);
+		glutInitWindowSize(_width, _height);
 	    glutCreateWindow(name.c_str());
 
 		//glew initialization

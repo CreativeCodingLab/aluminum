@@ -16,6 +16,10 @@ namespace aluminum {
       FreeGlutGLView::start(this, name);
     }
 
+	void RendererWin32::start(std::string name, int _width, int _height) {
+		printf("in RendererWin32::start(name)\n");
+		FreeGlutGLView::start(this, name);
+	}
 
 
     void RendererWin32::onFrame() { printf("you should overwrite me in the subclass!\n"); }
@@ -32,7 +36,7 @@ namespace aluminum {
     void RendererWin32::mouseDown(int px, int py) {}
     void RendererWin32::mouseUp(int px, int py) {}
     void RendererWin32::mouseMoved(int px, int py) {}
-	  void RendererWin32::keyboard(unsigned char key, int x, int y) {}
+	void RendererWin32::keyboard(unsigned char key, int x, int y) {}
 
 }
 
