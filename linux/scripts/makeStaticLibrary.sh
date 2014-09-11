@@ -16,7 +16,7 @@ BASE_DIR="$LINUX_DIR/.."
 BUILD_DIR="$BASE_DIR/build"
 SRC_DIR="$BASE_DIR/src/Aluminum"
 
-INCLUDE=" -I$BUILD_DIR/include -I$INCLUDE_DIR -I/home/evl/aforbes/include/" 
+INCLUDE=" -I$BUILD_DIR/include -I$INCLUDE_DIR" 
 ALUMINUM_SRC="$SRC_DIR/*.cpp"
 LINUX_SRC="$LINUX_DIR/*.cpp"
 
