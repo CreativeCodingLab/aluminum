@@ -101,7 +101,7 @@
     <ClCompile Include="..\..\..\..\src\Aluminum\ResourceHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FOBExample.cpp">
+    <ClCompile Include="FBOExample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

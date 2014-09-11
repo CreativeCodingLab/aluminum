@@ -53,7 +53,7 @@
     <Image Include="resources\hubble.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{731A7305-48C0-4627-A013-368AA74EF6FF}</ProjectGuid>
+    <ProjectGuid>{42212278-30A3-4C91-95D4-47398700FDAB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>week2b</RootNamespace>
   </PropertyGroup>

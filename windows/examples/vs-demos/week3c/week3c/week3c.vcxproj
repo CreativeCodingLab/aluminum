@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -44,8 +44,10 @@
     <ClCompile Include="Cellular.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\phong.fsh" />
-    <None Include="resources\phong.vsh" />
+    <None Include="resources\CA.fsh" />
+    <None Include="resources\CA.vsh" />
+    <None Include="resources\texture.fsh" />
+    <None Include="resources\texture.vsh" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9A1A9A0B-D5F7-49BE-87EC-C1126C032C90}</ProjectGuid>
