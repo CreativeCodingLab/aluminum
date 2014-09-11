@@ -44,7 +44,7 @@ namespace aluminum {
 		if (pLoc >= 0) glBindAttribLocation(p.id(), pLoc, "vertexPosition");
 		if (nLoc >= 0) glBindAttribLocation(p.id(), nLoc, "vertexNormal");
 		if (tcLoc >= 0) glBindAttribLocation(p.id(), tcLoc, "vertexTexCoord");
-		if (pLoc >= 0) glBindAttribLocation(p.id(), cLoc, "vertexColor");
+		if (cLoc >= 0) glBindAttribLocation(p.id(), cLoc, "vertexColor");
 
 		//string sp = pathToResource(name, "fsh");  // uncomment when it works
 		string sp = name +".fsh";
