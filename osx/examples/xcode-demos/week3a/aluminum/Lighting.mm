@@ -24,7 +24,7 @@ public:
   MeshBuffer mb1, mb2;
   
   
-  vec3 l1_diffuse = vec3(1.0,0.0,0.0);
+  vec3 l1_diffuse = vec3(0.0,1.0,0.0);
   vec3 l1_specular = vec3(1.0,1.0,1.0);
   
   vec3 l2_diffuse = vec3(0.0,0.0,1.0);
@@ -62,7 +62,7 @@ public:
     model2 = glm::translate(mat4(), vec3(2,0,0));
   
     
-    //camera.printCameraInfo();
+    camera.printCameraInfo();
     
   }
   
