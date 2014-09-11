@@ -18,7 +18,7 @@ INCLUDE_DIR="/usr/include"  #where your headers live, for instance the GLM heade
 LIB_DIR="/usr/lib"  #where your static libs live, for instance libfreeiamge.a
 
 
-LINUX_VERSION="$(sw_vers -productVersion | grep -o '[0-9][0-9]\.[0-9]')";
+LINUX_VERSION="$(uname -r)";
 echo -e "\n\nYou are running LINUX version $LINUX_VERSION\n\n"
 
 
