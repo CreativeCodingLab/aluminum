@@ -114,8 +114,10 @@ public:
     
     caProgram.bind(); {
       
-      glUniform1f(caProgram.uniform("du"), 1.0/numCols);
-      glUniform1f(caProgram.uniform("dv"), 1.0/numRows);
+    
+    glUniform1f(caProgram.uniform("du"), 1.0/numCols);
+    
+    glUniform1f(caProgram.uniform("dv"), 1.0/numRows);
       
       glUniform1i(caProgram.uniform("tex"), 0);
       

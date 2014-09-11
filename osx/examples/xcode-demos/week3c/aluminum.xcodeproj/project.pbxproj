@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		92285B7219C1F63E00E296A6 /* Cellular.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92285B7119C1F63E00E296A6 /* Cellular.mm */; };
-		92285B7719C1F6C400E296A6 /* CA.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7319C1F6B600E296A6 /* CA.fsh */; };
-		92285B7819C1F6C400E296A6 /* CA.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7419C1F6B600E296A6 /* CA.vsh */; };
-		92285B7919C1F6C400E296A6 /* texture.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7519C1F6B600E296A6 /* texture.fsh */; };
-		92285B7A19C1F6C400E296A6 /* texture.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7619C1F6B600E296A6 /* texture.vsh */; };
+		92285B7F19C21EFC00E296A6 /* CA.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7B19C21EE800E296A6 /* CA.fsh */; };
+		92285B8019C21EFC00E296A6 /* CA.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7C19C21EE800E296A6 /* CA.vsh */; };
+		92285B8119C21EFC00E296A6 /* texture.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7D19C21EE800E296A6 /* texture.fsh */; };
+		92285B8219C21EFC00E296A6 /* texture.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B7E19C21EE800E296A6 /* texture.vsh */; };
 		9232456B19B0E849008E2763 /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456119B0E849008E2763 /* Behavior.cpp */; };
 		9232456C19B0E849008E2763 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456219B0E849008E2763 /* Camera.cpp */; };
 		9232456D19B0E849008E2763 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456319B0E849008E2763 /* FBO.cpp */; };
@@ -42,10 +42,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				92285B7719C1F6C400E296A6 /* CA.fsh in CopyFiles */,
-				92285B7819C1F6C400E296A6 /* CA.vsh in CopyFiles */,
-				92285B7919C1F6C400E296A6 /* texture.fsh in CopyFiles */,
-				92285B7A19C1F6C400E296A6 /* texture.vsh in CopyFiles */,
+				92285B7F19C21EFC00E296A6 /* CA.fsh in CopyFiles */,
+				92285B8019C21EFC00E296A6 /* CA.vsh in CopyFiles */,
+				92285B8119C21EFC00E296A6 /* texture.fsh in CopyFiles */,
+				92285B8219C21EFC00E296A6 /* texture.vsh in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,10 +53,10 @@
 
 /* Begin PBXFileReference section */
 		92285B7119C1F63E00E296A6 /* Cellular.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cellular.mm; sourceTree = "<group>"; };
-		92285B7319C1F6B600E296A6 /* CA.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = CA.fsh; path = "../../../../../../aluminum-bak/osx/examples/xcode/Resources/CA.fsh"; sourceTree = "<group>"; };
-		92285B7419C1F6B600E296A6 /* CA.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = CA.vsh; path = "../../../../../../aluminum-bak/osx/examples/xcode/Resources/CA.vsh"; sourceTree = "<group>"; };
-		92285B7519C1F6B600E296A6 /* texture.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = texture.fsh; path = "../../../../../../aluminum-bak/osx/examples/xcode/Resources/texture.fsh"; sourceTree = "<group>"; };
-		92285B7619C1F6B600E296A6 /* texture.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = texture.vsh; path = "../../../../../../aluminum-bak/osx/examples/xcode/Resources/texture.vsh"; sourceTree = "<group>"; };
+		92285B7B19C21EE800E296A6 /* CA.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = CA.fsh; path = resources/CA.fsh; sourceTree = SOURCE_ROOT; };
+		92285B7C19C21EE800E296A6 /* CA.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = CA.vsh; path = resources/CA.vsh; sourceTree = SOURCE_ROOT; };
+		92285B7D19C21EE800E296A6 /* texture.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = texture.fsh; path = resources/texture.fsh; sourceTree = SOURCE_ROOT; };
+		92285B7E19C21EE800E296A6 /* texture.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = texture.vsh; path = resources/texture.vsh; sourceTree = SOURCE_ROOT; };
 		9232456119B0E849008E2763 /* Behavior.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Behavior.cpp; path = ../../../../src/Aluminum/Behavior.cpp; sourceTree = "<group>"; };
 		9232456219B0E849008E2763 /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Camera.cpp; path = ../../../../src/Aluminum/Camera.cpp; sourceTree = "<group>"; };
 		9232456319B0E849008E2763 /* FBO.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FBO.cpp; path = ../../../../src/Aluminum/FBO.cpp; sourceTree = "<group>"; };
@@ -213,10 +213,10 @@
 		92E3F2C61904AE2C006B9CD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				92285B7319C1F6B600E296A6 /* CA.fsh */,
-				92285B7419C1F6B600E296A6 /* CA.vsh */,
-				92285B7519C1F6B600E296A6 /* texture.fsh */,
-				92285B7619C1F6B600E296A6 /* texture.vsh */,
+				92285B7B19C21EE800E296A6 /* CA.fsh */,
+				92285B7C19C21EE800E296A6 /* CA.vsh */,
+				92285B7D19C21EE800E296A6 /* texture.fsh */,
+				92285B7E19C21EE800E296A6 /* texture.vsh */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
