@@ -18,7 +18,7 @@ SRC_DIR="$BASE_DIR/src/Aluminum"
 
 INCLUDE="-I$SRC_DIR -I$BUILD_DIR/include -I$INCLUDE_DIR" 
 ALUMINUM_SRC="$SRC_DIR/*.cpp"
-OSX_SRC="$OSX_DIR/*.mm"
+OSX_SRC="$OSX_DIR/src/Aluminum/*.mm"
 
 SRC="$ALUMINUM_SRC $OSX_SRC"
 

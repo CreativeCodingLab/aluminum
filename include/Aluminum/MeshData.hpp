@@ -149,6 +149,12 @@ namespace aluminum {
 				color(vec4(r, g, b, a));
 			}
 
+    
+    
+    void color(const vec3 &v) {
+      color(v.r, v.g, v.b);
+    }
+
 			void color(const vec4 &v) {
 				colors().push_back(v);
 			}

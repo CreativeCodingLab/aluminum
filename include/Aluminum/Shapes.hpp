@@ -21,7 +21,10 @@ namespace aluminum {
 // Platonic solids
 
 /// Add cube as triangle vertices and indices
-    int addCube(MeshData &m, bool withNormalsAndTexcoords = false, float radius = 1.414);
+  int addCube(MeshData &m, float radius);
+
+/// Add cube as triangle vertices and indices
+  int addCube(MeshData &m, bool withNormalsAndTexcoords, float radius); // = 1.414;
 
 /// Add sphere as triangle vertices and indices
 

@@ -22,10 +22,11 @@
 		9232457319B0E849008E2763 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456919B0E849008E2763 /* Shapes.cpp */; };
 		9232457419B0E849008E2763 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456A19B0E849008E2763 /* Texture.cpp */; };
 		92E2749B178E133A00279684 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2749A178E133A00279684 /* Foundation.framework */; };
-		92E274AF178E138800279684 /* CocoaGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92E274A9178E138800279684 /* CocoaGL.mm */; };
-		92E274B0178E138800279684 /* RendererOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92E274AC178E138800279684 /* RendererOSX.mm */; };
-		92E274B1178E138800279684 /* VideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92E274AE178E138800279684 /* VideoPlayer.mm */; };
-		92E3F2C31903A670006B9CD4 /* ResourceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92E3F2C21903A670006B9CD4 /* ResourceHandler.mm */; };
+		92ED8F4F19C3CB5E005A0D69 /* CaptureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8F4A19C3CB5E005A0D69 /* CaptureManager.mm */; };
+		92ED8F5019C3CB5E005A0D69 /* CocoaGL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8F4B19C3CB5E005A0D69 /* CocoaGL.mm */; };
+		92ED8F5119C3CB5E005A0D69 /* RendererOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8F4C19C3CB5E005A0D69 /* RendererOSX.mm */; };
+		92ED8F5219C3CB5E005A0D69 /* ResourceHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8F4D19C3CB5E005A0D69 /* ResourceHandler.mm */; };
+		92ED8F5319C3CB5E005A0D69 /* VideoPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92ED8F4E19C3CB5E005A0D69 /* VideoPlayer.mm */; };
 		B516DA0C1901BA8F004C48FA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516DA0B1901BA8F004C48FA /* OpenGL.framework */; };
 		B516DA0E1901BAA8004C48FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516DA0D1901BAA8004C48FA /* AVFoundation.framework */; };
 		B516DA101901BAB2004C48FA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B516DA0F1901BAB2004C48FA /* CoreVideo.framework */; };
@@ -77,15 +78,11 @@
 		9232457F19B0E87F008E2763 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = ../../../../include/Aluminum/Utils.hpp; sourceTree = "<group>"; };
 		92E27497178E133A00279684 /* aluminum */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = aluminum; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2749A178E133A00279684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		92E274A8178E138800279684 /* CocoaGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaGL.h; path = ../../../CocoaGL.h; sourceTree = "<group>"; };
-		92E274A9178E138800279684 /* CocoaGL.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = CocoaGL.mm; path = ../../../CocoaGL.mm; sourceTree = "<group>"; };
-		92E274AA178E138800279684 /* Includes.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Includes.hpp; path = ../../../Includes.hpp; sourceTree = "<group>"; };
-		92E274AB178E138800279684 /* RendererOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RendererOSX.h; path = ../../../RendererOSX.h; sourceTree = "<group>"; };
-		92E274AC178E138800279684 /* RendererOSX.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = RendererOSX.mm; path = ../../../RendererOSX.mm; sourceTree = "<group>"; };
-		92E274AD178E138800279684 /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayer.h; path = ../../../VideoPlayer.h; sourceTree = "<group>"; };
-		92E274AE178E138800279684 /* VideoPlayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = VideoPlayer.mm; path = ../../../VideoPlayer.mm; sourceTree = "<group>"; };
-		92E3F2C11903A670006B9CD4 /* ResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceHandler.h; path = ../../../ResourceHandler.h; sourceTree = "<group>"; };
-		92E3F2C21903A670006B9CD4 /* ResourceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourceHandler.mm; path = ../../../ResourceHandler.mm; sourceTree = "<group>"; };
+		92ED8F4A19C3CB5E005A0D69 /* CaptureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CaptureManager.mm; path = ../../../src/Aluminum/CaptureManager.mm; sourceTree = "<group>"; };
+		92ED8F4B19C3CB5E005A0D69 /* CocoaGL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CocoaGL.mm; path = ../../../src/Aluminum/CocoaGL.mm; sourceTree = "<group>"; };
+		92ED8F4C19C3CB5E005A0D69 /* RendererOSX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RendererOSX.mm; path = ../../../src/Aluminum/RendererOSX.mm; sourceTree = "<group>"; };
+		92ED8F4D19C3CB5E005A0D69 /* ResourceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourceHandler.mm; path = ../../../src/Aluminum/ResourceHandler.mm; sourceTree = "<group>"; };
+		92ED8F4E19C3CB5E005A0D69 /* VideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VideoPlayer.mm; path = ../../../src/Aluminum/VideoPlayer.mm; sourceTree = "<group>"; };
 		B516DA0B1901BA8F004C48FA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B516DA0D1901BAA8004C48FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B516DA0F1901BAB2004C48FA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -166,15 +163,11 @@
 		92E274B2178E139900279684 /* osx */ = {
 			isa = PBXGroup;
 			children = (
-				92E274A8178E138800279684 /* CocoaGL.h */,
-				92E274A9178E138800279684 /* CocoaGL.mm */,
-				92E274AA178E138800279684 /* Includes.hpp */,
-				92E274AB178E138800279684 /* RendererOSX.h */,
-				92E274AC178E138800279684 /* RendererOSX.mm */,
-				92E274AD178E138800279684 /* VideoPlayer.h */,
-				92E274AE178E138800279684 /* VideoPlayer.mm */,
-				92E3F2C11903A670006B9CD4 /* ResourceHandler.h */,
-				92E3F2C21903A670006B9CD4 /* ResourceHandler.mm */,
+				92ED8F4A19C3CB5E005A0D69 /* CaptureManager.mm */,
+				92ED8F4B19C3CB5E005A0D69 /* CocoaGL.mm */,
+				92ED8F4C19C3CB5E005A0D69 /* RendererOSX.mm */,
+				92ED8F4D19C3CB5E005A0D69 /* ResourceHandler.mm */,
+				92ED8F4E19C3CB5E005A0D69 /* VideoPlayer.mm */,
 			);
 			name = osx;
 			sourceTree = "<group>";
@@ -268,6 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92ED8F5019C3CB5E005A0D69 /* CocoaGL.mm in Sources */,
+				92ED8F4F19C3CB5E005A0D69 /* CaptureManager.mm in Sources */,
 				92285B5619B653D200E296A6 /* Texturing.mm in Sources */,
 				9232457419B0E849008E2763 /* Texture.cpp in Sources */,
 				9232457119B0E849008E2763 /* MeshUtils.cpp in Sources */,
@@ -276,13 +271,12 @@
 				9232456E19B0E849008E2763 /* Font.cpp in Sources */,
 				9232456B19B0E849008E2763 /* Behavior.cpp in Sources */,
 				9232456C19B0E849008E2763 /* Camera.cpp in Sources */,
-				92E274AF178E138800279684 /* CocoaGL.mm in Sources */,
-				92E274B0178E138800279684 /* RendererOSX.mm in Sources */,
+				92ED8F5319C3CB5E005A0D69 /* VideoPlayer.mm in Sources */,
 				9232457319B0E849008E2763 /* Shapes.cpp in Sources */,
+				92ED8F5219C3CB5E005A0D69 /* ResourceHandler.mm in Sources */,
 				9232457219B0E849008E2763 /* Program.cpp in Sources */,
-				92E274B1178E138800279684 /* VideoPlayer.mm in Sources */,
-				92E3F2C31903A670006B9CD4 /* ResourceHandler.mm in Sources */,
 				9232456D19B0E849008E2763 /* FBO.cpp in Sources */,
+				92ED8F5119C3CB5E005A0D69 /* RendererOSX.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,12 +352,11 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
-					/usr/local/include,
+					/opt/local/include,
+					../../../../include,
+					../../../../osx/include,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -383,12 +376,11 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
-					/usr/local/include,
+					/opt/local/include,
+					../../../../include,
+					../../../../osx/include,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

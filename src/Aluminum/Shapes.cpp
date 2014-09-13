@@ -117,6 +117,237 @@ namespace aluminum {
     }
 
 
+  //this one makes normals, texcoords, and colors...
+  int addCube(MeshData &m, float s) {
+    
+    //8 vertices
+    vec3 v0 = vec3(-s, -s, s);
+    vec3 v1 = vec3(-s, s, s);
+    vec3 v2 = vec3(s, -s, s);
+    vec3 v3 = vec3(s, s, s);
+    vec3 v4 = vec3(-s, -s, -s);
+    vec3 v5 = vec3(-s, s, -s);
+    vec3 v6 = vec3(s, -s, -s);
+    vec3 v7 = vec3(s, s, -s);
+    
+    //6 normals
+    vec3 n0 = glm::normalize(vec3(0, 0, s));
+    vec3 n1 = glm::normalize(vec3(0, 0, -s));
+    vec3 n2 = glm::normalize(vec3(0, s, 0));
+    vec3 n3 = glm::normalize(vec3(0, -s, 0));
+    vec3 n4 = glm::normalize(vec3(s, 0, 0));
+    vec3 n5 = glm::normalize(vec3(-s, 0, 0));
+    
+    //4 texcoords
+    vec3 t0 = vec3(0, 0, 0);
+    vec3 t1 = vec3(0, 1, 0);
+    vec3 t2 = vec3(1, 0, 0);
+    vec3 t3 = vec3(1, 1, 0);
+
+    //6 colors
+    vec3 c0 = vec3(1.0,0.0,0.0);
+    vec3 c1 = vec3(0.0,1.0,0.0);
+    vec3 c2 = vec3(0.0,0.0,1.0);
+    vec3 c3 = vec3(1.0,1.0,0.0);
+    vec3 c4 = vec3(1.0,0.0,1.0);
+    vec3 c5 = vec3(0.0,1.0,1.0);
+    
+    
+    //right
+    m.vertex(v2);
+    m.normal(n4);
+    m.texCoord(t0);
+    m.color(c4);
+    
+    m.vertex(v3);
+    m.normal(n4);
+    m.texCoord(t1);
+    m.color(c4);
+    
+    m.vertex(v6);
+    m.normal(n4);
+    m.texCoord(t2);
+    m.color(c4);
+    
+    m.vertex(v6);
+    m.normal(n4);
+    m.texCoord(t2);
+    m.color(c4);
+    
+    m.vertex(v3);
+    m.normal(n4);
+    m.texCoord(t1);
+    m.color(c4);
+    
+    m.vertex(v7);
+    m.normal(n4);
+    m.texCoord(t3);
+    m.color(c4);
+    
+    //left
+    m.vertex(v4);
+    m.normal(n5);
+    m.texCoord(t0);
+    m.color(c5);
+    
+    m.vertex(v5);
+    m.normal(n5);
+    m.texCoord(t1);
+    m.color(c5);
+    
+    m.vertex(v0);
+    m.normal(n5);
+    m.texCoord(t2);
+    m.color(c5);
+    
+    m.vertex(v0);
+    m.normal(n5);
+    m.texCoord(t2);
+    m.color(c5);
+    
+    m.vertex(v5);
+    m.normal(n5);
+    m.texCoord(t1);
+    m.color(c5);
+    
+    m.vertex(v1);
+    m.normal(n5);
+    m.texCoord(t3);
+    m.color(c5);
+    
+    //front
+    m.vertex(v0);
+    m.normal(n0);
+    m.texCoord(t0);
+    m.color(c0);
+    
+    m.vertex(v1);
+    m.normal(n0);
+    m.texCoord(t1);
+    m.color(c0);
+    
+    m.vertex(v2);
+    m.normal(n0);
+    m.texCoord(t2);
+    m.color(c0);
+    
+    m.vertex(v2);
+    m.normal(n0);
+    m.texCoord(t2);
+    m.color(c0);
+    
+    m.vertex(v1);
+    m.normal(n0);
+    m.texCoord(t1);
+    m.color(c0);
+    
+    m.vertex(v3);
+    m.normal(n0);
+    m.texCoord(t3);
+    m.color(c0);
+    
+    
+    //back
+    m.vertex(v4);
+    m.normal(n1);
+    m.texCoord(t0);
+    m.color(c1);
+    
+    m.vertex(v5);
+    m.normal(n1);
+    m.texCoord(t1);
+    m.color(c1);
+    
+    m.vertex(v6);
+    m.normal(n1);
+    m.texCoord(t2);
+    m.color(c1);
+    
+    m.vertex(v6);
+    m.normal(n1);
+    m.texCoord(t2);
+    m.color(c1);
+    
+    m.vertex(v5);
+    m.normal(n1);
+    m.texCoord(t1);
+    m.color(c1);
+    
+    m.vertex(v7);
+    m.normal(n1);
+    m.texCoord(t3);
+    m.color(c1);
+    
+    
+    //top
+    m.vertex(v1);
+    m.normal(n2);
+    m.texCoord(t0);
+    m.color(c2);
+    
+    m.vertex(v5);
+    m.normal(n2);
+    m.texCoord(t1);
+    m.color(c2);
+    
+    m.vertex(v3);
+    m.normal(n2);
+    m.texCoord(t2);
+    m.color(c2);
+    
+    m.vertex(v3);
+    m.normal(n2);
+    m.texCoord(t2);
+    m.color(c2);
+    
+    m.vertex(v5);
+    m.normal(n2);
+    m.texCoord(t1);
+    m.color(c2);
+    
+    m.vertex(v7);
+    m.normal(n2);
+    m.texCoord(t3);
+    m.color(c2);
+    
+    
+    //bottom
+    m.vertex(v0);
+    m.normal(n3);
+    m.texCoord(t0);
+    m.color(c3);
+    
+    m.vertex(v4);
+    m.normal(n3);
+    m.texCoord(t1);
+    m.color(c3);
+    
+    m.vertex(v2);
+    m.normal(n3);
+    m.texCoord(t2);
+    m.color(c3);
+    
+    m.vertex(v2);
+    m.normal(n3);
+    m.texCoord(t2);
+    m.color(c3);
+    
+    m.vertex(v4);
+    m.normal(n3);
+    m.texCoord(t1);
+    m.color(c3);
+    
+    m.vertex(v6);
+    m.normal(n3);
+    m.texCoord(t3);
+    m.color(c3);
+    
+    
+    return 36;
+
+    
+  }
+  
     int addCube(MeshData &m, bool withNormalsAndTexcoords, float s) {
         if (withNormalsAndTexcoords) {
 

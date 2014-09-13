@@ -26,8 +26,8 @@ time cp $BASE_DIR/include/Aluminum/*.hpp $BASE_DIR/build/include/Aluminum
 
 echo -e "\n\n\nCOPYING osx header files into include dir..."
 
-time cp $OSX_DIR/*.hpp $BASE_DIR/build/include/Aluminum
-time cp $OSX_DIR/*.h $BASE_DIR/build/include/Aluminum
+time cp $OSX_DIR/include/Aluminum/*.hpp $BASE_DIR/build/include/Aluminum
+time cp $OSX_DIR/include/Aluminum/*.h $BASE_DIR/build/include/Aluminum
 
 
 

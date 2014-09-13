@@ -147,7 +147,8 @@ namespace aluminum {
           if (useIndices) {
               glDrawElements(GL_TRIANGLES, (GLsizei) data.indices().size(), GL_UNSIGNED_INT, 0);
           } else {
-              glDrawArrays(GL_TRIANGLES, 0, (GLsizei) data.vertices().size() * 9); //double check this!
+            //std::cout << "data.vertices().size() = " << data.vertices().size() << "\n";
+              glDrawArrays(GL_TRIANGLES, 0, (GLsizei) data.vertices().size()); //double check this!
               //printf("here...\n");
           }
       }

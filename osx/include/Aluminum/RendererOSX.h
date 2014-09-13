@@ -1,8 +1,9 @@
 #ifndef ALLOCORE_RENDERER_OSX
 #define ALLOCORE_RENDERER_OSX
 
-#import <Aluminum/Includes.hpp>
 #include <iostream>
+
+#import <Aluminum/Includes.hpp>
 
 
 #import <Aluminum/CocoaGL.h>
