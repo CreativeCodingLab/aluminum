@@ -33,25 +33,13 @@ public:
   vec3 l2_specular = vec3(1.0,1.0,1.0);
   
   
-  void loadProgram(Program &p, const std::string& name) {
-    
-    p.create();
-    
-    p.attach(p.loadText(name + ".vsh"), GL_VERTEX_SHADER);
-    glBindAttribLocation(p.id(), posLoc, "vertexPosition");
-    glBindAttribLocation(p.id(), normalLoc, "vertexNormal");
-    
-    p.attach(p.loadText(name + ".fsh"), GL_FRAGMENT_SHADER);
-   
-    p.link();
-  }
- 
+  
   
   void onCreate() {
+    
     rh.loadProgram(program, "phong", posLoc, normalLoc, -1, -1);
     
-    
-    camera = Camera(60.0, (float)width/(float)height, 0.01, 100.0).translateZ(0.0);
+    camera = Camera(60.0, (float)width/(float)height, 0.01, 100.0).translate(vec3(-4.0,0.0,-20.0));
     
 
     addSphere(mesh1, 2.0, 100, 100);
@@ -160,7 +148,7 @@ public:
   
   void onFrame(){
     
-    if (camera.isTransformed) {
+    if (camera.isTransformed) { //i.e. if you've pressed any of the keys to move or rotate the camera around
       camera.transform();
     }
     
