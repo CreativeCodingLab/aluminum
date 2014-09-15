@@ -118,6 +118,12 @@
     <None Include="resources\phong.fsh">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resources\color.fsh">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\color.vsh">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\hubble.jpg">

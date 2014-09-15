@@ -5,7 +5,7 @@
 using std::chrono::duration_cast;
 using std::chrono::nanoseconds;
 using std::chrono::milliseconds;
-using std::chrono::high_resolution_clock;
+using std::chrono::system_clock;
 
 
 namespace aluminum {
@@ -37,40 +37,43 @@ namespace aluminum {
       //[view printView];
     }
 
-    long RendererWin32::nowPlusMillis(long millis) {
-        return currentTick + (millis * 1000000);
+	long RendererWin32::nowPlusMillis(long millis) {
+		return currentTick + millis;
     }
 
-    long RendererWin32::millisToNano(long millis) {
-        return (millis * 1000000);
+	long RendererWin32::millisToNano(long millis) {
+		return millis;
     }
 
-    long RendererWin32::now() {
-        return currentTick;
+	long RendererWin32::now() {
+		return currentTick;
     }
 
-    long RendererWin32::setStartTick() {
-        high_resolution_clock::time_point clock = high_resolution_clock::now();
-        //startTick = duration_cast<milliseconds>(clock.time_since_epoch()).count();
-        startTick = duration_cast<nanoseconds>(clock.time_since_epoch()).count();
+	long RendererWin32::setStartTick() {
+		system_clock::time_point clock = system_clock::now();
+        startTick = duration_cast<milliseconds>(clock.time_since_epoch()).count();
+		//startTick = duration_cast<nanoseconds>(clock.time_since_epoch()).count();
         currentTick = 0;
+		std::cout << "startTick is " << startTick << std::endl;
         return startTick;
     }
 
-    long RendererWin32::tick() {
-        //currentTick = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count() - startTick;
-        currentTick = duration_cast<nanoseconds>(high_resolution_clock::now().time_since_epoch()).count() - startTick;
-        return currentTick;
+	long RendererWin32::tick() {
+        currentTick = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count() - startTick;
+		//currentTick = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count() - startTick;
+		//printf("currentTick is %i\n", currentTick);
+		return currentTick;
     }
 
     void RendererWin32::mouseDragged(int px, int py) {}
     void RendererWin32::mouseDown(int px, int py) {}
     void RendererWin32::mouseUp(int px, int py) {}
     void RendererWin32::mouseMoved(int px, int py) {}
-	  void RendererWin32::keyboard(unsigned char key, int x, int y) {}
+	void RendererWin32::keyboard(unsigned char key, int x, int y) {}
 
 }
 
 
 
 
+ //93421892

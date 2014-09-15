@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>20C1987C-91F1-49C0-86EE-FFBBD9F820EB</string>
+	<string>9734B9E4-F8E1-4858-925C-9EF831150867</string>
 	<key>IDESourceControlProjectName</key>
 	<string>aluminum</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,7 +14,7 @@
 		<string>https://github.com/CreativeCodingLab/aluminum.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>osx/examples/videoprocessing/aluminum/aluminum.xcodeproj/project.xcworkspace</string>
+	<string>osx/examples/xcode-demos/week3b/aluminum.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>68130DF7-31C0-4B79-8964-ADC08DDE5FCE</key>

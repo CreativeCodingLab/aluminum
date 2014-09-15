@@ -9,6 +9,7 @@ using std::endl;
 namespace aluminum {
     int width;
     int height;
+	int time, timebase = 0;
     RendererWin32* renderer;
     
 	//static std::time_t lastTime = std::time(nullptr);
@@ -37,17 +38,28 @@ namespace aluminum {
     void display() {
 
 	    //printf("in FreeGlutGLView : display()\n");
+		renderer->tick();
 	    renderer->onFrame();
-	    glutSwapBuffers();
+		glFlush();
+		glutSwapBuffers();
     }
 
     void animate() {
-	    float dt;
-        //std::time_t now = std::time(nullptr);
-		static std::clock_t now = std::clock();
-		dt = float(now - lastTime);
-	    lastTime = now;
-
+		renderer->frameCount++;
+		time = glutGet(GLUT_ELAPSED_TIME);
+		if (time - timebase > 1000) {
+			printf("FPS:%4.2f\n",
+				renderer->frameCount*1000.0 / (time - timebase));
+			timebase = time;
+			renderer->frameCount = 0;
+		}
+		//renderer->tick();
+	 //   float dt;
+  //      //std::time_t now = std::time(nullptr);
+		//static std::clock_t now = std::clock();
+		//dt = float(now - lastTime);
+	 //   lastTime = now;
+		//printf("animate: lastTime %i ", now);
 	    glutPostRedisplay();
     }
 
@@ -150,7 +162,8 @@ namespace aluminum {
 
     //	glutGameModeString("1280x1024:32@60");
     //	glutEnterGameMode();
-	
+		
+		renderer->setStartTick();
 	    renderer->onCreate();
 
 	    glutDisplayFunc(&display);
@@ -159,9 +172,9 @@ namespace aluminum {
 	    glutMouseFunc(&pressed);
 	    glutMotionFunc(&dragged);
 	    glutPassiveMotionFunc(&moved);
-	    glutIdleFunc(&animate);
+		glutIdleFunc(&animate);
 		printf("freglutglview start");
-		lastTime = std::clock();
+		//lastTime = std::clock();
 		//std::time(&lastTime);
 	    //gettimeofday(&lastTime, NULL);
 		printf("freglutglview start");

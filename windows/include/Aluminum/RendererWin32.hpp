@@ -10,8 +10,10 @@ namespace aluminum {
         int width;
         int height;
 
-        long startTick;
-        long currentTick;
+		int frameCount = 0;
+
+		long startTick;
+		long currentTick;
 
         RendererWin32();
         void start();
@@ -22,11 +24,11 @@ namespace aluminum {
 
         void accessView();
 
-        long setStartTick(); //set base nanos - called by Cocoa at init
-        long tick(); //calculate amount of time passed since start of program - called by Cocoa prior to each onFrame
-        long now(); //get amount of time passed, assumes calculated already with tick()
-        long nowPlusMillis(long millis);
-        long millisToNano(long millis);
+		long setStartTick(); //set base nanos - called by Cocoa at init
+		long tick(); //calculate amount of time passed since start of program - called by Cocoa prior to each onFrame
+		long now(); //get amount of time passed, assumes calculated already with tick()
+		long nowPlusMillis(long millis);
+		long millisToNano(long millis);
 
         virtual void mouseDragged(int px, int py);
         virtual void mouseDown(int px, int py);
