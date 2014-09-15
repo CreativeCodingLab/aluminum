@@ -1,16 +1,29 @@
+#ifndef MILLIS
+#define MILLIS 1
+#endif
+
+//#ifndef NANO
+//#define NANO 1
+//#endif
+
+
 #import <Aluminum/Includes.hpp>
-//#import <Cocoa/Cocoa.h>
-//#import "RendererOSX.h"
 #import <chrono>
 #import <iostream>
 #import <Aluminum/Texture.hpp>
-//#import "VideoPlayer.h"
+
 
 using std::cout;
 using std::chrono::duration_cast;
-using std::chrono::nanoseconds;
 using std::chrono::milliseconds;
-using std::chrono::high_resolution_clock;
+
+#ifdef NANO
+  using std::chrono::nanoseconds;
+  using std::chrono::high_resolution_clock;
+#else
+  using std::chrono::system_clock;
+#endif
+
 using std::string;
 //using aluminum::Texture;
 
@@ -69,11 +82,20 @@ void RendererOSX::bindDefaultVAO() {
 
 
 long RendererOSX::nowPlusMillis(long millis) {
+  #ifdef NANO
     return currentTick + (millis * 1000000);
+  #else
+    return currentTick + (millis);
+  #endif
 }
 
 long RendererOSX::millisToNano(long millis) {
-    return (millis * 1000000);
+#ifdef NANO
+  return (millis * 1000000);
+#else
+  return (millis);
+#endif
+  
 }
 
 long RendererOSX::now() {
@@ -81,16 +103,27 @@ long RendererOSX::now() {
 }
 
 long RendererOSX::setStartTick() {
-    high_resolution_clock::time_point clock = high_resolution_clock::now();
-    //startTick = duration_cast<milliseconds>(clock.time_since_epoch()).count();
-    startTick = duration_cast<nanoseconds>(clock.time_since_epoch()).count();
-    currentTick = 0;
+
+#ifdef NANO
+  high_resolution_clock::time_point clock = high_resolution_clock::now();
+  startTick = duration_cast<nanoseconds>(clock.time_since_epoch()).count();
+#else
+  system_clock::time_point clock = system_clock::now();
+  startTick = duration_cast<milliseconds>(clock.time_since_epoch()).count();
+#endif
+  
+  currentTick = 0;
     return startTick;
 }
 
 long RendererOSX::tick() {
-    //currentTick = duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count() - startTick;
+ 
+#ifdef NANO
+
     currentTick = duration_cast<nanoseconds>(high_resolution_clock::now().time_since_epoch()).count() - startTick;
+#else
+    currentTick = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count() - startTick;
+#endif
     return currentTick;
 }
 

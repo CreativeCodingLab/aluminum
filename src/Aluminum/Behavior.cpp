@@ -1,7 +1,13 @@
 #include "Aluminum/Behavior.hpp"
 
-//#include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
+//#ifndef NANO
+//#define NANO 1
+//#endif
+
+
+#ifndef MILLIS
+#define MILLIS 1
+#endif
 
 namespace aluminum {
 
@@ -43,12 +49,21 @@ namespace aluminum {
 
 
     Behavior &Behavior::delay(long _ms) {
+#ifdef NANO
         nextTime += _ms * 1000000;
+#else 
+      nextTime += _ms;
+#endif
         return *this;
     }
 
     Behavior &Behavior::length(long _ms) {
-        loopLength = _ms * 1000000;
+#ifdef NANO
+      loopLength = _ms * 1000000;
+#else
+      loopLength = _ms;
+
+#endif
         return *this;
     }
 
