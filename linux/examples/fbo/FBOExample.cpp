@@ -1,154 +1,164 @@
+#include "Aluminum/Includes.hpp"
 
-#include "FreeGlutGLView.hpp"
-#include "RendererLinux.hpp"
+#include "Aluminum/Program.hpp"
+#include "Aluminum/MeshBuffer.hpp"
+#include "Aluminum/MeshData.hpp"
+#include "Aluminum/Shapes.hpp"
+#include "Aluminum/Camera.hpp"
+#include "Aluminum/Utils.hpp"
+#include "Aluminum/MeshUtils.hpp"
+#include "Aluminum/FBO.hpp"
+#include "Aluminum/Behavior.hpp"
+#include "Aluminum/ResourceHandler.hpp"
 
-#include "MeshBuffer.hpp"
-#include "MeshData.hpp"
-#include "MeshUtils.hpp"
-#include "Program.hpp"
-#include "Shapes.hpp"
-#include "FBO.hpp"
-
-#include "Texture.hpp"
-
-using namespace al;
+using namespace aluminum;
 
 class FBOExample : public RendererLinux {
-  public:
 
-    Vec3f diffuse = Vec3f(0.0,1.0,0.0);
-    Vec3f specular = Vec3f(1.0,1.0,1.0);
-    Vec3f ambient = Vec3f(0.0,0.0,0.3);
-    float lightPosX = -1.0f;
-    Mat4f model, view, proj;
-
-    Program program;
-    GLuint vao[1];
-    GLint posLoc=0;
-    GLint texCoordLoc=2;
-
-    MeshUtils::Scene* scene;
-    MeshBuffer cubeMeshBuffer;
-
-    Texture texture;
-    FBO fbo;
-
-    std::vector<MeshData> md;
-    std::vector<MeshBuffer> mb;
-      
-
-    void loadMeshes(const std::string& name) {    
-      
-      MeshUtils::loadMeshes(md, name);
-
-      for (unsigned long i = 0; i < md.size(); i++) {
-	mb.push_back((MeshBuffer()).init(md[i], posLoc, -1, texCoordLoc, -1));
-      }
-    }
-
-    void loadCube() {
-      MeshData cubeData;
-      addCube(cubeData, true, 0.65);
-      cubeMeshBuffer.init(cubeData, posLoc, -1, texCoordLoc, -1); 
-    }
-
-    void loadTexture(Texture& t, const std::string& name) {
-      t.loadTextureData2D(t, name).create2D();
-    } 
-
-    void loadProgram(Program &p, const std::string& name) {
-
-      p.create();
-
-      Shader sv = Shader::sourceFromFile(name + ".vsh", GL_VERTEX_SHADER);
-      Shader sf = Shader::sourceFromFile(name + ".fsh", GL_FRAGMENT_SHADER);
-
-      p.attach(sv);
-
-      glBindAttribLocation(p.id(), posLoc, "vertexPosition");
-      //glBindAttribLocation(p.id(), normalLoc, "vertexNormal");
-      glBindAttribLocation(p.id(), texCoordLoc, "vertexTexCoord");
-
-      p.attach(sf);
-
-      p.link();
-
-      p.listParams();
-
-      printf("program.id = %d, vertex.glsl = %d, frag.glsl = %d\n", p.id(), sv.id(), sf.id());
-    }
-
-    void setUpFBO(FBO &f) {
-      Texture emptyTexture = Texture(256,256,GL_RGBA,GL_RGBA,GL_UNSIGNED_BYTE);
-      f.create().attach(emptyTexture);
-    }
-
-    void onCreate() {
-
-      loadTexture(texture, "resources/hubble.jpg");
-
-      loadProgram(program, "resources/texture");
-
-      loadMeshes("resources/ducky.obj");
-      //loadScene(scene, "resources/bunny_small.obj");
-
-      loadCube();
-
-      setUpFBO(fbo);
+public:
   
-      proj = Matrix4f::perspective(45, 1.0, 0.1, 100);
-      view = Matrix4f::lookAt(Vec3f(0.0,0.0,-5), Vec3f(0,0,0), Vec3f(0,1,0) );
-      model = Matrix4f::identity();
-      model.rotate(M_PI/2, 0,2).rotate(45.0, 1,2).rotate(8.0, 0,1);
+  ResourceHandler rh;
+  
+  Program textureProgram, phongProgram, programColor;
+  GLint posLoc = 0, normalLoc = 1, texCoordLoc = 2, colorLoc = 3;
+  mat4 model, view, proj;
+  MeshData mesh1, mesh2;
+  MeshBuffer mb1, mb2;
+  FBO fbo;
+  MeshBuffer cubeMeshBuffer1, cubeMeshBuffer2, cubeMeshBuffer3;
+  Texture texture;
+  Behavior rotateBehavior;
+  
+  vec3 l1_diffuse = vec3(0.0,1.0,0.0);
+  vec3 l1_specular = vec3(1.0,1.0,1.0);
+  
+  vec3 l2_diffuse = vec3(0.0,0.0,1.0);
+  vec3 l2_specular = vec3(1.0,1.0,1.0);
+  
+  
+  
+  
+  
+  
+  void onCreate() {
+    
+    rh.loadTexture(texture, "resources/hubble.jpg");
+    texture.minFilter(GL_NEAREST);
+    texture.maxFilter(GL_NEAREST);
+    
+    rh.loadProgram(textureProgram, "resources/texture", posLoc, -1, texCoordLoc, -1);
+    rh.loadProgram(phongProgram, "resources/phong", posLoc, normalLoc, texCoordLoc, -1);
+    rh.loadProgram(programColor, "resources/color", posLoc, normalLoc, -1, colorLoc);
+    
+    MeshData md1;
+    addCube(md1, true, 0.95);
+    
+    MeshData md2;
+    addCube(md2, true, 0.5);
+    
+    MeshData md3;
+    addCube(md3, 0.33); //this version makes normals, texcoords, and colors each side with a different default color
+    
+    cubeMeshBuffer1.init(md1, posLoc, normalLoc, texCoordLoc, -1);
+    cubeMeshBuffer2.init(md2, posLoc, normalLoc, texCoordLoc, -1);
+    
+    cubeMeshBuffer3.init(md3, posLoc, normalLoc, -1, colorLoc);
+    
+    
+    fbo.create(32, 32);
 
-      glEnable(GL_DEPTH_TEST);
-      glViewport(0, 0, width, height);
-      glClearColor(0.3,0.3,0.3,1.0);
-    }
-
-    void draw(Mat4f model, MeshBuffer& mb, Texture& t) {
-
-      program.begin(); {
-
-	glUniformMatrix4fv(program.uniform("model"), 1, 0, model.ptr());
-	glUniformMatrix4fv(program.uniform("view"), 1, 0, view.ptr());
-	glUniformMatrix4fv(program.uniform("proj"), 1, 0, proj.ptr());
-
-	t.bind(GL_TEXTURE0);
-
-	glUniform1i(program.uniform("tex0"), 0);
-
-	mb.draw();
-
-	t.unbind(GL_TEXTURE0);
-
-      } program.end();
-    }
-
-    void onFrame(){
-
-      model.rotate(0.01, 0, 1).rotate(0.025, 0, 2).rotate(0.015, 1, 2);
-
-      fbo.bind(); {
-	glClearColor(0.3,0.3,0.3,0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	for (unsigned long i = 0; i < mb.size(); i++) {
-	 draw(model, mb[i], texture); 
-	}
-
-      } fbo.unbind();
-
-      glViewport(0, 0, width, height);
-      glClearColor(0.0,0.0,0.0,1.0);
+millisToNano(1000);
+    
+    rotateBehavior = Behavior(now()).delay(1000).length(5000).range(vec3(3.14, 3.14, 3.14)).reversing(true).repeats(-1).sine();
+    
+    
+    proj = glm::perspective(45.0, 1.0, 0.1, 100.0);
+    view = glm::lookAt(vec3(0.0,0.0,5), vec3(0,0,0), vec3(0,1,0) );
+    model = glm::mat4();
+    
+    glEnable(GL_DEPTH_TEST);
+    glViewport(0, 0, width, height);
+  }
+  
+  
+  void draw(mat4& model, MeshBuffer& mb, Texture& t, Program& p) {
+    
+    p.bind(); {
+      glUniformMatrix4fv(p.uniform("model"), 1, 0, ptr(model));
+      glUniformMatrix4fv(p.uniform("view"), 1, 0, ptr(view));
+      glUniformMatrix4fv(p.uniform("proj"), 1, 0, ptr(proj));
+      
+      t.bind(GL_TEXTURE0); {
+        
+        glUniform1i(p.uniform("tex0"), 0);
+        mb.draw();
+        
+      } t.unbind(GL_TEXTURE0);
+      
+    } p.unbind();
+  }
+  
+  
+  void onFrame(){
+    
+    model = glm::mat4(1.0);
+    
+    vec3 totals = rotateBehavior.tick(now()).totals();
+    model = glm::rotate(model, totals.x, vec3(1.0f,0.0f,0.0f));
+    model = glm::rotate(model, totals.y, vec3(0.0f,1.0f,0.0f));
+    model = glm::rotate(model, totals.z, vec3(0.0f,0.0f,1.0f));
+    
+    
+    //draw cube 1 into an offscreen texture
+    fbo.bind(); {
+      glViewport(0, 0, fbo.width, fbo.height);
+      glClearColor(0.1,0.1,0.1,1.0);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-      draw(model, cubeMeshBuffer, fbo.texture);
-
-    }
+      
+      draw(model, cubeMeshBuffer1, texture, textureProgram);
+      
+    } fbo.unbind();
+    
+    
+    //draw cube 2 with the offscreen texture using phong shading
+    glViewport(0, 0, width, height);
+    glClearColor(0.0,0.0,0.0,1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    model = glm::mat4(1.0);
+    
+    model = glm::translate(model, vec3(1.0,0.0,0.0));
+    model = glm::rotate(model, totals.x, vec3(1.0f,0.0f,0.0f));
+    model = glm::rotate(model, totals.y, vec3(0.0f,1.0f,0.0f));
+    model = glm::rotate(model, totals.z, vec3(0.0f,0.0f,1.0f));
+    
+    draw(model, cubeMeshBuffer2, fbo.texture, phongProgram);
+    
+    
+    
+    //draw cube 3 - a colored cube
+    
+    model = mat4(1.0);
+    model = glm::translate(model, vec3(-1.0,0.0,0.0));
+    
+    model = glm::rotate(model, -totals.x, vec3(1.0f,0.0f,0.0f));
+    model = glm::rotate(model, -totals.y, vec3(0.0f,1.0f,0.0f));
+    model = glm::rotate(model, -totals.z, vec3(0.0f,0.0f,1.0f));
+    
+    programColor.bind(); {
+      glUniformMatrix4fv(programColor.uniform("model"), 1, 0, ptr(model));
+      glUniformMatrix4fv(programColor.uniform("view"), 1, 0, ptr(view));
+      glUniformMatrix4fv(programColor.uniform("proj"), 1, 0, ptr(proj));
+      
+      cubeMeshBuffer3.draw();
+      
+    } programColor.unbind();
+    
+  }
+  
 };
 
-int main() {
-  FBOExample().start(); 
-  return 0;
+int main(){
+  FBOExample().start(); //"aluminum::FBOExample", 100, 100, 400, 300);
+	return 0;
 }

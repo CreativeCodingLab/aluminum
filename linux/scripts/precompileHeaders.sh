@@ -3,7 +3,6 @@
 if [ $# -eq 0 ]
   then
     INCLUDE_DIR="/opt/local/include" #or wherever GLM includes live 
-
   else
     INCLUDE_DIR=$1 #assuming its been passed in from osx-specific run.command
 fi
