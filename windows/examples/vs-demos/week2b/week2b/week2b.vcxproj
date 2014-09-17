@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\hubble.jpg" />
+    <Image Include="resources\sun.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{731A7305-48C0-4627-A013-368AA74EF6FF}</ProjectGuid>

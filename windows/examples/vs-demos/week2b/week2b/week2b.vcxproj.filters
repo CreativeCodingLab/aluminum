@@ -117,5 +117,8 @@
     <Image Include="resources\hubble.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\sun.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

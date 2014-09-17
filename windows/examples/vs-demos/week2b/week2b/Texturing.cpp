@@ -36,11 +36,12 @@ public:
 		p.attach(p.loadText(name + ".fsh"), GL_FRAGMENT_SHADER);
 
 		p.link();
+		vec3 foo = vec3();
 	}
 
 	void onCreate() {
 		rh.loadProgram(program, "resources/texture", posLoc, -1, texCoordLoc, -1);
-		rh.loadTexture(texture, "resources/hubble.jpg");
+		rh.loadTexture(texture, "resources/sun.jpg");
 
 		mb1.init(MeshUtils::makeRectangle(), posLoc, -1, texCoordLoc, -1);
 
