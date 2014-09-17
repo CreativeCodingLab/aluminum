@@ -8,7 +8,8 @@
 int width;
 int height;
 RendererLinux* renderer;
-static struct timeval lastTime;
+//static struct timeval lastTime;
+ static std::clock_t lastTime = std::clock();
 
 FreeGlutGLView::FreeGlutGLView() {}
 
@@ -27,20 +28,32 @@ void reshape(GLint _w, GLint _h) {
 }
 
 void display() {
-
+   renderer->tick();
 	//printf("in FreeGlutGLView : display()\n");
 	renderer->onFrame();
 	glutSwapBuffers();
 }
 
 void animate() {
+ renderer->frameCount++;
+/*              
+  time = glutGet(GLUT_ELAPSED_TIME);
+                if (time - timebase > 1000) {
+                        printf("FPS:%4.2f\n",
+                                renderer->frameCount*1000.0 / (time - timebase));
+                        timebase = time;
+                        renderer->frameCount = 0;
+                }
+*/
+
+/*
 	float dt;
 
 	struct timeval now;
 	gettimeofday(&now, NULL);
 	dt = (float)(now.tv_usec - lastTime.tv_usec);
 	lastTime = now;
-
+*/
 	glutPostRedisplay();
 }
 
@@ -115,7 +128,8 @@ FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
 
 //	glutGameModeString("1280x1024:32@60");
 //	glutEnterGameMode();
-	
+          renderer->setStartTick();
+      	
 	renderer->onCreate();
 
 	glutDisplayFunc(&display);
@@ -126,7 +140,7 @@ FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
 	glutPassiveMotionFunc(&moved);
 	glutIdleFunc(&animate);
 
-	gettimeofday(&lastTime, NULL);
+	//gettimeofday(&lastTime, NULL);
 
 	glutMainLoop();
 
