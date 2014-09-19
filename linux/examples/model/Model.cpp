@@ -1,12 +1,12 @@
 
-#include "Includes.hpp"
+#include "Aluminum/Includes.hpp"
 
-#include "MeshBuffer.hpp"
-#include "MeshData.hpp"
-#include "MeshUtils.hpp"
-#include "Program.hpp"
-#include "Behavior.hpp"
-#include "Texture.hpp"
+#include "Aluminum/MeshBuffer.hpp"
+#include "Aluminum/MeshData.hpp"
+#include "Aluminum/MeshUtils.hpp"
+#include "Aluminum/Program.hpp"
+#include "Aluminum/Behavior.hpp"
+#include "Aluminum/Texture.hpp"
 
 using namespace aluminum;
 
