@@ -59,8 +59,7 @@ public:
 
 	cubeMeshBuffer3.init(md3, posLoc, normalLoc, -1, colorLoc);
 
-
-	fbo.create(32, 32);
+	fbo.create(32, 32);													// M_PI, M_PI_2, M_PI * 2   when we force radians
 	rotateBehavior = Behavior(now()).delay(1000).length(5000).range(vec3(180.0, 90.0, 360.0)).reversing(true).repeats(-1).sine();
 
 

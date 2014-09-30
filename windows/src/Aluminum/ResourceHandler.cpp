@@ -90,7 +90,7 @@ namespace aluminum {
 		typef = FreeImage_GetImageType(dib);
 		colorf = FreeImage_GetColorType(dib);
 		pixSz = FreeImage_GetBPP(dib);
-
+		
 		switch (colorf) {
 		case FIC_MINISBLACK:
 			//right now this is a special case for different types of FONT textures...
@@ -112,13 +112,13 @@ namespace aluminum {
 			break;
 		case FIC_RGB:
 			printf("FIC_RGB\n");
-			pixFormat = GL_RGB;
+			pixFormat = GL_BGR;
 			//dib = FreeImage_ConvertTo32Bits(dib);
 			//pixFormat = GL_RGB;
 			break;
 		case FIC_RGBALPHA:
 			printf("FIC_RGBA\n");
-			//pixFormat = GL_RGBA;
+			pixFormat = GL_RGBA;
 			break;
 		default:
 			printf("format %d not handled!\n", colorf);
@@ -132,13 +132,14 @@ namespace aluminum {
 		printf("w/h = %d/%d\n", width, height);
 		printf("pixel bit size: %d\n", pixSz);
 		printf("FreeImage_IsTransparent = %d\n", FreeImage_IsTransparent(dib));
+		printf("FreeImage_FlipHorizontal = %d\n", FreeImage_FlipHorizontal(dib));
 		
 		GLubyte* data = (GLubyte*)malloc((width * height * 3));
 		memcpy((GLubyte*)data, (GLubyte*)bits, width * height * 3);
 
 		t = Texture(data, width, height, GL_RGBA, pixFormat, GL_UNSIGNED_BYTE);
 		FreeImage_Unload(dib);
-
+		
 	}
 		
 }
