@@ -30,11 +30,15 @@ namespace aluminum {
 
         Texture(GLubyte *data, int w, int h, GLint _internalFormat, GLenum _format, GLenum _type);
 
-        Texture &create2D();
+      Texture &create2D();
 
+      
+      Texture(GLubyte *_d1, GLubyte *_d2, GLubyte *_d3, GLubyte *_d4, GLubyte *_d5, GLubyte *_d6, int _w, int _h, GLint _internalFormat, GLenum _pixelFormat, GLenum _type) ;
+      
+      Texture &createCubeMap();
+      Texture(GLubyte *data, int w, int h, int d, GLint _internalFormat, GLenum _format, GLenum _type);
 
-        Texture(GLubyte *data, int w, int h, int d, GLint _internalFormat, GLenum _format, GLenum _type);
-
+      
         Texture &create3D();
 
         Texture &updateData(GLubyte *a_sub_rect_of_data, GLint xoff, GLint yoff, GLsizei w, GLsizei h);
@@ -84,9 +88,16 @@ namespace aluminum {
         int height;
         int depth; //only for GL_TEXTURE_3D
 
-        //const
-        GLubyte *data; //does this need to be const?
-
+        GLubyte* data;
+      
+      //for cubemaps
+      GLubyte* d1;
+      GLubyte* d2;
+      GLubyte* d3;
+      GLubyte* d4;
+      GLubyte* d5;
+      GLubyte* d6;
+      
     protected:
 
         GLuint texID;

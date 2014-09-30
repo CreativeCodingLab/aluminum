@@ -145,10 +145,12 @@ namespace aluminum {
       glBindVertexArray(vao[0]);
       {
           if (useIndices) {
+            //std::cout << "in MeshBuffer - useIndices = true... data.indices().size() = " << data.indices().size() << " \n";
               glDrawElements(GL_TRIANGLES, (GLsizei) data.indices().size(), GL_UNSIGNED_INT, 0);
           } else {
             //std::cout << "data.vertices().size() = " << data.vertices().size() << "\n";
               glDrawArrays(GL_TRIANGLES, 0, (GLsizei) data.vertices().size()); //double check this!
+              //glDrawArrays(GL_TRIANGLES, 0, 3); //double check this!
               //printf("here...\n");
           }
       }

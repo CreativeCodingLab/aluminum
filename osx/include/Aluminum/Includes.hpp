@@ -1,7 +1,10 @@
 #ifndef INCLUDE_OSX_INCLUDES_HPP
 #define INCLUDE_OSX_INCLUDES_HPP
 
-// #define GLM_FORCE_RADIANS   // To get GLM to shutup // Until code base is updated, do not uncomment
+
+
+
+#define GLM_FORCE_RADIANS   // To get GLM to shutup // Until code base is updated, do not uncomment
 
 
 #ifdef __OBJC__
