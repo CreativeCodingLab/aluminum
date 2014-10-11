@@ -54,6 +54,9 @@ namespace aluminum {
         FBO &create(const Texture t);
         FBO &create(const Texture t, const RBO rb);
 
+      FBO &create(const std::vector<Texture> ts);
+      
+      
         FBO &attach(const Texture t);
         FBO &attach(const Texture t, const RBO rb);
 

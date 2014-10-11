@@ -67,6 +67,8 @@ namespace aluminum {
       static void addTriangle( MeshData &m, vec3 v0, vec3 v1, vec3 v2,
                                 vec3 t0, vec3 t1, vec3 t2);
 
+      static void addPoint(MeshData &m, vec3 v);
+        
       static void addPoint( MeshData &m, vec3 v0, vec3 t0 );
 
 

@@ -45,7 +45,7 @@ namespace aluminum {
         }
 
 
-        const char *log() const;
+        void log() const;
 
 
     private:
@@ -76,10 +76,6 @@ namespace aluminum {
         std::string loadText(const std::string &v);
         //void loadText(std::string& text, const std::string& v);
 
-
-
-        Program &attach(Shader &s);
-
         Program &detach(Shader &s);
 
         Program &link();
@@ -108,7 +104,7 @@ namespace aluminum {
             return mID;
         }
 
-        const char *log() const;
+        void log() const;
 
         void destroy();
 

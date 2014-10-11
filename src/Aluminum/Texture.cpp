@@ -32,16 +32,39 @@ namespace aluminum {
          //maxFilter(GL_NEAREST);
          */
 
+      if (type == GL_FLOAT) {
+        floatdata = new GLfloat[width * height * 4 * sizeof(float)];
+      } else {
         data = new GLubyte[width * height * 4];
-
-        //data = (GLubyte*) malloc (_w*_h*4*sizeof(GLubyte));
-
-        create2D();
-    }
-
-    Texture::Texture(GLubyte *_data, int _w, int _h, GLint _internalFormat, GLenum _pixelFormat, GLenum _type) {
-
+      }
       
+      create2D();
+      
+    }
+  
+  Texture::Texture(GLfloat *_floatdata, int _w, int _h, GLint _internalFormat, GLenum _pixelFormat, GLenum _type) {
+    
+    
+    floatdata = _floatdata;
+    width = _w;
+    height = _h;
+    internalFormat = _internalFormat; //GL_RGBA, GL_RED, etc  (the format of the openGL pixel buffer)
+    pixelFormat = _pixelFormat; //GL_RGB, GL_RGBA, GL_LUMINANCE, etc  (the format of the image data)
+    type = _type; //GL_UNSIGNED_BYTE, GL_FLOAT, etc
+    kind(GL_TEXTURE_2D);
+    
+    /** GL_REPEAT is not fully supported on iOS, **ONLY** if you use Power-of-Two textures!!! To be safe, we are using the GL_CLAMP_TO_EDGE as the default **/
+    
+    mWrapMode = GL_CLAMP_TO_EDGE; //GL_REPEAT;
+    mMinFilter = GL_NEAREST; //GL_NEAREST;
+    mMaxFilter = GL_NEAREST; //GL_NEAREST;
+    
+    create2D();
+  }
+
+
+  Texture::Texture(GLubyte *_data, int _w, int _h, GLint _internalFormat, GLenum _pixelFormat, GLenum _type) {
+
         data = _data;
         width = _w;
         height = _h;
@@ -108,6 +131,7 @@ namespace aluminum {
 
 #endif
 
+  
 
     Texture &Texture::create2D() {
 
@@ -132,7 +156,12 @@ namespace aluminum {
             */
 
             //  glTexImage2D(kind(), 0, internalFormat, width, height, 0, pixelFormat, type, &data[0]);
-              glTexImage2D(kind(), 0, internalFormat, width, height, 0, pixelFormat, type, &data[0]);
+          
+          if (type == GL_FLOAT) {
+            glTexImage2D(kind(), 0, internalFormat, width, height, 0, pixelFormat, type, &floatdata[0]);
+          } else {
+            glTexImage2D(kind(), 0, internalFormat, width, height, 0, pixelFormat, type, &data[0]);
+          }
            
 			//why was this hardcoded?
 			//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &data[0]);

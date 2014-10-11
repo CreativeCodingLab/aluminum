@@ -108,7 +108,6 @@ public:
     
     //draw cube 1 into an offscreen texture
     fbo.bind(); {
-      glViewport(0, 0, fbo.width, fbo.height);
       glClearColor(0.1,0.1,0.1,1.0);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
