@@ -86,7 +86,7 @@ public:
     glViewport(0, 0, width, height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    updateModel();
+   // updateModel();
     
     program.bind(); {
       glUniformMatrix4fv(program.uniform("model"), 1, 0, ptr(model));

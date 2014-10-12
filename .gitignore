@@ -61,13 +61,13 @@ models/
 nifti/
 
 
-# Visual Studio stuff
-*.sdf
-*.obj
-*.suo
-*.exe
-*.ilk
-*.pdb
-*.opensdf
-Release/
-Debug/
+# Visual Studio stuff //AGF - moving this to "windows" subfolder
+#*.sdf
+#*.obj
+#*.suo
+#*.exe
+#*.ilk
+#*.pdb
+#*.opensdf
+#Release/
+#Debug/
