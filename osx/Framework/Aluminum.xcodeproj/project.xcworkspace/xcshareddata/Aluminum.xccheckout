@@ -24,7 +24,7 @@
 		<key>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</key>
 		<string>../../../..</string>
 		<key>92841D9B2B28E1B3035674DCBD51D0B505D0B52F</key>
-		<string>../../../../../..</string>
+		<string>../../../../..</string>
 		<key>CAF3E7F5-533D-4BBD-A6D7-C125D85997C6</key>
 		<string>../../../../../xcodeprojects/aluminum</string>
 	</dict>
@@ -42,7 +42,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>92841D9B2B28E1B3035674DCBD51D0B505D0B52F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
