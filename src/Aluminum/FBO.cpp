@@ -494,10 +494,13 @@ namespace aluminum {
     width = ts[0].width;
     height = ts[1].height;
 
-    
-    GLenum draw_buffers[ts.size()];
-    
-    for (int i = 0; i < ts.size(); i++) {
+	/*const int buff_size = ts.size();
+	GLenum draw_buffers[buff_size];*/
+	// Had to make this change in order to accomodate c++11, which does not allow you to 
+	//GLenum* draw_buffers = (GLenum*)alloca(sizeof(GLenum)*ts.size());
+	GLenum* draw_buffers = new GLenum[ts.size()];
+
+	for (int i = 0; i < ts.size(); i++) {
     
       glBindTexture(GL_TEXTURE_2D, ts[i].id());
       glFramebufferTexture(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, ts[i].id(), 0);
