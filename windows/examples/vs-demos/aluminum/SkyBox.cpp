@@ -78,12 +78,12 @@ public:
 
     //create the cube map texture
     rh.loadCubeMapTexture(cmt, 2048, 2048,
-                          "negz.jpg",
-                          "posz.jpg",
-                          "posy.jpg",
-                          "negy.jpg",
-                          "negx.jpg",
-                          "posx.jpg");
+                          "week5b_CubeMapping/negz.jpg",
+                          "week5b_CubeMapping/posz.jpg",
+                          "week5b_CubeMapping/posy.jpg",
+                          "week5b_CubeMapping/negy.jpg",
+                          "week5b_CubeMapping/negx.jpg",
+                          "week5b_CubeMapping/posx.jpg");
 
 
     rotateBehavior = Behavior(now()).delay(1000).length(10000).range(vec3(glm::radians(360.0))).looping(true).repeats(-1);

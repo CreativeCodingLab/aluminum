@@ -47,7 +47,7 @@ public:
     mb1.init(mesh1, posLoc, normalLoc, -1, -1);
 
 
-    camera = Camera(glm::radians(60.0), (float)width/(float)height, 0.01, 100.0).translate(vec3(0.0,0.0,-5.0)).transform();
+    camera = Camera(glm::radians(60.0), (float)width/(float)height, 0.01, 100.0).translate(vec3(0.0,0.0,-15.0)).transform();
     camera.printCameraInfo();
 
     rotateBehavior = Behavior(now()).delay(1000).length(10000).range(vec3(glm::radians(360.0))).looping(true).repeats(-1);

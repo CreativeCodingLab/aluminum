@@ -43,7 +43,7 @@ public:
   void loadObjIntoMesh(MeshData &modelMesh, const std::string& name, float scalar) {
 
     obj::Model m = obj::loadModelFromFile(rh.pathToResource(name));
-
+	//std::cout << m.faces[0][0] << std::endl;
     for(std::map<std::string, std::vector<unsigned short> >::const_iterator g = m.faces.begin(); g != m.faces.end(); ++g){
       std::cout << g->first << "\n" ;
 

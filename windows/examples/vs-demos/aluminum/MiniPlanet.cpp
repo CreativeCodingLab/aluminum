@@ -40,25 +40,25 @@ public:
 
   virtual void onCreate() {
 
-    rh.loadProgram(planetProgram, "week5c_ImageDistortion/planet", 0, -1, -1, -1);
+    rh.loadProgram(planetProgram, "week5c_ImageDistortation/planet", 0, -1, -1, -1);
 
     mb.init(MeshUtils::makeClipRectangle(), 0, -1, -1, -1);
 
     rh.loadCubeMapTexture(cubemap[0], 2048, 2048,
-                          "week5c_ImageDistortion/f_negz.jpg",
-                          "week5c_ImageDistortion/f_posz.jpg",
-                          "week5c_ImageDistortion/f_posy.jpg",
-                          "week5c_ImageDistortion/f_negy.jpg",
-                          "week5c_ImageDistortion/f_negx.jpg",
-                          "week5c_ImageDistortion/f_posx.jpg");
+                          "week5c_ImageDistortation/f_negz.jpg",
+                          "week5c_ImageDistortation/f_posz.jpg",
+                          "week5c_ImageDistortation/f_posy.jpg",
+                          "week5c_ImageDistortation/f_negy.jpg",
+                          "week5c_ImageDistortation/f_negx.jpg",
+                          "week5c_ImageDistortation/f_posx.jpg");
 
     rh.loadCubeMapTexture(cubemap[1], 2048, 2048,
-                          "week5c_ImageDistortion/b_negz.jpg",
-                          "week5c_ImageDistortion/b_posz.jpg",
-                          "week5c_ImageDistortion/b_posy.jpg",
-                          "week5c_ImageDistortion/b_negy.jpg",
-                          "week5c_ImageDistortion/b_negx.jpg",
-                          "week5c_ImageDistortion/b_posx.jpg");
+                          "week5c_ImageDistortation/b_negz.jpg",
+                          "week5c_ImageDistortation/b_posz.jpg",
+                          "week5c_ImageDistortation/b_posy.jpg",
+                          "week5c_ImageDistortation/b_negy.jpg",
+                          "week5c_ImageDistortation/b_negx.jpg",
+                          "week5c_ImageDistortation/b_posx.jpg");
   }
 
   void onFrame() {

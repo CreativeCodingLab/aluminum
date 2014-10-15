@@ -34,7 +34,7 @@ public:
   void loadProgram(Program &p, const std::string& name) {
 
     //can't link shaders unless a vao is bound...
-    bindDefaultVAO();
+    //bindDefaultVAO();
 
     p.create();
 

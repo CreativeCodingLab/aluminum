@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Behavior.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\Camera.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\FBO.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\Font.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshBuffer.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshData.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshUtils.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\Program.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\Shapes.cpp" />
+    <ClCompile Include="..\..\..\..\src\Aluminum\Texture.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\FreeGlutGLView.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\RendererWin32.cpp" />
+    <ClCompile Include="..\..\..\src\Aluminum\ResourceHandler.cpp" />
+    <ClCompile Include="BasicColor.cpp" />
+    <ClCompile Include="Billboarding.cpp" />
+    <ClCompile Include="Cellular.cpp" />
+    <ClCompile Include="FBOExample.cpp" />
+    <ClCompile Include="ImageProcessing.cpp" />
+    <ClCompile Include="Lighting.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MiniPlanet.cpp" />
+    <ClCompile Include="ModelFromObjFile.cpp" />
+    <ClCompile Include="NoiseSphere.cpp" />
+    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="Texturing.cpp" />
+    <ClCompile Include="Transformation.cpp" />
+    <ClCompile Include="VertexDisplacement.cpp" />
+    <ClCompile Include="WBOIT.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Behavior.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Camera.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\FBO.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Font.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshBuffer.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshData.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshUtils.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Program.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Shapes.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Texture.hpp" />
+    <ClInclude Include="..\..\..\..\include\Aluminum\Utils.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\FreeGlutGLView.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\Includes.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\RendererWin32.hpp" />
+    <ClInclude Include="..\..\..\include\Aluminum\ResourceHandler.hpp" />
+    <ClInclude Include="objload.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="week1_BasicShader\basic_s.fsh" />
+    <None Include="week1_BasicShader\basic_s.vsh" />
+    <None Include="week2a_Transformation\basic_s.fsh" />
+    <None Include="week2a_Transformation\basic_s.vsh" />
+    <None Include="week2b_Texturing\basic_s.fsh" />
+    <None Include="week2b_Texturing\basic_s.vsh" />
+    <None Include="week2b_Texturing\texture.fsh" />
+    <None Include="week2b_Texturing\texture.vsh" />
+    <None Include="week3a_Lighting\phong.fsh" />
+    <None Include="week3a_Lighting\phong.vsh" />
+    <None Include="week3b_RenderToTexture\color.fsh" />
+    <None Include="week3b_RenderToTexture\color.vsh" />
+    <None Include="week3b_RenderToTexture\phong.fsh" />
+    <None Include="week3b_RenderToTexture\phong.vsh" />
+    <None Include="week3b_RenderToTexture\texture.fsh" />
+    <None Include="week3b_RenderToTexture\texture.vsh" />
+    <None Include="week3c_PingPonging\CA.fsh" />
+    <None Include="week3c_PingPonging\CA.vsh" />
+    <None Include="week3c_PingPonging\texture.fsh" />
+    <None Include="week3c_PingPonging\texture.vsh" />
+    <None Include="week4a_VertexDisplacement\phong.fsh" />
+    <None Include="week4a_VertexDisplacement\phong.vsh" />
+    <None Include="week4b_LoadObjFiles\phong.fsh" />
+    <None Include="week4b_LoadObjFiles\phong.vsh" />
+    <None Include="week5a_NoiseDisplacement\noise.fsh" />
+    <None Include="week5a_NoiseDisplacement\noise.vsh" />
+    <None Include="week5b_CubeMapping\dragon.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="week5b_CubeMapping\envMap.vsh" />
+    <None Include="week5b_CubeMapping\negy.jpg" />
+    <None Include="week5b_CubeMapping\posx.jpg" />
+    <None Include="week5b_CubeMapping\posz.jpg" />
+    <None Include="week5b_CubeMapping\skybox.vsh" />
+    <None Include="week5b_CubeMapping\envMap.fsh" />
+    <None Include="week5b_CubeMapping\negx.jpg" />
+    <None Include="week5b_CubeMapping\negz.jpg" />
+    <None Include="week5b_CubeMapping\posy.jpg" />
+    <None Include="week5b_CubeMapping\skybox.fsh" />
+    <None Include="week5c_ImageDistortation\b_negx.jpg" />
+    <None Include="week5c_ImageDistortation\b_negz.jpg" />
+    <None Include="week5c_ImageDistortation\b_posy.jpg" />
+    <None Include="week5c_ImageDistortation\f_negx.jpg" />
+    <None Include="week5c_ImageDistortation\f_negz.jpg" />
+    <None Include="week5c_ImageDistortation\f_posy.jpg" />
+    <None Include="week5c_ImageDistortation\planet.fsh" />
+    <None Include="week5c_ImageDistortation\b_negy.jpg" />
+    <None Include="week5c_ImageDistortation\b_posx.jpg" />
+    <None Include="week5c_ImageDistortation\b_posz.jpg" />
+    <None Include="week5c_ImageDistortation\f_negy.jpg" />
+    <None Include="week5c_ImageDistortation\f_posx.jpg" />
+    <None Include="week5c_ImageDistortation\f_posz.jpg" />
+    <None Include="week5c_ImageDistortation\planet.vsh" />
+    <None Include="week5d_OrderIndependentBlending\blendpass.fsh" />
+    <None Include="week5d_OrderIndependentBlending\final.vsh" />
+    <None Include="week5d_OrderIndependentBlending\phong.vsh" />
+    <None Include="week5d_OrderIndependentBlending\texture.fsh" />
+    <None Include="week5d_OrderIndependentBlending\blendpass.vsh" />
+    <None Include="week5d_OrderIndependentBlending\hubble.jpg" />
+    <None Include="week5d_OrderIndependentBlending\phongOIB.fsh" />
+    <None Include="week5d_OrderIndependentBlending\texture.vsh" />
+    <None Include="week5d_OrderIndependentBlending\final.fsh" />
+    <None Include="week5d_OrderIndependentBlending\phong.fsh" />
+    <None Include="week5d_OrderIndependentBlending\phongOIB.vsh" />
+    <None Include="week6a_ImageProcessing\angus.jpg" />
+    <None Include="week6a_ImageProcessing\hubble.jpg" />
+    <None Include="week6a_ImageProcessing\texture.fsh" />
+    <None Include="week6a_ImageProcessing\family.jpg" />
+    <None Include="week6a_ImageProcessing\stainedglass.jpg" />
+    <None Include="week6a_ImageProcessing\texture.vsh" />
+    <None Include="week6b_Billboarding\angus.jpg" />
+    <None Include="week6b_Billboarding\billboard.vsh" />
+    <None Include="week6b_Billboarding\hubble.jpg" />
+    <None Include="week6b_Billboarding\texture.vsh" />
+    <None Include="week6b_Billboarding\billboard.fsh" />
+    <None Include="week6b_Billboarding\eye.png" />
+    <None Include="week6b_Billboarding\stainedglass.jpg" />
+    <None Include="week6b_Billboarding\billboard.gsh" />
+    <None Include="week6b_Billboarding\family.jpg" />
+    <None Include="week6b_Billboarding\texture.fsh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="week2b_Texturing\hubble.jpg" />
+    <Image Include="week2b_Texturing\sun.jpg" />
+    <Image Include="week3b_RenderToTexture\hubble.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="week4b_LoadObjFiles\bunny.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\cube.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\dragon.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\willis.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Object>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6472734-9A1F-4F1D-A206-483C00EE08D9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>vs-demos</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(FREEGLUT_PATH)\bin;$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <IncludePath>$(FREEIMAGE_PATH)\Dist;$(GLEW_PATH)\include;$(FREEGLUT_PATH)\include;$(GLM_PATH);$(IncludePath); $(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(FREEIMAGE_PATH)\Dist;$(GLEW_PATH)\lib\Release\Win32\;$(FREEGLUT_PATH)\lib\;$(LibraryPath);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ALUMINUM_PATH)\src;$(ALUMINUM_PATH)\windows\src;$(ALUMINUM_PATH)\include;$(ALUMINUM_PATH)\windows\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

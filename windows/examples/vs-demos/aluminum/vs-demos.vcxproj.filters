@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="BasicColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Billboarding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cellular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FBOExample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lighting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniPlanet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelFromObjFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoiseSphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texturing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexDisplacement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WBOIT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Aluminum\FreeGlutGLView.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Aluminum\RendererWin32.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Aluminum\ResourceHandler.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Behavior.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Camera.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\FBO.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Font.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshBuffer.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshData.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\MeshUtils.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Program.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Shapes.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\Aluminum\Texture.cpp">
+      <Filter>Source Files\Aluminum</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\Aluminum\FreeGlutGLView.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Aluminum\Includes.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Aluminum\RendererWin32.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Aluminum\ResourceHandler.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Behavior.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Camera.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\FBO.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Font.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshBuffer.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshData.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\MeshUtils.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Program.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Shapes.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Texture.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\Aluminum\Utils.hpp">
+      <Filter>Header Files\Aluminum</Filter>
+    </ClInclude>
+    <ClInclude Include="objload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="week6a_ImageProcessing\angus.jpg">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week6b_Billboarding\angus.jpg">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_negx.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_negy.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_negz.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_posx.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_posy.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\b_posz.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week6b_Billboarding\billboard.fsh">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6b_Billboarding\billboard.gsh">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6b_Billboarding\billboard.vsh">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\blendpass.fsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\blendpass.vsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\dragon.obj">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\envMap.fsh">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\envMap.vsh">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week6b_Billboarding\eye.png">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_negx.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_negy.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_negz.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_posx.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_posy.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\f_posz.jpg">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week6b_Billboarding\family.jpg">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6a_ImageProcessing\family.jpg">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\final.fsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\final.vsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\hubble.jpg">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week6b_Billboarding\hubble.jpg">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6a_ImageProcessing\hubble.jpg">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\negx.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\negy.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\negz.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5a_NoiseDisplacement\noise.fsh">
+      <Filter>Resource Files\week5a_NoiseDisplacement</Filter>
+    </None>
+    <None Include="week5a_NoiseDisplacement\noise.vsh">
+      <Filter>Resource Files\week5a_NoiseDisplacement</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\phong.fsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\phong.vsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\phongOIB.fsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\phongOIB.vsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\planet.fsh">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5c_ImageDistortation\planet.vsh">
+      <Filter>Resource Files\week5c_ImageDistortation</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\posx.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\posy.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\posz.jpg">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\skybox.fsh">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week5b_CubeMapping\skybox.vsh">
+      <Filter>Resource Files\week5b_CubeMapping</Filter>
+    </None>
+    <None Include="week6b_Billboarding\stainedglass.jpg">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6a_ImageProcessing\stainedglass.jpg">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\texture.fsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week6b_Billboarding\texture.fsh">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6a_ImageProcessing\texture.fsh">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week5d_OrderIndependentBlending\texture.vsh">
+      <Filter>Resource Files\week5d_OrderIndependentBlending</Filter>
+    </None>
+    <None Include="week6b_Billboarding\texture.vsh">
+      <Filter>Resource Files\week6b_Billboarding</Filter>
+    </None>
+    <None Include="week6a_ImageProcessing\texture.vsh">
+      <Filter>Resource Files\week6a_ImageProcessing</Filter>
+    </None>
+    <None Include="week1_BasicShader\basic_s.fsh">
+      <Filter>Resource Files\week1_BasicShader</Filter>
+    </None>
+    <None Include="week1_BasicShader\basic_s.vsh">
+      <Filter>Resource Files\week1_BasicShader</Filter>
+    </None>
+    <None Include="week2a_Transformation\basic_s.fsh">
+      <Filter>Resource Files\week2a_Transformation</Filter>
+    </None>
+    <None Include="week2a_Transformation\basic_s.vsh">
+      <Filter>Resource Files\week2a_Transformation</Filter>
+    </None>
+    <None Include="week2b_Texturing\basic_s.fsh">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </None>
+    <None Include="week2b_Texturing\basic_s.vsh">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </None>
+    <None Include="week2b_Texturing\texture.fsh">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </None>
+    <None Include="week2b_Texturing\texture.vsh">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </None>
+    <None Include="week3a_Lighting\phong.fsh">
+      <Filter>Resource Files\week3a_Lighting</Filter>
+    </None>
+    <None Include="week3a_Lighting\phong.vsh">
+      <Filter>Resource Files\week3a_Lighting</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\color.fsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\color.vsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\phong.fsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\phong.vsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\texture.fsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3b_RenderToTexture\texture.vsh">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </None>
+    <None Include="week3c_PingPonging\CA.fsh">
+      <Filter>Resource Files\week3c_PingPonging</Filter>
+    </None>
+    <None Include="week3c_PingPonging\CA.vsh">
+      <Filter>Resource Files\week3c_PingPonging</Filter>
+    </None>
+    <None Include="week3c_PingPonging\texture.fsh">
+      <Filter>Resource Files\week3c_PingPonging</Filter>
+    </None>
+    <None Include="week3c_PingPonging\texture.vsh">
+      <Filter>Resource Files\week3c_PingPonging</Filter>
+    </None>
+    <None Include="week4a_VertexDisplacement\phong.fsh">
+      <Filter>Resource Files\week4a_VertexDisplacement</Filter>
+    </None>
+    <None Include="week4a_VertexDisplacement\phong.vsh">
+      <Filter>Resource Files\week4a_VertexDisplacement</Filter>
+    </None>
+    <None Include="week4b_LoadObjFiles\phong.fsh">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </None>
+    <None Include="week4b_LoadObjFiles\phong.vsh">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{aa0d735b-9af5-486f-8bfc-0e742bc28e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ab0aa91d-d268-4964-a81e-773df35bea91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{d0408ddd-b3ed-4e61-8edf-c0510fccaef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Aluminum">
+      <UniqueIdentifier>{f063dcd8-72f9-49bc-b64f-70daf5f52e9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Aluminum">
+      <UniqueIdentifier>{15fa54b4-df5e-4d1c-b1a1-14dfbaa3569a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week1_BasicShader">
+      <UniqueIdentifier>{93e3aa67-a90e-44ae-acd9-b0c5e55f9bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week2a_Transformation">
+      <UniqueIdentifier>{bf75774c-be12-4182-ac08-fea89e78dd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week2b_Texturing">
+      <UniqueIdentifier>{7219587b-cb27-40bf-b103-fe343f33e15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week3a_Lighting">
+      <UniqueIdentifier>{0ce77568-e861-450c-92fb-a731b53f9280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week3b_RenderToTexture">
+      <UniqueIdentifier>{4ca78d0b-f8c0-4cad-b3b5-8105a37d4e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week3c_PingPonging">
+      <UniqueIdentifier>{a2e5ccc1-1a8c-42a1-9b3b-9c94df136e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week4a_VertexDisplacement">
+      <UniqueIdentifier>{c660f7c7-9ea9-40c9-9b42-e9462a2feed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week4b_LoadObjFiles">
+      <UniqueIdentifier>{a28ff62e-4aec-42bd-814a-70dbf1d96dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week5a_NoiseDisplacement">
+      <UniqueIdentifier>{18fefe9d-d7c0-4388-9fe1-4d934c8fdf9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week5b_CubeMapping">
+      <UniqueIdentifier>{6b0bdf94-2b64-431e-9b0b-125f53f25cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week5c_ImageDistortation">
+      <UniqueIdentifier>{4c74e65c-ad48-432e-a4c7-01ccf7673141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week5d_OrderIndependentBlending">
+      <UniqueIdentifier>{e84bcae6-a816-4251-b3d2-715ea7d78abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week6a_ImageProcessing">
+      <UniqueIdentifier>{7f360940-0731-4014-a6d0-a3e5bb6e9fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\week6b_Billboarding">
+      <UniqueIdentifier>{19e5de06-9bb7-4650-91a3-3bcf549a2a1e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="week2b_Texturing\hubble.jpg">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </Image>
+    <Image Include="week2b_Texturing\sun.jpg">
+      <Filter>Resource Files\week2b_Texturing</Filter>
+    </Image>
+    <Image Include="week3b_RenderToTexture\hubble.jpg">
+      <Filter>Resource Files\week3b_RenderToTexture</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="week4b_LoadObjFiles\bunny.obj">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\cube.obj">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\dragon.obj">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </Object>
+    <Object Include="week4b_LoadObjFiles\willis.obj">
+      <Filter>Resource Files\week4b_LoadObjFiles</Filter>
+    </Object>
+  </ItemGroup>
+</Project>
