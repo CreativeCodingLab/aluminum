@@ -100,7 +100,7 @@ public:
     modely = -1.2;
     cameraz = 4;
 
-    proj = glm::perspective(45.0f, (float)width/(float)height, 0.1f, 1000.0f);
+    proj = glm::perspective(glm::radians(45.0f), (float)width/(float)height, 0.1f, 1000.0f);
     view = glm::lookAt(vec3(camerax, cameray, -cameraz), vec3(0,0,0), vec3(0,1,0) );
     model = glm::mat4();
     model = glm::translate(model, vec3(modelx, modely, modelz));
@@ -145,7 +145,7 @@ public:
 
 
 
-  void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
+  void keyboard(unsigned char key, int x, int y) {
 
     switch(key) {
       case ' ' :

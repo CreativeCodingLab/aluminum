@@ -100,7 +100,7 @@ public:
     gamma = ((float)px/(float)width) * 5.0;
   }
 
-  void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
+  void keyboard(unsigned char key, int x, int y) {
 
     switch(key) {
       case 'r' :

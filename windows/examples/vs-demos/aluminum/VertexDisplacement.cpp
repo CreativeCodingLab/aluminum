@@ -73,17 +73,19 @@ public:
   void draw(mat4 proj, mat4 view) {
 
     //update times
-    t1 += 0.05 * t1dir;
+    //t1 += 0.00000005 * t1dir;
+	  t1 = 0.0000000001;
     if (abs(t1) > 17.0) { t1dir *= -1; }
 
-    t2 += 0.07 * t2dir;
+    //t2 += 0.00000007 * t2dir;
+	t2 = 0.0000000002;
     if (abs(t2) > 23.0) { t2dir *= -1; }
 
 
     //rotate our model around the y-axis
-    vec3 totals = rotateBehavior.tick(now()).totals();
+	vec3 totals = glm::radians(rotateBehavior.tick(now()).totals());
     model1 = glm::mat4();
-    model1 = glm::rotate(model1, totals.y, vec3(0.0f,1.0f,0.0f));
+    //model1 = glm::rotate(model1, totals.y, vec3(0.0f,1.0f,0.0f));
 
 
     //update colors

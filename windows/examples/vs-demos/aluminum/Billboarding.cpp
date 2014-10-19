@@ -71,7 +71,7 @@ public:
     Utils::randomSeed();
     MeshData points;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1; i++) {
       MeshUtils::addPoint(points, Utils::randomVec3(-1.0,1.0), Utils::randomVec3(0.0,1.0));
 
     }
@@ -119,8 +119,11 @@ public:
     glViewport(0, 0, width, height);
   }
 
+  void mouseMoved(int x, int y){
+	  camera.rotateY(glm::radians(-2.));
+  }
 
-  void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
+  /*void keyboard(unsigned char key, int x, int y) {
 
     switch(key) {
       case ' ' :
@@ -175,6 +178,6 @@ public:
         camera.translateY(-0.5);
         break;
     }
-  }
+  }*/
 
 };

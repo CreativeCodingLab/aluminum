@@ -6,17 +6,17 @@
 #endif
 
 namespace aluminum {
-  
+
   ///////////////////////////////////////////////////////////////////////////////
   // convert OpenGL 3.2 core profile's internal format enum to string
   ///////////////////////////////////////////////////////////////////////////////
   std::string convertInternalFormatToString(GLenum format) {
     std::string formatName;
-    
+
     switch (format) {
         //Table 3.12: sized internal color formats
 #ifndef BUILD_IOS
-        
+
       case GL_R8:
         formatName = "GL_R8";
         break;
@@ -131,7 +131,7 @@ namespace aluminum {
       case GL_R8UI:
         formatName = "GL_R8UI";
         break;
-        
+
       case GL_R16I:
         formatName = "GL_R16I";
         break;
@@ -195,14 +195,14 @@ namespace aluminum {
       case GL_RGBA32UI:
         formatName = "GL_RGBA32UI";
         break;
-        
+
       case GL_RGBA4:
         formatName = "GL_RGBA4";
         break;
       case GL_RGB5_A1:
         formatName = "GL_RGB5_A1";
         break;
-        
+
         //Table 3.13: sized interal depth formats
       case GL_DEPTH_COMPONENT16:
         formatName = "GL_DEPTH_COMPONENT16";
@@ -222,7 +222,7 @@ namespace aluminum {
       case GL_DEPTH32F_STENCIL8:
         formatName = "GL_DEPTH32F_STENCIL8";
         break;
-        
+
         //Table 4.10: sized internal formats for formats that can only be used with renderbuffers
       case GL_STENCIL_INDEX1:
         formatName = "GL_STENCIL_INDEX1";
@@ -236,7 +236,7 @@ namespace aluminum {
       case GL_STENCIL_INDEX16:
         formatName = "GL_STENCIL_INDEX16";
         break;
-        
+
         //Table 3.3: pixel data formats (these are not actually internal formats...)
       case GL_STENCIL_INDEX:
         formatName = "GL_STENCIL_INDEX";
@@ -300,11 +300,11 @@ namespace aluminum {
         formatName = "Unknown Format";
         break;
     }
-    
+
     return formatName;
   }
-  
-  
+
+
   ///////////////////////////////////////////////////////////////////////////////
   // return texture parameters as string using glGetTexLevelParameteriv()
   ///////////////////////////////////////////////////////////////////////////////
@@ -312,7 +312,7 @@ namespace aluminum {
 #ifndef BUILD_IOS
     if (glIsTexture(id) == GL_FALSE)
       return "Not texture object";
-    
+
     int width, height, format;
     std::string formatName;
     glBindTexture(GL_TEXTURE_2D, id);
@@ -320,27 +320,27 @@ namespace aluminum {
     glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height);          // get texture height
     glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_INTERNAL_FORMAT, &format); // get texture internal format
     glBindTexture(GL_TEXTURE_2D, 0);
-    
+
     formatName = convertInternalFormatToString(format);
-    
+
     std::stringstream ss;
     ss << width << "x" << height << ", " << formatName << "(" << format << ")";
-    
+
     return ss.str();
 #else
     return "not supported in IOS OpenGLES2.0";
 #endif
   }
-  
-  
-  
+
+
+
   ///////////////////////////////////////////////////////////////////////////////
   // return renderbuffer parameters as string using glGetRenderbufferParameteriv
   ///////////////////////////////////////////////////////////////////////////////
   std::string getRenderbufferParameters(GLuint id) {
     if (glIsRenderbuffer(id) == GL_FALSE)
       return "Not Renderbuffer object";
-    
+
     int width, height, format;
     std::string formatName;
     glBindRenderbuffer(GL_RENDERBUFFER, id);
@@ -348,27 +348,27 @@ namespace aluminum {
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);  // get renderbuffer height
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_INTERNAL_FORMAT, &format); // get renderbuffer internal format
     glBindRenderbuffer(GL_RENDERBUFFER, 0);
-    
+
     formatName = convertInternalFormatToString(format);
-    
+
     std::stringstream ss;
     ss << width << "x" << height << ", " << formatName << "(" << format << ")";
     return ss.str();
   }
-  
-  
+
+
   void printFramebufferInfo() {
 #ifndef BUILD_IOS
     std::cout << "\n===== FBO STATUS =====\n";
-    
+
     // print max # of colorbuffers supported by FBO
     int colorBufferCount = 0;
     glGetIntegerv(GL_MAX_COLOR_ATTACHMENTS, &colorBufferCount);
     std::cout << "Max Number of Color Buffer Attachment Points: " << colorBufferCount << std::endl;
-    
+
     int objectType;
     int objectId;
-    
+
     // print info of the colorbuffer attachable image
     for (int i = 0; i < colorBufferCount; ++i) {
       glGetFramebufferAttachmentParameteriv(GL_FRAMEBUFFER,
@@ -380,9 +380,9 @@ namespace aluminum {
                                               GL_COLOR_ATTACHMENT0+ i,
                                               GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME,
                                               &objectId);
-        
+
         std::string formatName;
-        
+
         std::cout << "Color Attachment " << i << ": ";
         if (objectType == GL_TEXTURE) {
           std::cout << "GL_TEXTURE, " << getTextureParameters(objectId) << std::endl;
@@ -392,7 +392,7 @@ namespace aluminum {
         }
       }
     }
-    
+
     // print info of the depthbuffer attachable image
     glGetFramebufferAttachmentParameteriv(GL_FRAMEBUFFER,
                                           GL_DEPTH_ATTACHMENT,
@@ -403,7 +403,7 @@ namespace aluminum {
                                             GL_DEPTH_ATTACHMENT,
                                             GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME,
                                             &objectId);
-      
+
       std::cout << "Depth Attachment: ";
       switch (objectType) {
         case GL_TEXTURE:
@@ -414,7 +414,7 @@ namespace aluminum {
           break;
       }
     }
-    
+
     // print info of the stencilbuffer attachable image
     glGetFramebufferAttachmentParameteriv(GL_FRAMEBUFFER,
                                           GL_STENCIL_ATTACHMENT,
@@ -425,7 +425,7 @@ namespace aluminum {
                                             GL_STENCIL_ATTACHMENT,
                                             GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME,
                                             &objectId);
-      
+
       std::cout << "Stencil Attachment: ";
       switch (objectType) {
         case GL_TEXTURE:
@@ -436,50 +436,50 @@ namespace aluminum {
           break;
       }
     }
-    
+
     std::cout << std::endl;
 #endif
   }
-  
-  
+
+
   FBO::FBO() {
     use = false;
   }
-  
+
   FBO &FBO::create() {
     glGenFramebuffers(1, &fboID);
     return *this;
   }
-  
-  
+
+
 #ifdef BUILD_IOS
   FBO& FBO::create(int w, int h) {
     glGenFramebuffers(1, &fboID);
     return attach(Texture(w, h, GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE), RBO(w, h, GL_DEPTH_COMPONENT16));
   }
 #else
-  
-  
+
+
   FBO &FBO::create(int w, int h) {
     glGenFramebuffers(1, &fboID);
     return attach(Texture(w, h, GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE), RBO(w, h, GL_DEPTH_COMPONENT24));
     //        return attach(Texture(w, h, GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE), RBO(w, h, GL_DEPTH_COMPONENT32F));
   }
-  
+
 #endif
-  
-  
+
+
   FBO &FBO::create(Texture t) {
     glGenFramebuffers(1, &fboID);
     return attach(t);
   }
-  
+
   FBO &FBO::create(Texture t, RBO rb) {
     glGenFramebuffers(1, &fboID);
     return attach(t, rb);
   }
-  
-  
+
+
   // Creates an FBO with multiple render targets. Assumes that the targets are 2D, the same size, and have no attached depth texture.
   FBO &FBO::create(std::vector<Texture> ts) {
     glGenFramebuffers(1, &fboID);
@@ -489,25 +489,23 @@ namespace aluminum {
       std::cerr << "In FBO : Can't create a multirender target with no textures! " << std::endl;
       exit(0);
     }
-    
+
     //assuming sizes of all targets is the same
     width = ts[0].width;
     height = ts[1].height;
 
-	/*const int buff_size = ts.size();
-	GLenum draw_buffers[buff_size];*/
-	// Had to make this change in order to accomodate c++11, which does not allow you to 
-	//GLenum* draw_buffers = (GLenum*)alloca(sizeof(GLenum)*ts.size());
+	// Had to make this change in order to accomodate c++11, which does not allow you to allocate an array with a non-constant value.
 	GLenum* draw_buffers = new GLenum[ts.size()];
 
 	for (int i = 0; i < ts.size(); i++) {
-    
+
       glBindTexture(GL_TEXTURE_2D, ts[i].id());
       glFramebufferTexture(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, ts[i].id(), 0);
       draw_buffers[i] = GL_COLOR_ATTACHMENT0 + i;
     }
-    
+
     glDrawBuffers((GLsizei)ts.size(), draw_buffers);
+    delete draw_buffers;
 
     //test FBO
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fboID);
@@ -516,179 +514,179 @@ namespace aluminum {
       printf("There is a problem with the multiple render target FBO\n");
       exit(0);
     }
-    
+
     //return to normal
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
-    
+
+
     return *this;
     //return attach(ts[0]);
   }
-  
-  
-  
-  
+
+
+
+
   FBO &FBO::replace(Texture t, RBO rb) {
     //delete old, and attach new
     texture.destroy();
     rbo.destroy();
     return attach(t, rb);
   }
-  
+
   FBO &FBO::attach(Texture t, RBO rb) {
-    
-    
+
+
 #ifdef BUILD_IOS
-    
+
     texture = t;
     rbo = rb;
     width = texture.width;
     height = texture.height;
-    
+
     //1. bind FBO
     glBindFramebuffer(GL_FRAMEBUFFER, fboID); {
-      
+
       //2. attach texture (as color attachment) to fbo
       texture.bind(); {
         glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER_APPLE, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.id(), 0);
         //     glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.id(), 0);
-        
+
       } texture.unbind();
-      
-      
+
+
       /*
        //3. attach renderbuffer (as depth attachment) to fbo
        rb.bind(); {
        glFramebufferRenderbuffer(GL_DRAW_FRAMEBUFFER_APPLE, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rb.id());
        } rb.unbind();
        */
-      
+
       checkStatus();
-      
+
       //4. unbind FBO
     } glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
+
     return *this;
 #else
-    
-    
+
+
     texture = t;
     rbo = rb;
     width = texture.width;
     height = texture.height;
-    
+
     //1. bind FBO
     glBindFramebuffer(GL_FRAMEBUFFER, fboID);
     {
-      
+
       //2. attach texture (as color attachment) to fbo
       texture.bind();
       {
         glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.id(), 0);
       }
       texture.unbind();
-      
+
       //3. attach renderbuffer (as depth attachment) to fbo
       rb.bind();
       {
         glFramebufferRenderbuffer(GL_DRAW_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rb.id());
       }
       rb.unbind();
-      
+
       checkStatus();
-      
+
       //4. unbind FBO
     }
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
+
     return *this;
 #endif
   }
-  
-  
+
+
   FBO &FBO::replace(Texture t) {
     texture.destroy();
     return attach(t);
   }
-  
+
 #ifdef BUILD_IOS
   FBO& FBO::attach(Texture t) {
-    
+
     texture = t;
     width = texture.width;
     height = texture.height;
-    
+
     //1. bind FBO
     glBindFramebuffer(GL_FRAMEBUFFER, fboID); {
-      
+
       //2. attach texture (as color attachment) to fbo
       texture.bind(); {
         glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER_APPLE, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.id(), 0);
       } texture.unbind();
-      
+
       checkStatus();
-      
+
       //3. unbind FBO
     } glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
+
     return *this;
   }
-  
+
 #else
-  
+
   FBO &FBO::attach(Texture t) {
-    
+
     texture = t;
     width = texture.width;
     height = texture.height;
-    
+
     //1. bind FBO
     glBindFramebuffer(GL_FRAMEBUFFER, fboID);
     {
-      
+
       //2. attach texture (as color attachment) to fbo
       texture.bind();
       {
         glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.id(), 0);
       }
       texture.unbind();
-      
+
       checkStatus();
-      
+
       //3. unbind FBO
     }
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
+
     return *this;
   }
-  
+
 #endif
-  
+
   void FBO::checkStatus() {
     /* assumes that the FBO is bound */
-    
+
     //printFramebufferInfo();
-    
+
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
       printf("in FBO : ERROR!!!!: Failed to make complete framebuffer object %x", glCheckFramebufferStatus(GL_FRAMEBUFFER));
       exit(0);
     }
   }
-  
+
   //use this one if you are changing the fbo texture..
   FBO &FBO::bind(Texture t) {
     attach(t);
     glViewport(0, 0, width, height); //w & h MUST match the texture size
     return *this;
   }
-  
+
   //use this one if you are changing the fbo texture or rbo..
   FBO &FBO::bind(Texture t, RBO rb) {
     attach(t, rb);
     glViewport(0, 0, width, height); //w & h MUST match the texture size
     return *this;
   }
-  
+
   FBO &FBO::bind() {
     //printf("binding to fbo id = %d\n", fboID);
     // printf("fbo w/h = %d/%d\n", width, height);
@@ -697,22 +695,22 @@ namespace aluminum {
     glViewport(0, 0, width, height); //w & h SHOULD match the texture size
     return *this;
   }
-  
+
   FBO &FBO::unbind() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     return *this;
   }
-  
+
   void FBO::unbindAll() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
+
   }
-  
-  
+
+
   RBO::RBO() {
     use = false;
   }
-  
+
   RBO::RBO(int _width, int _height, GLenum _format) {
     use = false;
     width = _width;
@@ -720,7 +718,7 @@ namespace aluminum {
     internalformat = _format;
     create();
   }
-  
+
   RBO &RBO::create() {
     glGenRenderbuffers(1, &rboID);
     bind();
@@ -728,28 +726,28 @@ namespace aluminum {
       glRenderbufferStorage(GL_RENDERBUFFER, internalformat, width, height);
     }
     unbind();
-    
+
     return *this;
   }
-  
+
   void RBO::destroy() {
     glDeleteRenderbuffers(1, &rboID);
   }
-  
-  
+
+
   GLint RBO::id() {
     return rboID;
   }
-  
+
   RBO &RBO::bind() {
     glBindRenderbuffer(GL_RENDERBUFFER, rboID);
     return *this;
   }
-  
+
   RBO &RBO::unbind() {
     glBindRenderbuffer(GL_RENDERBUFFER, 0);
     return *this;
   }
-  
+
 };
 

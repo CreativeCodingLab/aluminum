@@ -211,7 +211,7 @@ public:
   }
 
 
-  void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
+  void keyboard(unsigned char key, int x, int y) {
 
     switch(key) {
       case 'a' :

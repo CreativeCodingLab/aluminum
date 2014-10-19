@@ -162,8 +162,8 @@ public:
 
 
 	//examples of how to react to a key event
-	void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
-		printf("in Basic: key = %c, shift=%d, control=%d, command=%d, option=%d, function=%d\n", key, shift, control, command, option, function);
+	void keyboard(unsigned char key, int x, int y) {
+		//printf("in Basic: key = %c, shift=%d, control=%d, command=%d, option=%d, function=%d\n", key, shift, control, command, option, function);
 
 		switch (key) {
 		case 'a':

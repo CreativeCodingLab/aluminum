@@ -534,14 +534,14 @@ namespace aluminum {
     }
 
 
-  
+
   void MeshUtils::addPoint(MeshData &m, vec3 v) {
-    
+
     const vec3 vs[] = { v };
     unsigned int off = (unsigned int) m.indices().size();
-    
+
     const unsigned int indices[] = { off };
-    
+
     m.vertex(vs, 1);
     m.index(indices, 1);
   }
@@ -630,7 +630,7 @@ namespace aluminum {
       cout << "v1 : " << to_string(vs[1]) << "\n";
       cout << "v2 : " << to_string(vs[2]) << "\n";
       cout << "v3 : " << to_string(vs[3]) << "\n";
-      
+
       cout << "n0 : " << to_string(ns[0]) << "\n";
       cout << "n1 : " << to_string(ns[1]) << "\n";
       cout << "n2 : " << to_string(ns[2]) << "\n";

@@ -144,7 +144,7 @@ public:
 
   }
 
-  void keyDown(char key, bool shift, bool control, bool command, bool option, bool function) {
+  void keyboard(unsigned char key, int x, int y) {
 
     switch(key) {
       case ' ' :
@@ -152,18 +152,22 @@ public:
         break;
 
       case 'a' :
+		  printf("you pressed the A key!");
         camera.rotateY(glm::radians(2.));
         break;
 
       case 'd' :
+		  printf("you pressed the D key!");
         camera.rotateY(glm::radians(-2.));
         break;
 
       case 'w' :
+		  printf("you pressed the W key!");
         camera.rotateX(glm::radians(2.));
         break;
 
       case 'x' :
+		  printf("you pressed the W key!");
         camera.rotateX(glm::radians(-2.));
         break;
 
