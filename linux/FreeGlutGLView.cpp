@@ -73,6 +73,8 @@ void moved(int x, int y ) {
 
 
 void keyboard(unsigned char key, int x, int y) {
+	renderer->keyboard(key,x,y);
+	
 	switch(key) {
 
 		case 27: 
