@@ -16,7 +16,7 @@ void RendererLinux::start() {
 	FreeGlutGLView::start(this);
 }
 void RendererLinux::start(std::string name) {
-	printf("in RendererLinux::start(name)\n");
+	printf("in RendererLinux::start(%s)\n", name.c_str());
 	FreeGlutGLView::start(this, name);
 }
 
