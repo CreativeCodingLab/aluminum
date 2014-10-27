@@ -1,0 +1,12 @@
+# Visual Studio stuff
+*.sdf
+*.obj
+*.suo
+*.exe
+*.ilk
+*.pdb
+*.opensdf
+Release/
+Debug/
+
+

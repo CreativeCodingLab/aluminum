@@ -10,7 +10,7 @@
 #include <cmath>
 
 
-//#define GLM_FORCE_RADIANS   // To get GLM to shutup
+#define GLM_FORCE_RADIANS   // To get GLM to shutup
 #include <GL/glew.h>
 #pragma comment(lib, "glew32.lib")
 #define GLEW_STATIC 

@@ -111,7 +111,7 @@ namespace aluminum {
     }
 
 	FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
-		return FreeGlutGLView::start(_renderer, "allomin", 200, 200);
+		return FreeGlutGLView::start(_renderer, "allomin", 400, 300);
 	}
 
     FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name, int _width, int _height) {

@@ -535,6 +535,18 @@ namespace aluminum {
 
 
 
+  void MeshUtils::addPoint(MeshData &m, vec3 v) {
+
+    const vec3 vs[] = { v };
+    unsigned int off = (unsigned int) m.indices().size();
+
+    const unsigned int indices[] = { off };
+
+    m.vertex(vs, 1);
+    m.index(indices, 1);
+  }
+
+
 
   void MeshUtils::addPoint(MeshData &m, vec3 v, vec3 t) {
 
@@ -600,7 +612,8 @@ namespace aluminum {
         MeshData m;
         //m.create();
 
-        vec3 n = glm::cross(v1 - v0, v2 - v0);
+        vec3 n = glm::cross(v0 - v1, v2 - v0); //to do: double check direction...
+        n = glm::normalize(n);
 
         const vec3 vs[] = { v0, v1, v2, v3 };
         const vec3 ns[] = { n, n, n, n };
@@ -612,8 +625,19 @@ namespace aluminum {
         m.normal(ns, 4);
         m.texCoord(ts, 4);
         m.index(indices, 6);
+     /*
+      cout << "v0 : " << to_string(vs[0]) << "\n";
+      cout << "v1 : " << to_string(vs[1]) << "\n";
+      cout << "v2 : " << to_string(vs[2]) << "\n";
+      cout << "v3 : " << to_string(vs[3]) << "\n";
 
-        return m;
+      cout << "n0 : " << to_string(ns[0]) << "\n";
+      cout << "n1 : " << to_string(ns[1]) << "\n";
+      cout << "n2 : " << to_string(ns[2]) << "\n";
+      cout << "n3 : " << to_string(ns[3]) << "\n";
+     // exit(0);
+      */
+      return m;
     }
 
 

@@ -24,7 +24,7 @@ namespace aluminum {
 
 	void RendererWin32::start(std::string name, int _width, int _height) {
 		printf("in RendererWin32::start(name)\n");
-		FreeGlutGLView::start(this, name);
+		FreeGlutGLView::start(this, name, _width, _height);
 	}
 
 

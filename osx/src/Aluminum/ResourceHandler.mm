@@ -66,6 +66,83 @@ void ResourceHandler::loadProgram(Program &p, const std::string &name, int pLoc,
 }
 
 
+void ResourceHandler::loadImageData(GLubyte *data, const std::string &name) {
+  NSString *basePath = [[[NSString alloc] initWithUTF8String:name.c_str()] autorelease];
+  NSArray *splits = [basePath componentsSeparatedByString:@"."];
+  
+  NSString *fileStr = [splits objectAtIndex:0];
+  NSString *typeStr = [splits objectAtIndex:1];
+  
+  NSString *pathname = [[NSBundle mainBundle] pathForResource:fileStr ofType:typeStr];
+  NSLog(@"Loading texture: %@.%@\n", fileStr, typeStr);
+  
+  NSLog(@"loading in texture from path: %@\n", pathname);
+  NSData *texData = [[NSData alloc] initWithContentsOfFile:pathname];
+  NSImage *nsimage = [[NSImage alloc] initWithData:texData];
+  
+  NSBitmapImageRep *imageClass = [[[NSBitmapImageRep alloc] initWithData:[nsimage TIFFRepresentation]] autorelease];
+  [nsimage release];
+  
+  CGImageRef cgImage = imageClass.CGImage;
+  
+  int _w = (int) CGImageGetWidth(cgImage);
+  int _h = (int) CGImageGetHeight(cgImage);
+  
+  cerr << "image w/h = " << _w << "/" << _h << "\n";
+  
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+ // GLubyte *data = (GLubyte *) malloc(_w * _h * 4);
+  
+  CGContextRef context = CGBitmapContextCreate(data, _w, _h, 8, _w * 4, colorSpace, kCGImageAlphaNoneSkipLast);
+  CGContextSetBlendMode(context, kCGBlendModeCopy);
+  
+  bool flipVertical = false;
+  if (flipVertical) {
+    CGContextTranslateCTM(context, 0.0, _h);
+    CGContextScaleCTM(context, 1.0, -1.0);
+  }
+  
+  CGContextDrawImage(context, CGRectMake(0.0, 0.0, _w, _h), cgImage);
+  CGContextRelease(context);
+  
+  [texData release];
+}
+
+
+
+
+void ResourceHandler::loadCubeMapTexture(Texture &t, int w, int h,
+                                         const std::string &negz,
+                                         const std::string &posz,
+                                         const std::string &posy,
+                                         const std::string &negy,
+                                         const std::string &negx,
+                                         const std::string &posx) {
+
+  GLubyte* d1 = new GLubyte[w * h * 4];
+  loadImageData(d1, negz);
+  
+  GLubyte* d2 = new GLubyte[w * h * 4];
+  loadImageData(d2, posz);
+  
+  GLubyte* d3 = new GLubyte[w * h * 4];
+  loadImageData(d3, posy);
+  
+  GLubyte* d4 = new GLubyte[w * h * 4];
+  loadImageData(d4, negy);
+  
+  GLubyte* d5 = new GLubyte[w * h * 4];
+  loadImageData(d5, negx);
+  
+  GLubyte* d6 = new GLubyte[w * h * 4];
+  loadImageData(d6, posx);
+  
+  t = aluminum::Texture(d1, d2, d3, d4, d5, d6, w, h, GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE);
+
+  
+}
+
+
 void ResourceHandler::loadTexture(Texture &t, const std::string &name) {
 
     NSString *basePath = [[[NSString alloc] initWithUTF8String:name.c_str()] autorelease];

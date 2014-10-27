@@ -23,20 +23,31 @@ namespace aluminum {
         }
     }
 
-    const char *Shader::log() const {
-        GLint lsize;
-        get(GL_INFO_LOG_LENGTH, &lsize);
-        if (0 == lsize) return NULL;
+    void Shader::log() const {
+        GLint status;
+        glCompileShader (id());
+        glGetShaderiv (id(), GL_COMPILE_STATUS, &status);
+        if (status == GL_FALSE) {
+            GLint lsize;
+            glGetShaderiv(id(),GL_INFO_LOG_LENGTH, &lsize);
+            
+            GLchar *infoLog= new GLchar[lsize];
+            glGetShaderInfoLog(id(), lsize, NULL, infoLog);
 
-        static char buf[4096];
-        glGetShaderInfoLog(id(), 4096, NULL, buf);
-        return buf;
+            if (type() == GL_VERTEX_SHADER) {
+              cerr << "\t errors in vertex shader: " << endl;
+            } else if (type() == GL_FRAGMENT_SHADER) {
+                cerr << "\t errors in fragment shader: " << endl;
+#ifndef BUILD_IOS
+            } else if (type() == GL_GEOMETRY_SHADER) {
+              cerr << "\t errors in geometry shader: " << endl;
+#endif
+            }
+            cerr<<"Compile log: \n\t"<< infoLog << endl;
+            delete [] infoLog;
+            exit(0);
+        }
     }
-
-    void Shader::get(int pname, void *params) const {
-        glGetShaderiv(id(), pname, (GLint *) params);
-    }
-
 
     void Shader::destroy() {
         glDeleteShader(id());
@@ -60,29 +71,10 @@ namespace aluminum {
         return stream.str();
     }
 
-/*
-  void Program::loadText(std::string& text, const std::string& filename){
-
-    std::ifstream file;
-    file.open(filename.c_str());
-
-    if (!file) {
-      printf("in Shader::loadSourceFromFile : error, couldn't find file!\n");
-      exit(0);
-    }
-
-    std::stringstream stream;
-    stream << file.rdbuf();
-    file.close();
-
-    string aaa = stream.str();
-    cout << "you loaded in : " << aaa << "\n";
-
-    text = stream.str();
-    //return stream.str();
-  }
-*/
-
+    /**********************************************
+     *       Begin Program Implementation         *
+     **********************************************/
+    
     Program &Program::create() {
         mID = glCreateProgram();
         return *this;
@@ -95,98 +87,32 @@ namespace aluminum {
 
         printf("program is = %d, shader id = %d\n", id(), s.id());
         glAttachShader(id(), s.id());  //agf this is the right one!
-
-        //this (GL_EXT_geometry_shader4) isn't needed for GL > 2.1, but it might be needed for iOS / GLES 2.0 (double check)
-
-        // TODO: check for geometry shader extensions
-        //#ifdef GL_EXT_geometry_shader4
-        //	printf("GL_EXT_geometry_shader4 defined\n");
-        //#endif
-        //#ifdef GL_ARB_geometry_shader4
-        //	printf("GL_ARB_geometry_shader4 defined\n");
-        //#endif
-
-        // if (s.type() == GL_GEOMETRY_SHADER) {
-        /* agf
-       glProgramParameteri(id(),GL_GEOMETRY_INPUT_TYPE, mInPrim);
-       glProgramParameteri(id(),GL_GEOMETRY_OUTPUT_TYPE, mOutPrim);
-       glProgramParameteri(id(),GL_GEOMETRY_VERTICES_OUT,mOutVertices);
-       */
-        // }
-
-        const char *lg = s.log();
-        if (lg != NULL) {
-            string ls(lg);
-            if (ls.length() > 1) {
-                if (s.type() == GL_VERTEX_SHADER) {
-                    printf("   errors in vertex shader: \n");
-                } else if (s.type() == GL_FRAGMENT_SHADER) {
-                    printf("   errors in fragment shader: \n");
-                #ifndef BUILD_IOS
-                } else if (s.type() == GL_GEOMETRY_SHADER) {
-                  printf("   errors in geometry shader: \n");
-                #endif
-                }
-
-                printf("LOG: %s\n", lg);
-                //exit(0);
-            }
-        }
+        
+        // Check to make sure the shader compiled correctly, if not, exit!
+        s.log();
 
         return *this;
     }
-
-
-    Program &Program::attach(Shader &s) {
-        printf("program is = %d, shader id = %d\n", id(), s.id());
-        glAttachShader(id(), s.id());  //agf this is the right one!
-
-        // TODO: check for geometry shader extensions
-        //#ifdef GL_EXT_geometry_shader4
-        //	printf("GL_EXT_geometry_shader4 defined\n");
-        //#endif
-        //#ifdef GL_ARB_geometry_shader4
-        //	printf("GL_ARB_geometry_shader4 defined\n");
-        //#endif
-
-        /* agf
-        if (s.type() == GL_GEOMETRY_SHADER) {
-
-               glProgramParameteri(id(),GL_GEOMETRY_INPUT_TYPE, mInPrim);
-               glProgramParameteri(id(),GL_GEOMETRY_OUTPUT_TYPE, mOutPrim);
-               glProgramParameteri(id(),GL_GEOMETRY_VERTICES_OUT,mOutVertices);
-
+    
+    
+    // Returns program log detailing success or failures in compilation
+    void Program::log() const {
+        GLint status;
+        glLinkProgram(id());
+        glGetProgramiv (id(), GL_COMPILE_STATUS, &status);
+        if (status == GL_FALSE) {
+            GLint lsize;
+            glGetProgramiv(id(),GL_INFO_LOG_LENGTH, &lsize);
+            
+            GLchar *infoLog= new GLchar[lsize];
+            glGetProgramInfoLog(id(), lsize, NULL, infoLog);
+            cerr<<"Link log: "<<infoLog<<endl;
+            delete [] infoLog;
+            exit(0);
         }
-         */
-
-        const char *lg = s.log();
-        if (lg != NULL) {
-            string ls(lg);
-            if (ls.length() > 1) {
-                if (s.type() == GL_VERTEX_SHADER) {
-                    printf("   errors in vertex shader: \n");
-                } else if (s.type() == GL_FRAGMENT_SHADER) {
-                    printf("   errors in fragment shader: \n");
-                }
-                printf("LOG: %s\n", lg);
-                //exit(0);
-            }
-        }
-
-/*
-	  if (s.log() != NULL) {
-		  if (s.type() == GL_VERTEX_SHADER) {
-			  printf ("   errors in vertex shader: \n");
-		  } else if (s.type() == GL_FRAGMENT_SHADER) {
-			  printf ("   errors in fragment shader: \n");
-		  }
-		  printf("%s\n", s.log());
-		  exit(0);
-	  }
-*/
-        return *this;
     }
-
+    
+    
     Program &Program::link() {
 
         glLinkProgram(id());
@@ -194,27 +120,13 @@ namespace aluminum {
         int isValid;
         glValidateProgram(id());
         glGetProgramiv(id(), GL_VALIDATE_STATUS, &isValid);
+      
         if (!isValid) {
             printf("in Program::link - %d is not valid!!!\n", id());
         }
 
 
-        const char *lg = log();
-        if (lg != NULL) {
-            string ls(lg);
-            if (ls.length() > 0) {
-                printf("program.id = %d, LOG: %s\n", id(), lg);
-                //exit(0);
-            }
-        }
-
-/*
-	  if (log() != NULL) {
-		  printf("program %d errors %s\n", id(), log());
-		  //exit(0);
-	  }
-*/
-        //  printf("program.id = %d, vertex.glsl = %d, frag.glsl = %d\n", p.id(), sv.id(), sf.id());
+        log();
 
         mapUniforms();
         mapAttributes();
@@ -229,16 +141,6 @@ namespace aluminum {
         return *this;
     }
 
-
-    const char *Program::log() const {
-        GLint lsize;
-        get(GL_INFO_LOG_LENGTH, &lsize);
-        if (0 == lsize) return NULL;
-
-        static char buf[4096];
-        glGetProgramInfoLog(id(), 4096, NULL, buf);
-        return buf;
-    }
 
     void Program::destroy() {
         glDeleteProgram(id());
@@ -260,9 +162,6 @@ namespace aluminum {
         return attributes[name];
     }
 
-    void Program::get(int pname, void *params) const {
-        glGetProgramiv(id(), pname, (GLint *) params);
-    }
 
     void Program::mapUniforms() {
 

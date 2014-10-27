@@ -1,28 +1,13 @@
 #include "Aluminum/Camera.hpp"
 
-/*
- #include <cstdio>
- #include <iostream>
- #include <sstream>
-
-
-
- #include <glm/glm.hpp>
- #include <glm/gtx/string_cast.hpp>
- #include <glm/gtc/matrix_transform.hpp>
- #include <glm/gtc/matrix_access.hpp>
- #include <glm/gtc/type_ptr.hpp>
- */
 namespace aluminum {
 
     using glm::to_string;
     using glm::vec3;
     using glm::vec4;
     using glm::mat4;
-
-
-#define radians(x) (x * M_PI / 180.0f)
-#define degrees(x) (180.0 * x / M_PI)
+    using glm::radians;
+  
 
     Camera::Camera() {
       resetVectors();
@@ -37,7 +22,9 @@ namespace aluminum {
         isStereo = false;
         isFrontBack = false;
         resetVectors();
-        perspective(_fovy, _aspect, _nearPlane, _farPlane);
+
+      
+      perspective(_fovy, _aspect, _nearPlane, _farPlane);
 
     }
 
@@ -163,10 +150,13 @@ namespace aluminum {
 
         float top, bottom, leftL, rightL, leftR, rightR;
 
-        top     = nearPlane * tan(radians(fovy)/2);
-        bottom  = -top;
+     // top     = nearPlane * tan(radians(fovy)/2);
+      top     = nearPlane * tan(fovy/2);
+      
+      bottom  = -top;
 
-        float a = aspect * tan(radians(fovy)/2) * convergence();
+      //  float a = aspect * tan(radians(fovy)/2) * convergence();
+      float a = aspect * tan(fovy/2) * convergence();
 
         float b = a - eyeSep()/2;
         float c = a + eyeSep()/2;
@@ -251,18 +241,22 @@ namespace aluminum {
     }
 
     //via Paul Bourke
+    //theta is in radians...
     vec3 Camera::ArbitraryRotate(vec3 p, float theta, vec3 r) {
         vec3 q = vec3(0.0,0.0,0.0);
-        double costheta,sintheta;
+        double costheta, sintheta;
 
         //p = p.normalize();
         //r = r.normalize();
         p = glm::normalize(vec3(p));
         r = glm::normalize(vec3(r));
 
-        float rad = radians(theta);
-        costheta = cos(rad);
-        sintheta = sin(rad);
+        //float rad = radians(theta);
+        //costheta = cos(rad);
+        //sintheta = sin(rad);
+
+        costheta = cos(theta);
+        sintheta = sin(theta);
 
         q.x += (costheta + (1 - costheta) * r.x * r.x) * p.x;
         q.x += ((1 - costheta) * r.x * r.y - r.z * sintheta) * p.y;
