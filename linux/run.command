@@ -121,7 +121,7 @@ LINUX_DIR="$RUN_PATH"
 
 #COCOA="-isysroot /Applications/XCode.app/Contents/Developer/Platforms/MacLINUX.platform/Developer/SDKs/MacLINUX$LINUX_VERSION.sdk -mmacosx-version-min=$LINUX_VERSION -framework Cocoa -framework QuartzCore -framework OpenGL -framework AppKit -framework Foundation -framework AVFoundation -framework CoreMedia "
 
-LINUX_LIBS=" -lglut -lGL -lm -lfreeimage"
+LINUX_LIBS=" -lglut -lGL -lm -lfreeimage -lSDL -lSDL_image"
 
 OPTIONS="-O3 -Wreturn-type -Wformat -Wmissing-braces -Wparentheses -Wswitch -Wunused-variable -Wsign-compare -Wno-unknown-pragmas -Woverloaded-virtual"
 

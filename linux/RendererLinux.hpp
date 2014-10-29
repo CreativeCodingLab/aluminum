@@ -15,6 +15,7 @@ public:
   //basic windowing
   void start();
   void start(std::string name);
+  void start(std::string name, int x, int y, int w, int h);
 
   virtual void onCreate();
   virtual void onFrame();
