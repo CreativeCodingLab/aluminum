@@ -56,9 +56,11 @@ public:
     rh.loadProgram(program, "noise", posLoc, normalLoc, -1, -1);
     
     int res = 250;
-    addSphere(mesh, 1.0, res, res);
+      addSurface(mesh, res, res);
+//    addSphere(mesh, 1.0, res, res);
     
-    mb.init(mesh, posLoc, normalLoc, -1, -1);
+//    mb.init(mesh, posLoc, normalLoc, -1, -1);
+      mb.init(MeshUtils::makeRectangle(100.0,100.0), posLoc, normalLoc, -1, -1);
     
     proj = glm::perspective(glm::radians(60.0), 1.0, 0.1, 1000.0);
     view = glm::lookAt(vec3(0.0,0.0, -4.0), vec3(0,0,0), vec3(0,1,0) );

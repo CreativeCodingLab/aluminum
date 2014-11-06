@@ -10,29 +10,29 @@
 	<string>aluminum</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>68130DF7-31C0-4B79-8964-ADC08DDE5FCE</key>
+		<key>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</key>
 		<string>https://github.com/CreativeCodingLab/aluminum.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>osx/examples/videoprocessing/aluminum/aluminum.xcodeproj/project.xcworkspace</string>
+	<string>osx/examples/xcode-demos/week2a_Transformation/aluminum.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>68130DF7-31C0-4B79-8964-ADC08DDE5FCE</key>
+		<key>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</key>
 		<string>../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/CreativeCodingLab/aluminum.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>68130DF7-31C0-4B79-8964-ADC08DDE5FCE</string>
+	<string>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>68130DF7-31C0-4B79-8964-ADC08DDE5FCE</string>
+			<string>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</string>
 			<key>IDESourceControlWCCName</key>
 			<string>aluminum</string>
 		</dict>
