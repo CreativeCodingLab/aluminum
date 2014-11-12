@@ -17,9 +17,12 @@
 #import <Aluminum/Includes.hpp>
 #import <Aluminum/Texture.hpp>
 #import <Aluminum/Program.hpp>
+#import <Aluminum/MeshData.hpp>
+#import <Aluminum/objload.h>
 
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVAsset.h>
+
 
 
 using std::string;
@@ -28,27 +31,32 @@ using namespace aluminum;
 class ResourceHandler {
   
 public:
-  
-  ResourceHandler();
-  
-  const char *contentsOfFile(string &file);
-  
-  string pathToResource(const string &resource);
-  string pathToResource(const string &resource, const string &type);
-  
-  void loadProgram(Program &p, const std::string &name, int pLoc, int nLoc, int tcLoc, int cLoc);
-  
-  void loadTexture(Texture &t, const std::string &name);
-  
-  void loadCubeMapTexture(Texture &t, int w, int h, const std::string &negz,
-                          const std::string &posz,
-                          const std::string &posy,
-                          const std::string &negy,
-                          const std::string &negx,
-                          const std::string &posx);
-  
-  
-  void loadImageData(GLubyte* data, const std::string &name);
+
+    ResourceHandler();
+
+    const char *contentsOfFile(string &file);
+
+    string pathToResource(const string &resource);
+    string pathToResource(const string &resource, const string &type);
+
+    void loadProgram(Program &p, const std::string &name, int pLoc, int nLoc, int tcLoc, int cLoc);
+
+    void loadTexture(Texture &t, const std::string &name);
+
+    void loadCubeMapTexture(    Texture &t,
+                                int w, int h,
+                                const std::string &negz,
+                                const std::string &posz,
+                                const std::string &posy,
+                                const std::string &negy,
+                                const std::string &negx,
+                                const std::string &posx
+                            );
+
+
+    void loadImageData(GLubyte* data, const std::string &name);
+
+    void loadObjIntoMesh(MeshData &modelMesh, const std::string& name, float scalar);
 };
 
 #endif

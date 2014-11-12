@@ -10,7 +10,7 @@
 #include "Aluminum/Behavior.hpp"
 #include "Aluminum/Shapes.hpp"
 #include "Aluminum/ResourceHandler.h"
-#include "objload.h"
+//#include "objload.h"
 
 using namespace aluminum;
 
@@ -39,47 +39,47 @@ public:
   Behavior rotateBehavior;
   ResourceHandler rh;
   
-  void loadObjIntoMesh(MeshData &modelMesh, const std::string& name, float scalar) {
-    
-    obj::Model m = obj::loadModelFromFile(rh.pathToResource(name));
-    
-    for(std::map<std::string, std::vector<unsigned short> >::const_iterator g = m.faces.begin(); g != m.faces.end(); ++g){
-      std::cout << g->first << "\n" ;
-      
-      cout << "num indicies = " << g->second.size() << "\n";
-      for (int i = 0 ; i < g->second.size() ; i++) {
-        
-        modelMesh.index(g->second[i]);
-        //cout << g->second[i] << " ";
-      }
-      //cout << "\n";
-    }
-    
-    
-    cout << "vertex size = " << m.vertex.size() / 3 << "\n";
-    cout << "normal size = " << m.normal.size() / 3 << "\n";
-    
-    for (int i = 0; i < m.vertex.size(); i+=3) {
-      vec3 pos = vec3(m.vertex[i], m.vertex[i+1], m.vertex[i+2]);
-      pos *= scalar;
-      modelMesh.vertex(pos);
-    }
-    
-    for (int i = 0; i < m.texCoord.size(); i+=2) {
-      //		modelMesh.texCoord(m.texCoord[i], m.texCoord[i+1]);
-    }
-    
-    for (int i = 0; i < m.normal.size(); i+=3) {
-      modelMesh.normal(m.normal[i], m.normal[i+1], m.normal[i+2]);
-    }
-    
-    
-    //std::cout << m << std::endl;
-    //std::cout << m.vertex.size()/3 << " vertices, " << m.texCoord.size()/2 <<
-    //             " texcoords, " << m.normal.size()/3 << " normals, " <<
-    //             m.faces.size()/3 << " faces" << std::endl;
-    
-  }
+//  void loadObjIntoMesh(MeshData &modelMesh, const std::string& name, float scalar) {
+//    
+//    obj::Model m = obj::loadModelFromFile(rh.pathToResource(name));
+//    
+//    for(std::map<std::string, std::vector<unsigned short> >::const_iterator g = m.faces.begin(); g != m.faces.end(); ++g){
+//      std::cout << g->first << "\n" ;
+//      
+//      cout << "num indicies = " << g->second.size() << "\n";
+//      for (int i = 0 ; i < g->second.size() ; i++) {
+//        
+//        modelMesh.index(g->second[i]);
+//        //cout << g->second[i] << " ";
+//      }
+//      //cout << "\n";
+//    }
+//    
+//    
+//    cout << "vertex size = " << m.vertex.size() / 3 << "\n";
+//    cout << "normal size = " << m.normal.size() / 3 << "\n";
+//    
+//    for (int i = 0; i < m.vertex.size(); i+=3) {
+//      vec3 pos = vec3(m.vertex[i], m.vertex[i+1], m.vertex[i+2]);
+//      pos *= scalar;
+//      modelMesh.vertex(pos);
+//    }
+//    
+//    for (int i = 0; i < m.texCoord.size(); i+=2) {
+//      //		modelMesh.texCoord(m.texCoord[i], m.texCoord[i+1]);
+//    }
+//    
+//    for (int i = 0; i < m.normal.size(); i+=3) {
+//      modelMesh.normal(m.normal[i], m.normal[i+1], m.normal[i+2]);
+//    }
+//    
+//    
+//    //std::cout << m << std::endl;
+//    //std::cout << m.vertex.size()/3 << " vertices, " << m.texCoord.size()/2 <<
+//    //             " texcoords, " << m.normal.size()/3 << " normals, " <<
+//    //             m.faces.size()/3 << " faces" << std::endl;
+//    
+//  }
   
   
   virtual void onCreate() {
@@ -88,9 +88,9 @@ public:
     
     MeshData modelMesh[3];
     
-    loadObjIntoMesh(modelMesh[0], "dragon.obj", 2.5);
-    loadObjIntoMesh(modelMesh[1], "bunny.obj", 1.0);
-    loadObjIntoMesh(modelMesh[2], "willis.obj", 1.0);
+    rh.loadObjIntoMesh(modelMesh[0], "dragon.obj", 2.5);
+    rh.loadObjIntoMesh(modelMesh[1], "bunny.obj", 1.0);
+    rh.loadObjIntoMesh(modelMesh[2], "willis.obj", 1.0);
     
     mb[0].init(modelMesh[0], posLoc, normalLoc, -1, -1);
     mb[1].init(modelMesh[1], posLoc, normalLoc, -1, -1);
