@@ -33,28 +33,12 @@ public:
     glm::mat4 M, V, P, fView, pModel = mat4(1);  // View*Projection Matrix and Backup matrix
 
     //box positions
-    vec3 box_positions[3]={
-        glm::vec3(-1.5, 0.5, 0.0),
-        glm::vec3( 0.0, 0.5, 1.0),
-        glm::vec3( 1.5, 0.5, 0.0)
-    };
-    vec3 obj_positions[3]={
-        glm::vec3(-1.5,0.0, 0.0),
-        glm::vec3( 0.0,0.0, 1.0),
-        glm::vec3( 1.5,0.0, 0.0)
-    };
+    vec3 box_positions[20];
     
-    mat4 box_model[3] = {
-        mat4(1),
-        mat4(1),
-        mat4(1)
-    };
     
-    vec3 box_color[3] = {
-        vec3(1.,0.,0.),
-        vec3(0.,1.,0.),
-        vec3(0.,0.,1.)
-    };
+    mat4 box_model[20];
+    
+    vec3 box_color[20];
     
     vec3 bgColor[3] = {
         vec3(0.4,0.3,0.3),
@@ -78,6 +62,9 @@ public:
     int selected_box=-1;
     int which = 0;
     int mode = 0;
+    int minIndex=3;
+    int maxIndex=20;
+    int range = maxIndex;
     
     float rX = radians(2.0);
     float rY = radians(2.0);
@@ -99,7 +86,7 @@ public:
             direction=glm::vec3(0);
         }
     } eyeRay;
-    
+   
     
     ///////////////////////////////////////////////////////////////////////////////
     ///
@@ -121,13 +108,14 @@ public:
         mb[3].init(modelMesh[3], posLoc, normalLoc, -1, -1);
 
         //set the camera position
-        camera = Camera(radians(60.0), (float)width / (float)height, 0.01, 100.0).translateZ(-5.f);
+        camera = Camera(radians(67.0), (float)width / (float)height, 0.1, 100.0).translateZ(-5.f);
         rotateBehavior = Behavior(now()).delay(1000).length(10000).range(M_PI * 2.0).looping(true).repeats(-1);
         
         // Set a "Flat" view
         fView = camera.view;
 
-        resetModels();
+//        resetModels();
+        createCubes();
 
         glViewport(0, 0, width, height);
         glClearColor(0.0,0.0,0.0,1.0);
@@ -139,45 +127,7 @@ public:
         
         cout<<"Initialization successfull"<<endl;
     }
-    
-    ///////////////////////////////////////////////////////////////////////////////
-    ///
-    ///////////////////////////////////////////////////////////////////////////////
-    void drawCube(vec3 color) {
-        
-        shader.bind();
-        {
-            glUniformMatrix4fv(shader.uniform("MVP"), 1, 0, ptr(P * V * M));
-            glUniform3fv(shader.uniform("vColor"),1, ptr(color));
-            mb[3].draw();
-        }
-        shader.bind();
-    }
-    
-    ///////////////////////////////////////////////////////////////////////////////
-    ///
-    ///////////////////////////////////////////////////////////////////////////////
-    void drawPhong(vec3 diffuse, int index) {
-
-        float total = rotateBehavior.tick(now()).total();
-        M = glm::rotate(M, total, vec3(0.0f,1.0f,0.0f));
-
-        phong.bind();
-        {
-            glUniformMatrix4fv(phong.uniform("model"), 1, 0, ptr(M));
-            glUniformMatrix4fv(phong.uniform("view"), 1, 0, ptr(V));
-            glUniformMatrix4fv(phong.uniform("proj"), 1, 0, ptr(P));
-            
-            glUniform3f(phong.uniform("lightPos"), 0.0, 0.0, 10.0);
-            glUniform3fv(phong.uniform("ambient"), 1, ptr(ambient));
-            glUniform3fv(phong.uniform("diffuse"), 1, ptr(diffuse));
-            glUniform3fv(phong.uniform("specular"), 1, ptr(specular));
-            
-            mb[index].draw();
-        }
-        phong.unbind();
-    }
-    
+   
     
     ///////////////////////////////////////////////////////////////////////////////
     ///
@@ -193,7 +143,7 @@ public:
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         
         vec3 color;
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < range; i++) {
             if (selected_box == i) {
                 M = pModel;
                 V = fView;
@@ -226,6 +176,147 @@ public:
     }
     
     
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    virtual void handleMouse() {
+        glm::project(vec3(mouseX,mouseY,0), fView, camera.projection, vec4(0,0,width, height));
+        
+        //        Raw screen coordinates projected onto the view plane
+        glm::vec3 screenObjPt_N = glm::unProject(vec3(mouseX,mouseY,0.), fView, camera.projection, vec4(0,0,width, height));
+        glm::vec3 screenObjPt_F = glm::unProject(vec3(mouseX,mouseY,1.), fView, camera.projection, vec4(0,0,width, height));
+        diff = glm::normalize(screenObjPt_F - screenObjPt_N);
+        
+        if (isMoving && selected_box!= -1) {
+            
+            printf("We're MOVING!!\n");
+            pModel = glm::translate(fView, vec3(diff.x*offset, diff.y*offset,-3.));
+        }
+        
+        if (isPressing)
+        {
+            // If we pick an object for the first time
+            if (selected_box < 0 && getSelection()) {
+                printf("\tSELECTED!!\n");
+                // This snaps the object to the location of the mouse
+                pModel = glm::translate(fView, vec3(diff.x*offset, diff.y*offset,-3.));
+                
+                // If a cube is selected, and we "pick it" again, deselect the cube and place .. the
+            } else if (selected_box != -1 && getSelection()){
+                printf("\tDESELECTED!!\n");
+                box_model[selected_box] = glm::translate(mat4(1),
+                                                         which < 1?
+                                                         box_positions[selected_box]:
+                                                         (box_positions[selected_box] - vec3(0.0,0.5,0.0))
+                                                         );
+                selected_box = -1;
+            }
+        }
+        
+        
+        isDragging = false;
+        isMoving = false;
+        isPressing = false;
+    }
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    virtual void keyDown(char key) {
+        
+        switch(key) {
+            case kVK_ANSI_W :
+                camera.translate(vec3(0,0,0.2));
+                break;
+            case kVK_ANSI_S :
+                camera.translate(vec3(0,0,-0.2));
+                break;
+            case kVK_ANSI_A :
+                camera.rotate(vec3(0.0,rY,0.0));
+                break;
+            case kVK_ANSI_D :
+                camera.rotate(vec3(0.0,-rY,0.0));
+                break;
+            case kVK_ANSI_Q :
+                camera.rotate(vec3(rX,0.0,0.0));
+                break;
+            case kVK_ANSI_E :
+                camera.rotate(vec3(-rX,0.0,0.0));
+                break;
+                
+            case kVK_ANSI_1:
+                mode=0;
+                which < 1? range=maxIndex: range=minIndex;
+                printf("Current Mode is %d!!\n", mode);
+                break;
+            case kVK_ANSI_2:
+                mode=1;
+                range=minIndex;
+                printf("Current Mode is %d!!\n", mode);
+                break;
+            case kVK_ANSI_3:
+                mode=2;
+                range=minIndex;
+                printf("Current Mode is %d!!\n", mode);
+                break;
+                
+            case kVK_UpArrow:
+                camera.printCameraInfo();
+                which < 1 ? which++: which--;
+                resetModels();
+                break;
+                
+            case kVK_Space :
+                camera.resetVectors();
+                camera.translateZ(-5.f);
+                selected_box = -1;
+                resetModels();
+                break;
+            default:
+                break;
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    void resetModels() {
+        if(which < 1) {
+            range=maxIndex; // draw all 30 cubes
+            for (int i = 0; i<range; i++){
+                boxes[i].min = box_positions[i]-0.5f;
+                boxes[i].max = box_positions[i]+0.5f;
+                box_model[i] = glm::translate(mat4(1), box_positions[i]);
+            }
+        } else{
+            range=minIndex;  // draw only the first 3!!
+            for (int i = 0; i<range; i++){
+                boxes[i].min = (box_positions[i] - vec3(0.0,0.5,0.0))-0.5f;
+                boxes[i].max = (box_positions[i] - vec3(0.0,0.5,0.0))+0.5f;
+                box_model[i] = glm::translate(mat4(1), (box_positions[i] - vec3(0.0,0.5,0.0)));
+            }
+        }
+    }
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    //ray Box intersection code
+    glm::vec2 intersectBox(const Ray& ray, const Box& cube) {
+        glm::vec3 inv_dir = 1.0f/ray.direction;
+        glm::vec3   tMin = (cube.min - ray.origin) * inv_dir;
+        glm::vec3   tMax = (cube.max - ray.origin) * inv_dir;
+        glm::vec3     t1 = glm::min(tMin, tMax);
+        glm::vec3     t2 = glm::max(tMin, tMax);
+        float tNear = std::max(std::max(t1.x, t1.y), t1.z);
+        float  tFar = std::min(std::min(t2.x, t2.y), t2.z);
+        return glm::vec2(tNear, tFar);
+    }
+
+    
     ///////////////////////////////////////////////////////////////////////////////
     ///
     ///////////////////////////////////////////////////////////////////////////////
@@ -236,7 +327,7 @@ public:
         
         float minDist = 1000;
         
-        for (int i = 0; i<3; i++) {
+        for (int i = 0; i<range; i++) {
             //unproject the obtained winx,winy and winz point to get the object space point
             localObjPt = glm::unProject(vec3(mouseX,mouseY,winZ), camera.view*box_model[i], camera.projection, vec4(0,0,width, height));
             //loop through all scene objects and determine the object clicked by looking at the
@@ -292,22 +383,6 @@ public:
     ///////////////////////////////////////////////////////////////////////////////
     ///
     ///////////////////////////////////////////////////////////////////////////////
-    //ray Box intersection code
-    glm::vec2 intersectBox(const Ray& ray, const Box& cube) {
-        glm::vec3 inv_dir = 1.0f/ray.direction;
-        glm::vec3   tMin = (cube.min - ray.origin) * inv_dir;
-        glm::vec3   tMax = (cube.max - ray.origin) * inv_dir;
-        glm::vec3     t1 = glm::min(tMin, tMax);
-        glm::vec3     t2 = glm::max(tMin, tMax);
-        float tNear = std::max(std::max(t1.x, t1.y), t1.z);
-        float  tFar = std::min(std::min(t2.x, t2.y), t2.z);
-        return glm::vec2(tNear, tFar);
-    }
-
-    
-    ///////////////////////////////////////////////////////////////////////////////
-    ///
-    ///////////////////////////////////////////////////////////////////////////////
     bool RayPicking() {
         
         float tMin = numeric_limits<float>::max();
@@ -359,121 +434,98 @@ public:
                 break;
         }
     }
+
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    float randRange(float floor, float ceiling) {
+        //        srand((unsigned)time(0));
+        float range = (ceiling - floor);
+        return (floor + (range * rand()) / (RAND_MAX + 1.0));
+    }
     
     
     ///////////////////////////////////////////////////////////////////////////////
     ///
     ///////////////////////////////////////////////////////////////////////////////
-    virtual void handleMouse() {
-        glm::project(vec3(mouseX,mouseY,0), fView, camera.projection, vec4(0,0,width, height));
-
-//        Raw screen coordinates projected onto the view plane
-        glm::vec3 screenObjPt_N = glm::unProject(vec3(mouseX,mouseY,0.), fView, camera.projection, vec4(0,0,width, height));
-        glm::vec3 screenObjPt_F = glm::unProject(vec3(mouseX,mouseY,1.), fView, camera.projection, vec4(0,0,width, height));
-        diff = glm::normalize(screenObjPt_F - screenObjPt_N);
+    void createCubes() {
         
-        if (isMoving && selected_box!= -1) {
-            
-            printf("We're MOVING!!\n");
-            pModel = glm::translate(fView, vec3(diff.x*offset, diff.y*offset,-3.));
+        vec3 default_pos[3]={
+            glm::vec3(-1.5, 0.5, 0.0),
+            glm::vec3( 0.0, 0.5, 1.0),
+            glm::vec3( 1.5, 0.5, 0.0)
+        };
+        vec3 default_color[3] = {
+            vec3(1.,0.,0.),
+            vec3(0.,1.,0.),
+            vec3(0.,0.,1.)
+        };
+        
+        for (int i = 0; i < 3; i++) {
+            box_positions[i] = default_pos[i];
+            box_model[i] = glm::translate(mat4(1), box_positions[i]);
+            box_color[i] = default_color[i];
         }
         
-        if (isPressing)
+        
+        for (int i = 3; i < range; i++) {
+            vec3 pos = vec3(randRange(-3.0, 3.0),
+                            randRange(-3.0, 3.0),
+                            randRange(-3.0, 3.0));
+            
+            vec3 color = vec3(randRange(0.1, 255.0)/255.0,
+                              randRange(0.1, 255.0)/255.0,
+                              randRange(0.1, 255.0)/255.0);
+            
+            cout << to_string(pos) << endl;
+            cout << to_string(color) << endl;
+            box_positions[i] = pos;
+            box_model[i] = glm::translate(mat4(1), box_positions[i]);
+            box_color[i] = color;
+            
+        }
+        
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    void drawCube(vec3 color) {
+        
+        shader.bind();
         {
-            // If we pick an object for the first time
-            if (selected_box < 0 && getSelection()) {
-                printf("\tSELECTED!!\n");
-                // This snaps the object to the location of the mouse
-                pModel = glm::translate(fView, vec3(diff.x*offset, diff.y*offset,-3.));
-    
-            // If a cube is selected, and we "pick it" again, deselect the cube and place .. the
-            } else if (selected_box != -1 && getSelection()){
-                printf("\tDESELECTED!!\n");
-                box_model[selected_box] = glm::translate(mat4(1), which < 1? box_positions[selected_box]: obj_positions[selected_box]);
-                selected_box = -1;
-            }
+            glUniformMatrix4fv(shader.uniform("MVP"), 1, 0, ptr(P * V * M));
+            glUniform3fv(shader.uniform("vColor"),1, ptr(color));
+            mb[3].draw();
         }
-        
-        
-        isDragging = false;
-        isMoving = false;
-        isPressing = false;
+        shader.bind();
     }
     
     ///////////////////////////////////////////////////////////////////////////////
     ///
     ///////////////////////////////////////////////////////////////////////////////
-    void resetModels() {
-        if(which < 1) {
-            for (int i = 0; i<3; i++){
-                boxes[i].min = box_positions[i]-0.5f;
-                boxes[i].max = box_positions[i]+0.5f;
-                box_model[i] = glm::translate(mat4(1), box_positions[i]);
-            }
-        } else{
-            for (int i = 0; i<3; i++){
-                boxes[i].min = obj_positions[i]-0.5f;
-                boxes[i].max = obj_positions[i]+0.5f;
-                box_model[i] = glm::translate(mat4(1), obj_positions[i]);
-            }
-        }
-    }
-
-    
-    ///////////////////////////////////////////////////////////////////////////////
-    ///
-    ///////////////////////////////////////////////////////////////////////////////
-    virtual void keyDown(char key) {
+    void drawPhong(vec3 diffuse, int index) {
         
-        switch(key) {
-            case kVK_ANSI_W :
-                camera.translate(vec3(0,0,0.2));
-                break;
-            case kVK_ANSI_S :
-                camera.translate(vec3(0,0,-0.2));
-                break;
-            case kVK_ANSI_A :
-                camera.rotate(vec3(0.0,rY,0.0));
-                break;
-            case kVK_ANSI_D :
-                camera.rotate(vec3(0.0,-rY,0.0));
-                break;
-            case kVK_ANSI_Q :
-                camera.rotate(vec3(rX,0.0,0.0));
-                break;
-            case kVK_ANSI_E :
-                camera.rotate(vec3(-rX,0.0,0.0));
-                break;
-                
-            case kVK_ANSI_1:
-                mode=0;
-                printf("Current Mode is %d!!\n", mode);
-                break;
-            case kVK_ANSI_2:
-                mode=1;
-                printf("Current Mode is %d!!\n", mode);
-                break;
-            case kVK_ANSI_3:
-                mode=2;
-                printf("Current Mode is %d!!\n", mode);
-                break;
-
-            case kVK_UpArrow:
-                camera.printCameraInfo();
-                which < 1 ? which++: which--;
-                resetModels();
-                break;
+        float total = rotateBehavior.tick(now()).total();
+        M = glm::rotate(M, total, vec3(0.0f,1.0f,0.0f));
+        
+        phong.bind();
+        {
+            glUniformMatrix4fv(phong.uniform("model"), 1, 0, ptr(M));
+            glUniformMatrix4fv(phong.uniform("view"), 1, 0, ptr(V));
+            glUniformMatrix4fv(phong.uniform("proj"), 1, 0, ptr(P));
             
-            case kVK_Space :
-                camera.resetVectors();
-                camera.translateZ(-5.f);
-                selected_box = -1;
-                resetModels();
-                break;
-            default:
-                break;
+            glUniform3f(phong.uniform("lightPos"), 0.0, 0.0, 10.0);
+            glUniform3fv(phong.uniform("ambient"), 1, ptr(ambient));
+            glUniform3fv(phong.uniform("diffuse"), 1, ptr(diffuse));
+            glUniform3fv(phong.uniform("specular"), 1, ptr(specular));
+            
+            mb[index].draw();
         }
+        phong.unbind();
     }
+    
 };
 
 

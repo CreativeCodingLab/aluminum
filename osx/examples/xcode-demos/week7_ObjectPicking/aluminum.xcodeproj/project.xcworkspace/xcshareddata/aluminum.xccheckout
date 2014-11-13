@@ -14,7 +14,7 @@
 		<string>https://github.com/CreativeCodingLab/aluminum.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>osx/examples/xcode-demos/week8a_ObjectPicking/aluminum.xcodeproj</string>
+	<string>osx/examples/xcode-demos/week7_ObjectPicking/aluminum.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>87CE086DE70070CBF4C590CEAEBED9F6AA156F83</key>
