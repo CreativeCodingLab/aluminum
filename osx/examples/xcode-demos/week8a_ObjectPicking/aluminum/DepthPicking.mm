@@ -15,6 +15,7 @@
 #import <Aluminum/Camera.hpp>
 #import <Aluminum/Behavior.hpp>
 #import <Aluminum/ResourceHandler.h>
+#import <limits>
 
 using namespace glm;
 using namespace aluminum;
@@ -24,7 +25,7 @@ public:
 
     Camera camera;
     Program shader, phong;
-    MeshBuffer cubeMB, mb[3];
+    MeshBuffer mb[4];
     Behavior rotateBehavior;
     ResourceHandler rh;
     
@@ -45,8 +46,8 @@ public:
     
     mat4 box_model[3] = {
         mat4(1),
-        glm::rotate(mat4(1), 90.f, vec3(0.,1.,0.)),
-        glm::rotate(mat4(1), 2.f, vec3(0.,1.,0.))
+        mat4(1),
+        mat4(1)
     };
     
     vec3 box_color[3] = {
@@ -54,6 +55,13 @@ public:
         vec3(0.,1.,0.),
         vec3(0.,0.,1.)
     };
+    
+    vec3 bgColor[3] = {
+        vec3(0.4,0.3,0.3),
+        vec3(0.0,0.0,0.0),
+        vec3(0.3,0.3,0.4)
+    };
+    
     
     vec3 lightPos = vec3(0.0,0.0,10.0);
     vec3 specular = vec3(1.0,1.0,1.0);
@@ -69,28 +77,48 @@ public:
     //selected box index
     int selected_box=-1;
     int which = 0;
-    int select = 0;
+    int mode = 0;
     
     float rX = radians(2.0);
     float rY = radians(2.0);
     float offset = 2.5f;
     
+    //box struct
+    struct Box {
+        glm::vec3 min, max;
+    } boxes[3];
     
+    //simple Ray struct
+    struct Ray {
+        glm::vec3 origin, direction;
+        float t;
+        
+        Ray() {
+            t=std::numeric_limits<float>::max();
+            origin=glm::vec3(0);
+            direction=glm::vec3(0);
+        }
+    } eyeRay;
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     virtual void onCreate() {
         rh.loadProgram(shader, "cube", posLoc, -1, -1, -1);
         rh.loadProgram(phong, "phong", posLoc, normalLoc, -1, -1);
         
-        MeshData modelMesh[3];
+        MeshData modelMesh[4];
         
         rh.loadObjIntoMesh(modelMesh[0], "dragon.obj", 1.5);
         rh.loadObjIntoMesh(modelMesh[1], "bunny.obj", .5);
         rh.loadObjIntoMesh(modelMesh[2], "venusl.obj", 0.0005);  // She is huge...
+        modelMesh[3] = MeshUtils::makeCube(0.5);
 
-        cubeMB.init(MeshUtils::makeCube(0.5), posLoc, -1, -1, -1);
         mb[0].init(modelMesh[0], posLoc, normalLoc, -1, -1);
         mb[1].init(modelMesh[1], posLoc, normalLoc, -1, -1);
         mb[2].init(modelMesh[2], posLoc, normalLoc, -1, -1);
-
+        mb[3].init(modelMesh[3], posLoc, normalLoc, -1, -1);
 
         //set the camera position
         camera = Camera(radians(60.0), (float)width / (float)height, 0.01, 100.0).translateZ(-5.f);
@@ -99,31 +127,36 @@ public:
         // Set a "Flat" view
         fView = camera.view;
 
-        for (int i = 0; i<3; i++){
-            box_model[i] = glm::translate(mat4(1), box_positions[i]);
-        }
+        resetModels();
 
         glViewport(0, 0, width, height);
-        
+        glClearColor(0.0,0.0,0.0,1.0);
         //enable depth testing
         glEnable(GL_DEPTH_TEST);
+
+        //disable dithering, interferes with color picking
+        glDisable(GL_DITHER);
         
         cout<<"Initialization successfull"<<endl;
     }
     
-    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     void drawCube(vec3 color) {
         
         shader.bind();
         {
             glUniformMatrix4fv(shader.uniform("MVP"), 1, 0, ptr(P * V * M));
             glUniform3fv(shader.uniform("vColor"),1, ptr(color));
-            cubeMB.draw();
+            mb[3].draw();
         }
         shader.bind();
     }
     
-
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     void drawPhong(vec3 diffuse, int index) {
 
         float total = rotateBehavior.tick(now()).total();
@@ -141,13 +174,14 @@ public:
             glUniform3fv(phong.uniform("specular"), 1, ptr(specular));
             
             mb[index].draw();
-            
         }
         phong.unbind();
     }
     
     
-
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     virtual void onFrame() {
         handleMouse();
         
@@ -176,10 +210,15 @@ public:
             else
                 drawCube(color);
         }
+        
+        glClearColor(bgColor[mode].r,bgColor[mode].g,bgColor[mode].b,0.5);
+        
     }
     
     
-    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     virtual void onReshape() {
         //set the viewport size
         glViewport (0, 0, (GLsizei) width, (GLsizei) height);
@@ -187,14 +226,16 @@ public:
     }
     
     
-    
-    bool getSelection() {
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    bool DepthPicking() {
         float winZ=0;
         //read pixel depth at mouse click position
         glReadPixels( mouseX, mouseY, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
         
         float minDist = 1000;
-
+        
         for (int i = 0; i<3; i++) {
             //unproject the obtained winx,winy and winz point to get the object space point
             localObjPt = glm::unProject(vec3(mouseX,mouseY,winZ), camera.view*box_model[i], camera.projection, vec4(0,0,width, height));
@@ -217,7 +258,112 @@ public:
     }
     
     
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    bool ColorPicking() {
+        GLubyte pixel[4];
+        //read color value at the clicked position form the color buffer
+        glReadPixels( mouseX, mouseY, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, pixel);
+        printf("%d %d %d %d\n", pixel[0], pixel[1], pixel[2], pixel[3]);
+        if (pixel[0] >= 90 && pixel[1] < 80 && pixel[2] < 80) {
+            selected_box = 0;
+        }
+        
+        if (pixel[0] < 80 && pixel[1] >= 90 && pixel[2] < 80) {
+            selected_box = 1;
+            printf("\tMissed box: %d\n\n", 0);
+        }
+        
+        if (pixel[0] < 80 && pixel[1] < 80 && pixel[2] >= 90) {
+            selected_box = 2;
+            printf("\tMissed box: %d\n\n", 1);
+        }
+        
+        if(selected_box!=-1) {
+            printf("\tPicked box: %d\n\n", selected_box);
+            return true;
+        }
+        
+        return false;
+    }
     
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    //ray Box intersection code
+    glm::vec2 intersectBox(const Ray& ray, const Box& cube) {
+        glm::vec3 inv_dir = 1.0f/ray.direction;
+        glm::vec3   tMin = (cube.min - ray.origin) * inv_dir;
+        glm::vec3   tMax = (cube.max - ray.origin) * inv_dir;
+        glm::vec3     t1 = glm::min(tMin, tMax);
+        glm::vec3     t2 = glm::max(tMin, tMax);
+        float tNear = std::max(std::max(t1.x, t1.y), t1.z);
+        float  tFar = std::min(std::min(t2.x, t2.y), t2.z);
+        return glm::vec2(tNear, tFar);
+    }
+
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    bool RayPicking() {
+        
+        float tMin = numeric_limits<float>::max();
+        eyeRay.origin = camera.posVec;
+        
+        for (int i = 0; i<3; i++) {
+            vec3 start = glm::unProject(vec3(mouseX,mouseY,0), camera.view, camera.projection, vec4(0,0,width, height));
+            vec3 end = glm::unProject(vec3(mouseX,mouseY,1), camera.view, camera.projection, vec4(0,0,width, height));
+            //loop through all scene objects and determine the object clicked by looking at the
+            //nearest distance to the object
+            eyeRay.direction = glm::normalize(end - start);
+
+            glm::vec2 tMinMax = intersectBox(eyeRay, boxes[i]);
+            cout << i << " " << glm::to_string(tMinMax) << " "<< tMin << endl;
+            
+            if(tMinMax.x<tMinMax.y && tMinMax.x<tMin) {
+                selected_box= i < 1? 2: i > 1? 0 : i;
+                tMin = tMinMax.x;
+            }
+            
+            if(selected_box!=-1) {
+                printf("\tPicked box: %d\n", selected_box);
+                return true;
+            } else
+                printf("\tMissed box: %d\n", i);
+        }
+        return false;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    bool getSelection() {
+        switch (mode) {
+            case 0:
+                return DepthPicking();
+                break;
+            
+            case 1:
+                return ColorPicking();
+                break;
+
+            case 2:
+                return RayPicking();
+                break;
+
+            default:
+                return false;
+                break;
+        }
+    }
+    
+    
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     virtual void handleMouse() {
         glm::project(vec3(mouseX,mouseY,0), fView, camera.projection, vec4(0,0,width, height));
 
@@ -226,21 +372,6 @@ public:
         glm::vec3 screenObjPt_F = glm::unProject(vec3(mouseX,mouseY,1.), fView, camera.projection, vec4(0,0,width, height));
         diff = glm::normalize(screenObjPt_F - screenObjPt_N);
         
-//        XXX "World" Coordinates...View matrix/camera space
-//        glm::vec3 worldObjPt_N = glm::unProject(vec3(mouseX,mouseY,0.), camera.view, camera.projection, vec4(0,0,width, height));
-//        glm::vec3 worldObjPt_F = glm::unProject(vec3(mouseX,mouseY,1.), camera.view, camera.projection, vec4(0,0,width, height));
-//        diff = glm::normalize(worldObjPt_F - worldObjPt_N);
-        
-//        XXX Local coordinates...Model*View, still follows the camera...
-//        glm::vec3 localObjPt_N = glm::unProject(vec3(mouseX,mouseY,0.), camera.view*box_model[selected_box], camera.projection, vec4(0,0,width, height));
-//        glm::vec3 localObjPt_F = glm::unProject(vec3(mouseX,mouseY,1.), camera.view*box_model[selected_box], camera.projection, vec4(0,0,width, height));
-//        diff = glm::normalize(localObjPt_F - localObjPt_N);
-        
-//        glm::vec3 objPt_N = glm::unProject(vec3(mouseX,mouseY,0.), fView*box_model[selected_box], camera.projection, vec4(0,0,width, height));
-//        glm::vec3 objPt_F = glm::unProject(vec3(mouseX,mouseY,1.), fView*box_model[selected_box], camera.projection, vec4(0,0,width, height));
-//        diff = glm::normalize(objPt_F - objPt_N);
-
-
         if (isMoving && selected_box!= -1) {
             
             printf("We're MOVING!!\n");
@@ -269,27 +400,32 @@ public:
         isPressing = false;
     }
     
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
+    void resetModels() {
+        if(which < 1) {
+            for (int i = 0; i<3; i++){
+                boxes[i].min = box_positions[i]-0.5f;
+                boxes[i].max = box_positions[i]+0.5f;
+                box_model[i] = glm::translate(mat4(1), box_positions[i]);
+            }
+        } else{
+            for (int i = 0; i<3; i++){
+                boxes[i].min = obj_positions[i]-0.5f;
+                boxes[i].max = obj_positions[i]+0.5f;
+                box_model[i] = glm::translate(mat4(1), obj_positions[i]);
+            }
+        }
+    }
+
     
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+    ///////////////////////////////////////////////////////////////////////////////
     virtual void keyDown(char key) {
         
         switch(key) {
-            case kVK_Space :
-                camera.resetVectors();
-                camera.translateZ(-5.f);
-                selected_box = -1;
-
-                if(which < 1) {
-                    for (int i = 0; i<3; i++){
-                        box_model[i] = glm::translate(mat4(1), box_positions[i]);
-                    }
-                    
-                } else{
-                    for (int i = 0; i<3; i++){
-                        box_model[i] = glm::translate(mat4(1), obj_positions[i]);
-                    }
-                    
-                }
-                break;
             case kVK_ANSI_W :
                 camera.translate(vec3(0,0,0.2));
                 break;
@@ -308,30 +444,42 @@ public:
             case kVK_ANSI_E :
                 camera.rotate(vec3(-rX,0.0,0.0));
                 break;
-            case kVK_UpArrow:
-                camera.printCameraInfo();
-                if(which < 1) {
-                    which++;
-                    for (int i = 0; i<3; i++){
-                        box_model[i] = glm::translate(mat4(1), obj_positions[i]);
-                    }
-
-                } else{
-                    which--;
-                    for (int i = 0; i<3; i++){
-                        box_model[i] = glm::translate(mat4(1), box_positions[i]);
-                    }
-
-                }
+                
+            case kVK_ANSI_1:
+                mode=0;
+                printf("Current Mode is %d!!\n", mode);
+                break;
+            case kVK_ANSI_2:
+                mode=1;
+                printf("Current Mode is %d!!\n", mode);
+                break;
+            case kVK_ANSI_3:
+                mode=2;
+                printf("Current Mode is %d!!\n", mode);
                 break;
 
+            case kVK_UpArrow:
+                camera.printCameraInfo();
+                which < 1 ? which++: which--;
+                resetModels();
+                break;
+            
+            case kVK_Space :
+                camera.resetVectors();
+                camera.translateZ(-5.f);
+                selected_box = -1;
+                resetModels();
+                break;
             default:
                 break;
         }
     }
-   
 };
 
+
+///////////////////////////////////////////////////////////////////////////////
+///
+///////////////////////////////////////////////////////////////////////////////
 int main() {
     return ObjectPicking().start("aluminum::ObjectPicking", 100, 100, 400, 400);
 }

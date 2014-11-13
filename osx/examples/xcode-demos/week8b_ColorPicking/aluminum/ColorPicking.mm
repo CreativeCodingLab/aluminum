@@ -45,8 +45,8 @@ public:
     
     mat4 box_model[3] = {
         mat4(1),
-        glm::rotate(mat4(1), 90.f, vec3(0.,1.,0.)),
-        glm::rotate(mat4(1), 2.f, vec3(0.,1.,0.))
+        mat4(1),
+        mat4(1)
     };
     
     vec3 box_color[3] = {

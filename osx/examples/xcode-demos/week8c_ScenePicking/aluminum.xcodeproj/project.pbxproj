@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		831926621A095BB2002B567D /* SceneInteresectionPicking.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831926611A095BB2002B567D /* SceneInteresectionPicking.mm */; };
+		831926621A095BB2002B567D /* RayPicking.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831926611A095BB2002B567D /* RayPicking.mm */; };
 		831926651A095BD4002B567D /* cube.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 831926631A095BBD002B567D /* cube.fsh */; };
 		831926661A095BD4002B567D /* cube.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 831926641A095BBD002B567D /* cube.vsh */; };
+		839595961A143E4F0046CE63 /* venusl.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 839595951A143E4F0046CE63 /* venusl.obj */; };
 		83D6C1A81A101AEC001F6A3C /* bunny.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A21A101AD2001F6A3C /* bunny.obj */; };
-		83D6C1A91A101AEC001F6A3C /* cube.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A31A101AD2001F6A3C /* cube.obj */; };
 		83D6C1AA1A101AEC001F6A3C /* dragon.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A41A101AD2001F6A3C /* dragon.obj */; };
 		83D6C1AB1A101AEC001F6A3C /* phong.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A51A101AD2001F6A3C /* phong.fsh */; };
 		83D6C1AC1A101AEC001F6A3C /* phong.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A61A101AD2001F6A3C /* phong.vsh */; };
-		83D6C1AD1A101AEC001F6A3C /* willis.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A71A101AD2001F6A3C /* willis.obj */; };
 		9232456B19B0E849008E2763 /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456119B0E849008E2763 /* Behavior.cpp */; };
 		9232456C19B0E849008E2763 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456219B0E849008E2763 /* Camera.cpp */; };
 		9232456D19B0E849008E2763 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456319B0E849008E2763 /* FBO.cpp */; };
@@ -50,26 +49,24 @@
 				831926651A095BD4002B567D /* cube.fsh in CopyFiles */,
 				831926661A095BD4002B567D /* cube.vsh in CopyFiles */,
 				83D6C1A81A101AEC001F6A3C /* bunny.obj in CopyFiles */,
-				83D6C1A91A101AEC001F6A3C /* cube.obj in CopyFiles */,
 				83D6C1AA1A101AEC001F6A3C /* dragon.obj in CopyFiles */,
 				83D6C1AB1A101AEC001F6A3C /* phong.fsh in CopyFiles */,
+				839595961A143E4F0046CE63 /* venusl.obj in CopyFiles */,
 				83D6C1AC1A101AEC001F6A3C /* phong.vsh in CopyFiles */,
-				83D6C1AD1A101AEC001F6A3C /* willis.obj in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		831926611A095BB2002B567D /* SceneInteresectionPicking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneInteresectionPicking.mm; sourceTree = "<group>"; };
+		831926611A095BB2002B567D /* RayPicking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RayPicking.mm; sourceTree = "<group>"; };
 		831926631A095BBD002B567D /* cube.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = cube.fsh; path = resources/cube.fsh; sourceTree = SOURCE_ROOT; };
 		831926641A095BBD002B567D /* cube.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = cube.vsh; path = resources/cube.vsh; sourceTree = SOURCE_ROOT; };
+		839595951A143E4F0046CE63 /* venusl.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = venusl.obj; path = ../resources/venusl.obj; sourceTree = "<group>"; };
 		83D6C1A21A101AD2001F6A3C /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bunny.obj; path = resources/bunny.obj; sourceTree = SOURCE_ROOT; };
-		83D6C1A31A101AD2001F6A3C /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.obj; path = resources/cube.obj; sourceTree = SOURCE_ROOT; };
 		83D6C1A41A101AD2001F6A3C /* dragon.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dragon.obj; path = resources/dragon.obj; sourceTree = SOURCE_ROOT; };
 		83D6C1A51A101AD2001F6A3C /* phong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.fsh; path = resources/phong.fsh; sourceTree = SOURCE_ROOT; };
 		83D6C1A61A101AD2001F6A3C /* phong.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.vsh; path = resources/phong.vsh; sourceTree = SOURCE_ROOT; };
-		83D6C1A71A101AD2001F6A3C /* willis.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = willis.obj; path = resources/willis.obj; sourceTree = SOURCE_ROOT; };
 		9232456119B0E849008E2763 /* Behavior.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Behavior.cpp; path = ../../../../src/Aluminum/Behavior.cpp; sourceTree = "<group>"; };
 		9232456219B0E849008E2763 /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Camera.cpp; path = ../../../../src/Aluminum/Camera.cpp; sourceTree = "<group>"; };
 		9232456319B0E849008E2763 /* FBO.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FBO.cpp; path = ../../../../src/Aluminum/FBO.cpp; sourceTree = "<group>"; };
@@ -127,10 +124,9 @@
 		83D6C1AE1A101AF6001F6A3C /* obj files */ = {
 			isa = PBXGroup;
 			children = (
+				839595951A143E4F0046CE63 /* venusl.obj */,
 				83D6C1A21A101AD2001F6A3C /* bunny.obj */,
-				83D6C1A31A101AD2001F6A3C /* cube.obj */,
 				83D6C1A41A101AD2001F6A3C /* dragon.obj */,
-				83D6C1A71A101AD2001F6A3C /* willis.obj */,
 			);
 			name = "obj files";
 			sourceTree = "<group>";
@@ -171,7 +167,7 @@
 		92E2749C178E133A00279684 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				831926611A095BB2002B567D /* SceneInteresectionPicking.mm */,
+				831926611A095BB2002B567D /* RayPicking.mm */,
 				92E3F2C61904AE2C006B9CD4 /* Resources */,
 				92E2749F178E133A00279684 /* Supporting Files */,
 			);
@@ -293,7 +289,7 @@
 				92ED8F5919C3CBAF005A0D69 /* CaptureManager.mm in Sources */,
 				9232457419B0E849008E2763 /* Texture.cpp in Sources */,
 				9232457119B0E849008E2763 /* MeshUtils.cpp in Sources */,
-				831926621A095BB2002B567D /* SceneInteresectionPicking.mm in Sources */,
+				831926621A095BB2002B567D /* RayPicking.mm in Sources */,
 				9232457019B0E849008E2763 /* MeshData.cpp in Sources */,
 				9232456F19B0E849008E2763 /* MeshBuffer.cpp in Sources */,
 				9232456E19B0E849008E2763 /* Font.cpp in Sources */,
