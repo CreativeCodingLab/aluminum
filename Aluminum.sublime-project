@@ -1,0 +1,54 @@
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "windows",
+            "folder_exclude_patterns":
+            [
+                "examples/Aluminum",
+                "examples/basic",
+                "examples/Proj1",
+                "Framework"
+            ]
+        },
+        {
+            "follow_symlinks": true,
+            "path": "src"
+        },
+        {
+            "follow_symlinks": true,
+            "path": "osx",
+            "folder_exclude_patterns":
+            [
+                "misc",
+                "scripts",
+                "utils",
+                "Framework",
+                "examples/basic"
+            ],
+            "file_exclude_patterns":
+            [
+                "run.command"
+            ]
+
+        },
+        {
+            "follow_symlinks": true,
+            "path": "linux"
+        },
+        {
+            "follow_symlinks": true,
+            "path": "ios"
+        },
+        {
+            "follow_symlinks": true,
+            "path": "include"
+        },
+        {
+            "follow_symlinks": true,
+            "path": "../../misc/OpenGL/DevCookBook"
+        },
+
+    ]
+}

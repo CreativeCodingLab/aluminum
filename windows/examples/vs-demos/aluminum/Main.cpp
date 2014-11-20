@@ -23,9 +23,9 @@ int main() {
     //Cellular().start("Aluminum: Week3c Cellular", 400, 300);
     //VertexDisplacement().start("Aluminum: Week4a VertexDisplacement", 400, 300);  // <-- Less Buggy!!
     //ModelFromObjFile().start("Aluminum: Week4b ModelFromObjFile", 400, 300);
-    //NoiseSphere().start("Aluminum: Week5a NoiseSphere", 400, 300);
+    NoiseSphere().start("Aluminum: Week5a NoiseSphere", 400, 300);
     //SkyBox().start("Aluminum: Week5b SkyBox", 400, 300); // <-- Buggy!!
-    MiniPlanet().start("Aluminum: Week5c MiniPlanet", 400, 300); // <-- Buggy!!
+    //MiniPlanet().start("Aluminum: Week5c MiniPlanet", 400, 300); // <-- Buggy!!
     //WBOIT().start("Aluminum: Week5d WBOIT", 400, 300); 
     //ImageProcessing().start("Aluminum: Week6a ImageProcessing", 400, 300); // <-- Buggy!!
     //Billboarding().start("Aluminum: Week6b Billboarding", 400, 300); // <-- less Buggy!!

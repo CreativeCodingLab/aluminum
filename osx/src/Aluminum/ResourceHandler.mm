@@ -9,7 +9,7 @@
 #import <Aluminum/ResourceHandler.h>
 
 using std::cout;
-
+using glm::vec3;
 ResourceHandler::ResourceHandler() {
 }
 
@@ -188,6 +188,42 @@ void ResourceHandler::loadTexture(Texture &t, const std::string &name) {
     // return new Texture(data, _w, _h, GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE);
 }
 
+
+
+void ResourceHandler::loadObjIntoMesh(MeshData &modelMesh, const std::string& name, float scalar) {
+    
+    obj::Model m = obj::loadModelFromFile(pathToResource(name));
+    
+    for(std::map<std::string, std::vector<unsigned short> >::const_iterator g = m.faces.begin(); g != m.faces.end(); ++g){
+        std::cout << g->first << "\n" ;
+        
+        cout << "num indicies = " << g->second.size() << "\n";
+        for (int i = 0 ; i < g->second.size() ; i++) {
+            
+            modelMesh.index(g->second[i]);
+            //cout << g->second[i] << " ";
+        }
+        //cout << "\n";
+    }
+    
+    
+    cout << "vertex size = " << m.vertex.size() / 3 << "\n";
+    cout << "normal size = " << m.normal.size() / 3 << "\n";
+    
+    for (int i = 0; i < m.vertex.size(); i+=3) {
+        vec3 pos = vec3(m.vertex[i], m.vertex[i+1], m.vertex[i+2]);
+        pos *= scalar;
+        modelMesh.vertex(pos);
+    }
+    
+    for (int i = 0; i < m.texCoord.size(); i+=2) {
+        //		modelMesh.texCoord(m.texCoord[i], m.texCoord[i+1]);
+    }
+    
+    for (int i = 0; i < m.normal.size(); i+=3) {
+        modelMesh.normal(m.normal[i], m.normal[i+1], m.normal[i+2]);
+    }
+}
 
 /*
 Texture** ResourceHandler::LoadNaturalMaterialsTexture(const string &fname, int tw, int th, int cols, int rows, int slices, int numTextures) {

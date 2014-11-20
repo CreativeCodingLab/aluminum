@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92285B5F19BF38E900E296A6 /* Lighting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92285B5D19BF38E900E296A6 /* Lighting.mm */; };
-		92285B6619BF3A0100E296A6 /* phong.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B6219BF39F300E296A6 /* phong.fsh */; };
-		92285B6719BF3A0100E296A6 /* phong.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92285B6319BF39F300E296A6 /* phong.vsh */; };
+		831926621A095BB2002B567D /* DepthPicking.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831926611A095BB2002B567D /* DepthPicking.mm */; };
+		831926651A095BD4002B567D /* cube.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 831926631A095BBD002B567D /* cube.fsh */; };
+		831926661A095BD4002B567D /* cube.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 831926641A095BBD002B567D /* cube.vsh */; };
+		839595921A1433330046CE63 /* venusl.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 839595911A1433330046CE63 /* venusl.obj */; };
+		83D6C1A81A101AEC001F6A3C /* bunny.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A21A101AD2001F6A3C /* bunny.obj */; };
+		83D6C1AA1A101AEC001F6A3C /* dragon.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A41A101AD2001F6A3C /* dragon.obj */; };
+		83D6C1AB1A101AEC001F6A3C /* phong.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A51A101AD2001F6A3C /* phong.fsh */; };
+		83D6C1AC1A101AEC001F6A3C /* phong.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83D6C1A61A101AD2001F6A3C /* phong.vsh */; };
 		9232456B19B0E849008E2763 /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456119B0E849008E2763 /* Behavior.cpp */; };
 		9232456C19B0E849008E2763 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456219B0E849008E2763 /* Camera.cpp */; };
 		9232456D19B0E849008E2763 /* FBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9232456319B0E849008E2763 /* FBO.cpp */; };
@@ -41,17 +46,27 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				92285B6619BF3A0100E296A6 /* phong.fsh in CopyFiles */,
-				92285B6719BF3A0100E296A6 /* phong.vsh in CopyFiles */,
+				831926651A095BD4002B567D /* cube.fsh in CopyFiles */,
+				831926661A095BD4002B567D /* cube.vsh in CopyFiles */,
+				83D6C1A81A101AEC001F6A3C /* bunny.obj in CopyFiles */,
+				839595921A1433330046CE63 /* venusl.obj in CopyFiles */,
+				83D6C1AA1A101AEC001F6A3C /* dragon.obj in CopyFiles */,
+				83D6C1AB1A101AEC001F6A3C /* phong.fsh in CopyFiles */,
+				83D6C1AC1A101AEC001F6A3C /* phong.vsh in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		92285B5D19BF38E900E296A6 /* Lighting.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Lighting.mm; sourceTree = "<group>"; };
-		92285B6219BF39F300E296A6 /* phong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.fsh; path = resources/phong.fsh; sourceTree = SOURCE_ROOT; };
-		92285B6319BF39F300E296A6 /* phong.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.vsh; path = resources/phong.vsh; sourceTree = SOURCE_ROOT; };
+		831926611A095BB2002B567D /* DepthPicking.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DepthPicking.mm; sourceTree = "<group>"; };
+		831926631A095BBD002B567D /* cube.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = cube.fsh; path = resources/cube.fsh; sourceTree = SOURCE_ROOT; };
+		831926641A095BBD002B567D /* cube.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = cube.vsh; path = resources/cube.vsh; sourceTree = SOURCE_ROOT; };
+		839595911A1433330046CE63 /* venusl.obj */ = {isa = PBXFileReference; lastKnownFileType = text; name = venusl.obj; path = ../resources/venusl.obj; sourceTree = "<group>"; };
+		83D6C1A21A101AD2001F6A3C /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bunny.obj; path = resources/bunny.obj; sourceTree = SOURCE_ROOT; };
+		83D6C1A41A101AD2001F6A3C /* dragon.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dragon.obj; path = resources/dragon.obj; sourceTree = SOURCE_ROOT; };
+		83D6C1A51A101AD2001F6A3C /* phong.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.fsh; path = resources/phong.fsh; sourceTree = SOURCE_ROOT; };
+		83D6C1A61A101AD2001F6A3C /* phong.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = phong.vsh; path = resources/phong.vsh; sourceTree = SOURCE_ROOT; };
 		9232456119B0E849008E2763 /* Behavior.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Behavior.cpp; path = ../../../../src/Aluminum/Behavior.cpp; sourceTree = "<group>"; };
 		9232456219B0E849008E2763 /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Camera.cpp; path = ../../../../src/Aluminum/Camera.cpp; sourceTree = "<group>"; };
 		9232456319B0E849008E2763 /* FBO.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FBO.cpp; path = ../../../../src/Aluminum/FBO.cpp; sourceTree = "<group>"; };
@@ -74,18 +89,18 @@
 		9232457E19B0E87F008E2763 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Texture.hpp; path = ../../../../include/Aluminum/Texture.hpp; sourceTree = "<group>"; };
 		9232457F19B0E87F008E2763 /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Utils.hpp; path = ../../../../include/Aluminum/Utils.hpp; sourceTree = "<group>"; };
 		92E27497178E133A00279684 /* aluminum */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = aluminum; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E2749A178E133A00279684 /* Foundation.framework */ = {isa = PBXFileReference; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		92E2749A178E133A00279684 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92ED8F5419C3CBAF005A0D69 /* CaptureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CaptureManager.mm; path = ../../../src/Aluminum/CaptureManager.mm; sourceTree = "<group>"; };
 		92ED8F5519C3CBAF005A0D69 /* CocoaGL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CocoaGL.mm; path = ../../../src/Aluminum/CocoaGL.mm; sourceTree = "<group>"; };
 		92ED8F5619C3CBAF005A0D69 /* RendererOSX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RendererOSX.mm; path = ../../../src/Aluminum/RendererOSX.mm; sourceTree = "<group>"; };
 		92ED8F5719C3CBAF005A0D69 /* ResourceHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourceHandler.mm; path = ../../../src/Aluminum/ResourceHandler.mm; sourceTree = "<group>"; };
 		92ED8F5819C3CBAF005A0D69 /* VideoPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VideoPlayer.mm; path = ../../../src/Aluminum/VideoPlayer.mm; sourceTree = "<group>"; };
-		B516DA0B1901BA8F004C48FA /* OpenGL.framework */ = {isa = PBXFileReference; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		B516DA0D1901BAA8004C48FA /* AVFoundation.framework */ = {isa = PBXFileReference; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		B516DA0F1901BAB2004C48FA /* CoreVideo.framework */ = {isa = PBXFileReference; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		B516DA111901BAC3004C48FA /* CoreGraphics.framework */ = {isa = PBXFileReference; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B516DA131901BAD0004C48FA /* CoreMedia.framework */ = {isa = PBXFileReference; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		B516DA151901BAEB004C48FA /* Cocoa.framework */ = {isa = PBXFileReference; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B516DA0B1901BA8F004C48FA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B516DA0D1901BAA8004C48FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B516DA0F1901BAB2004C48FA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B516DA111901BAC3004C48FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B516DA131901BAD0004C48FA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B516DA151901BAEB004C48FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83D6C1AE1A101AF6001F6A3C /* obj files */ = {
+			isa = PBXGroup;
+			children = (
+				839595911A1433330046CE63 /* venusl.obj */,
+				83D6C1A21A101AD2001F6A3C /* bunny.obj */,
+				83D6C1A41A101AD2001F6A3C /* dragon.obj */,
+			);
+			name = "obj files";
+			sourceTree = "<group>";
+		};
 		92E2748E178E133A00279684 = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +167,7 @@
 		92E2749C178E133A00279684 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				92285B5D19BF38E900E296A6 /* Lighting.mm */,
+				831926611A095BB2002B567D /* DepthPicking.mm */,
 				92E3F2C61904AE2C006B9CD4 /* Resources */,
 				92E2749F178E133A00279684 /* Supporting Files */,
 			);
@@ -200,8 +225,11 @@
 		92E3F2C61904AE2C006B9CD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				92285B6219BF39F300E296A6 /* phong.fsh */,
-				92285B6319BF39F300E296A6 /* phong.vsh */,
+				83D6C1AE1A101AF6001F6A3C /* obj files */,
+				83D6C1A51A101AD2001F6A3C /* phong.fsh */,
+				83D6C1A61A101AD2001F6A3C /* phong.vsh */,
+				831926631A095BBD002B567D /* cube.fsh */,
+				831926641A095BBD002B567D /* cube.vsh */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -261,12 +289,12 @@
 				92ED8F5919C3CBAF005A0D69 /* CaptureManager.mm in Sources */,
 				9232457419B0E849008E2763 /* Texture.cpp in Sources */,
 				9232457119B0E849008E2763 /* MeshUtils.cpp in Sources */,
+				831926621A095BB2002B567D /* DepthPicking.mm in Sources */,
 				9232457019B0E849008E2763 /* MeshData.cpp in Sources */,
 				9232456F19B0E849008E2763 /* MeshBuffer.cpp in Sources */,
 				9232456E19B0E849008E2763 /* Font.cpp in Sources */,
 				9232456B19B0E849008E2763 /* Behavior.cpp in Sources */,
 				9232456C19B0E849008E2763 /* Camera.cpp in Sources */,
-				92285B5F19BF38E900E296A6 /* Lighting.mm in Sources */,
 				92ED8F5D19C3CBAF005A0D69 /* VideoPlayer.mm in Sources */,
 				9232457319B0E849008E2763 /* Shapes.cpp in Sources */,
 				92ED8F5C19C3CBAF005A0D69 /* ResourceHandler.mm in Sources */,
@@ -340,12 +368,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/opt/local/include,
@@ -364,12 +394,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = (
 					/opt/local/include,
 					/opt/local/include,

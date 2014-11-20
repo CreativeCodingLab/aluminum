@@ -121,6 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83443AC81A073E990099CA53 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				83F1726619DB46BC00E5AB06 /* Behavior.hpp */,
+				83F1726719DB46BC00E5AB06 /* Camera.hpp */,
+				83F1726819DB46BC00E5AB06 /* FBO.hpp */,
+				83F1726919DB46BC00E5AB06 /* Font.hpp */,
+				83F1726A19DB46BC00E5AB06 /* MeshBuffer.hpp */,
+				83F1726B19DB46BC00E5AB06 /* MeshData.hpp */,
+				83F1726C19DB46BC00E5AB06 /* MeshUtils.hpp */,
+				83F1726D19DB46BC00E5AB06 /* Program.hpp */,
+				83F1726E19DB46BC00E5AB06 /* Shapes.hpp */,
+				83F1726F19DB46BC00E5AB06 /* Texture.hpp */,
+				83F1727019DB46BC00E5AB06 /* Utils.hpp */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
 		83B2018F192AA65000D61696 = {
 			isa = PBXGroup;
 			children = (
@@ -178,17 +196,7 @@
 		83B201C0192AA78500D61696 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				83F1726619DB46BC00E5AB06 /* Behavior.hpp */,
-				83F1726719DB46BC00E5AB06 /* Camera.hpp */,
-				83F1726819DB46BC00E5AB06 /* FBO.hpp */,
-				83F1726919DB46BC00E5AB06 /* Font.hpp */,
-				83F1726A19DB46BC00E5AB06 /* MeshBuffer.hpp */,
-				83F1726B19DB46BC00E5AB06 /* MeshData.hpp */,
-				83F1726C19DB46BC00E5AB06 /* MeshUtils.hpp */,
-				83F1726D19DB46BC00E5AB06 /* Program.hpp */,
-				83F1726E19DB46BC00E5AB06 /* Shapes.hpp */,
-				83F1726F19DB46BC00E5AB06 /* Texture.hpp */,
-				83F1727019DB46BC00E5AB06 /* Utils.hpp */,
+				83443AC81A073E990099CA53 /* headers */,
 				83F1725219DB46B100E5AB06 /* Behavior.cpp */,
 				83F1725319DB46B100E5AB06 /* Camera.cpp */,
 				83F1725419DB46B100E5AB06 /* FBO.cpp */,
