@@ -73,6 +73,8 @@ void moved(int x, int y ) {
 
 
 void keyboard(unsigned char key, int x, int y) {
+	renderer->keyboard(key,x,y);
+	
 	switch(key) {
 
 		case 27: 
@@ -91,6 +93,29 @@ void keyboard(unsigned char key, int x, int y) {
 	}
 
 	printf("done pressing...\n");
+}
+
+
+void specialkeys(int key, int x, int y) {
+	renderer->specialkeys(key,x,y);
+
+	switch (key) {
+
+		case GLUT_KEY_UP:
+			std::cout << "UP\n";
+			break;
+		case GLUT_KEY_DOWN:
+			std::cout << "DOWN\n";
+			break;
+		case GLUT_KEY_RIGHT:
+			std::cout << "RIGHT\n";
+			break;
+		case GLUT_KEY_LEFT:
+			std::cout << "LEFT\n";
+			break;
+
+	}
+
 }
 
 FreeGlutGLView* FreeGlutGLView::start(void* _renderer) {
@@ -135,6 +160,7 @@ FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
 	glutDisplayFunc(&display);
 	glutReshapeFunc(&reshape);
 	glutKeyboardFunc(&keyboard);
+	glutSpecialFunc(&specialkeys);
 	glutMouseFunc(&pressed);
 	glutMotionFunc(&dragged);
 	glutPassiveMotionFunc(&moved);
