@@ -64,7 +64,8 @@ void RendererLinux::mouseDragged(int px, int py) {}
 void RendererLinux::mouseDown(int px, int py) {}
 void RendererLinux::mouseUp(int px, int py) {}
 void RendererLinux::mouseMoved(int px, int py) {}
-
+void RendererLinux::keyboard(unsigned char key, int x, int y) {}
+void RendererLinux::specialkeys(int key, int x, int y) {}
 
 
 //}
