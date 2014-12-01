@@ -1,7 +1,7 @@
 #include <Aluminum/Includes.hpp>
 
 #include "Aluminum/FreeGlutGLView.hpp"
-#include "Aluminum/RendererWin32.hpp"
+#include "Aluminum/RendererLinux.hpp"
 #include "Aluminum/MeshBuffer.hpp"
 #include "Aluminum/MeshUtils.hpp"
 #include "Aluminum/Program.hpp"
@@ -173,3 +173,8 @@ public:
 	}
 
 };
+
+int main(){
+	Basic().start("BasicColor");
+	return 0;
+}
