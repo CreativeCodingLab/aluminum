@@ -40,3 +40,9 @@ Install FreeGlut2.6+ and GL3:
  sudo apt-get install freeglut3-dev
 
 Copy http://www.opengl.org/registry/api/gl3.h to /usr/include/GL3/gl3.h (NOTE this should be necessary with newest version of freeglut!!!)
+
+****
+IMPORTANT IF USING AN AMD GRAPHICS CARD!
+****
+For some reason a bad logging call is made in Program.cpp which causes the program to SEGFAULT if using an AMD graphics card. 
+Uncomment the line AMD_HACK in scripts/makeStaticLibrary.sh to enable a bypass of this call
