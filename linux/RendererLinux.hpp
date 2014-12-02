@@ -40,7 +40,8 @@ virtual void mouseDragged(int px, int py);
 virtual void mouseDown(int px, int py);
 virtual void mouseUp(int px, int py);
 virtual void mouseMoved(int px, int py);
-
+virtual void keyboard(unsigned char key, int x, int y);
+virtual void specialkeys(int key, int x, int y);
 
 
   

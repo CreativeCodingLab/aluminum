@@ -9,6 +9,9 @@ if [ $# -eq 0 ]
     INCLUDE_DIR=$1 #assuming its been passed in from osx-specific run.command
 fi
 
+#Uncomment if using an AMD graphics card to prevent SEGFAULT due to bad logging call
+#AMD_HACK="-D AMD_NOLOG"
+
 SCRIPTS_DIR="$( cd "$( dirname "$0" )" && pwd )"
 LINUX_DIR="$SCRIPTS_DIR/.."
 
@@ -29,12 +32,12 @@ cd $BASE_DIR;
 
 ### 1. COMPILE
 echo -e "\n\n\n*** In makeStaticLibrary.sh "
-echo -e "\nBUILDING obj files for static library... \n\ng++ -c -include $BUILD_DIR/include/Includes.hpp -std=c++11 $INCLUDE $SRC"
+echo -e "\nBUILDING obj files for static library... \n\ng++ -c -include $BUILD_DIR/include/Includes.hpp -std=c++11 $AMD_HACK $INCLUDE $SRC"
 #echo -e "\nBUILDING obj files for static library... \n\ng++ -c -std=c++11 $INCLUDE $SRC"
 
 # use -H below to double check if the headers have been precompiled
 #time c++ -c -x objective-c++ -include $BUILD_DIR/include/Aluminum/Includes.hpp -std=c++11 -stdlib=libc++ $INCLUDE $SRC 
-time g++ -c -include $BUILD_DIR/include/Includes.hpp -std=c++11 $INCLUDE $SRC 
+time g++ -c -include $BUILD_DIR/include/Includes.hpp -std=c++11 $AMD_HACK $INCLUDE $SRC 
 #time g++ -c -std=c++11 $INCLUDE $SRC 
 
 ### 2. ARCHIVE

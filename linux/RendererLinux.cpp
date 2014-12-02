@@ -16,7 +16,7 @@ void RendererLinux::start() {
 	FreeGlutGLView::start(this);
 }
 void RendererLinux::start(std::string name) {
-	printf("in RendererLinux::start(name)\n");
+	printf("in RendererLinux::start(%s)\n", name.c_str());
 	FreeGlutGLView::start(this, name);
 }
 
@@ -64,7 +64,8 @@ void RendererLinux::mouseDragged(int px, int py) {}
 void RendererLinux::mouseDown(int px, int py) {}
 void RendererLinux::mouseUp(int px, int py) {}
 void RendererLinux::mouseMoved(int px, int py) {}
-
+void RendererLinux::keyboard(unsigned char key, int x, int y) {}
+void RendererLinux::specialkeys(int key, int x, int y) {}
 
 
 //}
