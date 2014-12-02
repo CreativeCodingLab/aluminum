@@ -9,7 +9,7 @@ int width;
 int height;
 RendererLinux* renderer;
 //static struct timeval lastTime;
- static std::clock_t lastTime = std::clock();
+static std::clock_t lastTime = std::clock();
 
 FreeGlutGLView::FreeGlutGLView() {}
 
@@ -28,51 +28,52 @@ void reshape(GLint _w, GLint _h) {
 }
 
 void display() {
-   renderer->tick();
+	renderer->tick();
 	//printf("in FreeGlutGLView : display()\n");
 	renderer->onFrame();
 	glutSwapBuffers();
 }
 
 void animate() {
- renderer->frameCount++;
-/*              
-  time = glutGet(GLUT_ELAPSED_TIME);
-                if (time - timebase > 1000) {
-                        printf("FPS:%4.2f\n",
-                                renderer->frameCount*1000.0 / (time - timebase));
-                        timebase = time;
-                        renderer->frameCount = 0;
-                }
-*/
+	renderer->frameCount++;
+	/*              
+			time = glutGet(GLUT_ELAPSED_TIME);
+			if (time - timebase > 1000) {
+			printf("FPS:%4.2f\n",
+			renderer->frameCount*1000.0 / (time - timebase));
+			timebase = time;
+			renderer->frameCount = 0;
+			}
+			*/
 
-/*
-	float dt;
+	/*
+	   float dt;
 
-	struct timeval now;
-	gettimeofday(&now, NULL);
-	dt = (float)(now.tv_usec - lastTime.tv_usec);
-	lastTime = now;
-*/
+	   struct timeval now;
+	   gettimeofday(&now, NULL);
+	   dt = (float)(now.tv_usec - lastTime.tv_usec);
+	   lastTime = now;
+	   */
 	glutPostRedisplay();
 }
 
 void pressed(int button, int state, int x, int y ) {
-//	printf("button : %d %d %d %d\n", button, state, x, y);
+	//	printf("button : %d %d %d %d\n", button, state, x, y);
 	//check state to see if sending down or up...
 	renderer->mouseDown(x,y);
 }
 void dragged(int x, int y ) {
-//	printf("motion : %d %d\n", x, y);
+	//	printf("motion : %d %d\n", x, y);
 	renderer->mouseDragged(x,y);
 }
 void moved(int x, int y ) {
-//	printf("motion : %d %d\n", x, y);
+	//	printf("motion : %d %d\n", x, y);
 	renderer->mouseMoved(x,y);
 }
 
 
 void keyboard(unsigned char key, int x, int y) {
+	renderer->keyboard(key,x,y);
 	switch(key) {
 
 		case 27: 
@@ -91,6 +92,29 @@ void keyboard(unsigned char key, int x, int y) {
 	}
 
 	printf("done pressing...\n");
+}
+
+
+void specialkeys(int key, int x, int y) {
+	renderer->specialkeys(key,x,y);
+
+	switch (key) {
+
+		case GLUT_KEY_UP:
+			std::cout << "UP\n";
+			break;
+		case GLUT_KEY_DOWN:
+			std::cout << "DOWN\n";
+			break;
+		case GLUT_KEY_RIGHT:
+			std::cout << "RIGHT\n";
+			break;
+		case GLUT_KEY_LEFT:
+			std::cout << "LEFT\n";
+			break;
+
+	}
+
 }
 
 FreeGlutGLView* FreeGlutGLView::start(void* _renderer) {
@@ -113,28 +137,29 @@ FreeGlutGLView* FreeGlutGLView::start(void* _renderer, std::string name) {
 	glutInitContextFlags(GLUT_CORE_PROFILE | GLUT_DEBUG);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 
-/*
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_MULTISAMPLE );
-	GLint buf, sample;
-	glGetIntegerv (GL_SAMPLE_BUFFERS, &buf);
-	glGetIntegerv (GL_SAMPLES, &sample);
+	/*
+	   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_MULTISAMPLE );
+	   GLint buf, sample;
+	   glGetIntegerv (GL_SAMPLE_BUFFERS, &buf);
+	   glGetIntegerv (GL_SAMPLES, &sample);
 
-	std::cout << "buf: " << buf << " samples: " << sample << " \n";
-	glEnable(GL_MULTISAMPLE);
-*/
+	   std::cout << "buf: " << buf << " samples: " << sample << " \n";
+	   glEnable(GL_MULTISAMPLE);
+	   */
 
 	glutInitWindowSize(200,200);
 	glutCreateWindow(name.c_str());
 
-//	glutGameModeString("1280x1024:32@60");
-//	glutEnterGameMode();
-          renderer->setStartTick();
-      	
+	//	glutGameModeString("1280x1024:32@60");
+	//	glutEnterGameMode();
+	renderer->setStartTick();
+
 	renderer->onCreate();
 
 	glutDisplayFunc(&display);
 	glutReshapeFunc(&reshape);
 	glutKeyboardFunc(&keyboard);
+	glutSpecialFunc(&specialkeys);
 	glutMouseFunc(&pressed);
 	glutMotionFunc(&dragged);
 	glutPassiveMotionFunc(&moved);

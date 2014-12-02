@@ -101,14 +101,18 @@ namespace aluminum {
         glLinkProgram(id());
         glGetProgramiv (id(), GL_COMPILE_STATUS, &status);
         if (status == GL_FALSE) {
-            GLint lsize;
-            glGetProgramiv(id(),GL_INFO_LOG_LENGTH, &lsize);
+	    #ifdef AMD_NOLOG
+            	return;
+	    #else
+	    	GLint lsize;
+            	glGetProgramiv(id(),GL_INFO_LOG_LENGTH, &lsize);
             
-            GLchar *infoLog= new GLchar[lsize];
-            glGetProgramInfoLog(id(), lsize, NULL, infoLog);
-            cerr<<"Link log: "<<infoLog<<endl;
-            delete [] infoLog;
-            exit(0);
+           	GLchar *infoLog= new GLchar[lsize];
+	        glGetProgramInfoLog(id(), lsize, NULL, infoLog);
+        	cerr<<"Link log: "<<infoLog<<endl;
+	        delete [] infoLog;
+        	exit(0);
+	    #endif
         }
     }
     
