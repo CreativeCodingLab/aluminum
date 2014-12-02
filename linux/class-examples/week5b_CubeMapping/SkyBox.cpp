@@ -206,3 +206,7 @@ public:
   }
 
 };
+int main() {
+	SkyBox().start("SkyBox");
+	return 0;
+}
