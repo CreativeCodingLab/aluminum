@@ -1,0 +1,116 @@
+Skip to content
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+
+install ground zero postgre ancestry
+Repositories0
+Code276+
+Commits0
+Issues0
+Marketplace0
+Topics0
+Wikis229
+Users0
+Language
+
+Sort
+
+276 code results
+@alixaxel
+alixaxel/dump.HN – 03-04.csv
+Showing the top three matches
+Last indexed on Jul 1, 2018
+CSV
+6908292,comment,6907727,6908270,4,0,obfuscurity_,,,"Nobody ever said it /can&#x27;t/ be done. I would never have argued against using a real RDBMS. But I&#x27;ve often been guilty of telling folks that SQLite was &quot;good enough&quot;.<p>Installing PostgreSQL as you described is not &quot;good enough&quot;. If you&#x27;re going to bother with that, you need to understand the database enough to tune it properly, setup backups, test restores, etc. There are more considerations than simply installing it from apt-get and then forgetting about it.",1387079411
+6908270,comment,6907727,6908254,0,0,yeukhon,,,"I disagree because it is internal facing lol. If the software is capable of running on a true production-ready DBMS, there is no point why it can&#x27;t be done already.<p>If SQLite is cheap to use because it&#x27;s a single file, well, a sudo apt-get install PostgreSQL and then a few commands to set up the database and user password won&#x27;t take you longer than 10 minutes. That&#x27;s what I am arguing. There is no reason why we would use SQLite for heavy loading application such as logging. And I think we can now agree that&#x27;s indeed true and I think we should promote people to use production-ready DBMS even during dev and testing, because those are the one you are going to use in production :)",1387078702
+@enrico200165
+enrico200165/Digital-Marketing_Unica-Interact_Little-Tools – e_viali.xml
+Showing the top three matches
+Last indexed on Jul 13, 2018
+XML
+      <w>.Mwgt</w>
+      <w>.Mwgt.psi1</w>
+      <w>.N</w>
+      <w>.OldClassesList</w>
+      <w>.PostgreSQLKeywords</w>
+      <w>.__C__Period</w>
+      <w>.__C__PossibleMethod</w>
+      <w>.__C__PostgreSQLConnection</w>
+      <w>.__C__PostgreSQLDriver</w>
+@shouse
+shouse/awesome-stars – sophrinix.md
+Showing the top two matches
+Last indexed on Jul 10, 2018
+Markdown
+- [bgworker](https://github.com/prest/bgworker) - Background Worker Processes for PostgreSQL written in Go
+- [db_tutorial](https://github.com/cstack/db_tutorial) - Writing a sqlite clone from scratch in C
+- [demoscene-starter-kits](https://github.com/anttihirvonen/demoscene-starter-kits) - Want to start making demos but don't know where to begin? Look no further!
+- [pg_cron](https://github.com/citusdata/pg_cron) - Run periodic jobs in PostgreSQL
+- [hitch](https://github.com/varnish/hitch) - A scalable TLS proxy by Varnish Software.
+@jamesqo
+jamesqo/relativity – page1938.csv
+Showing the top six matches
+Last indexed on Jul 12, 2018
+CSV
+Microsoft,2016-10-20T22:05:05.473Z,43209,547,Microsoft.VisualStudio.ComponentModelHost.dll,RoslynDependencies.Microsoft.VisualStudio.ComponentModelHost,True,1899-12-31T16:00:00-08:00,False,False,Microsoft.VisualStudio.ComponentModelHost.dll,,-1,False,15.0.25726-Preview5
+
+Bastian Eicher,2016-10-20T22:05:07.74Z,63,547,"The Zero Install Services API contains the entire logic for services such as dependency resolution and implementation downloading.
+Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
+@alixaxel
+alixaxel/dump.HN – 05-06.csv
+Showing the top two matches
+Last indexed on Jul 1, 2018
+CSV
+4315939,comment,4315578,4315691,6,0,edwinnathaniel,,,"Many companies favor short-term win or Money over Technicality because there aren't many people who have the skill to put the numbers on Excel spreadsheet the amount of money the company can save had we done things ""Right"" at the first time during the meeting between Business and Tech team (Product Manager, CEO vs Team Lead/Dev Manager).<p>Basically it comes down to quantifying these quality works over developing new features.<p>I had the pleasure to work in a very small tight-knit team where you have to have the bulldog to bark at people when they're slowing down their defense (i.e.: writing unit-tests, making sure build script is up to date).<p>Results: on-time, within-budget, 1 Saturday, 1 Statutory holiday, 2 days OT until 10.30PM (all re-imburse afterwards) for a rather ambitious project to be shipped in 6 months from zero to live in 2 months afterwards.<p>Oh, and we have 1 performance bug after the release (easy one to solve) and 1 requirement bug 3 months after release. The rest (been live for about a year) was as smooth as the baby skin. We rotate the BB phone (on-call) but we never had it buzzed.<p>Our saving graces were:<p>0) Management Support<p>1) Continuous Integration<p>2) Unit-Testing<p>We use these unit-tests as REPL mostly, so we don't have to re-compile and re-deploy the _whole_ app to GlassFish.",1343714396
+4315933,comment,4311134,4315767,1,0,joelrunyon,,,"unbounce hosts your pages for you (no outside hosting costs). Premise 2.0 is awesome, but you have to install a wordpress site (takes about 5 seconds) and have your own hosting (which, if you've got a few projects already, you should have).<p>I find premise a bit easier than unbounce and it's a one-time fee (unbounce is recurring), but either way you can't really go wrong. It just depends on what's right for your situation...",1343714279
+@samgoodgame
+samgoodgame/neural_net_skills – tsne_bokeh.html
+Showing the top match
+Last indexed on Jul 13, 2018
+HTML
+&quot;,&quot;bonus_point&quot;,&quot;ci&quot;,&quot;ordinance&quot;,&quot;reasonable_accommodation_may&quot;,&quot;<em>ground</em>&quot;,&quot;cyber_security
+@appoll
+appoll/gh-repo-classifier – all_data_labelled_readmes.tar
+Showing the top three matches
+Last indexed on Jul 5, 2018
+This repo provides scripts to download, process, and analyze data for over 1.3 billion taxi and Uber trips originating in New York City. The data is stored in a [PostgreSQL](http://www.postgresql.org/) database, and uses [PostGIS](http://postgis.net/) for spatial calculations, in particular mapping latitude/longitude coordinates to census tracts.
+Your mileage may vary, but on my MacBook Air, this process took about 3 days to complete. The unindexed database takes up 330 GB on disk. Adding indexes for improved query performance increases total disk usage by another 100 GB.
+
+##### 1. Install [PostgreSQL](http://www.postgresql.org/download/) and [PostGIS](http://postgis.net/install)
+@appoll
+appoll/gh-repo-classifier – all_data_labelled_readmes_en.tar
+Showing the top three matches
+Last indexed on Jul 5, 2018
+This repo provides scripts to download, process, and analyze data for over 1.3 billion taxi and Uber trips originating in New York City. The data is stored in a [PostgreSQL](http://www.postgresql.org/) database, and uses [PostGIS](http://postgis.net/) for spatial calculations, in particular mapping latitude/longitude coordinates to census tracts.
+Your mileage may vary, but on my MacBook Air, this process took about 3 days to complete. The unindexed database takes up 330 GB on disk. Adding indexes for improved query performance increases total disk usage by another 100 GB.
+
+##### 1. Install [PostgreSQL](http://www.postgresql.org/download/) and [PostGIS](http://postgis.net/install)
+@algolia
+algolia/depstack – categories_model.json
+Showing the top match
+Last indexed on Jun 27, 2018
+JSON
+ markup language to write your pages; Webby supports quite a few. <em>Install</em> Webby and try it out!&quot;,&quot;webgen
+@nodejs
+nodejs/wiki-archive – Modules.md
+Showing the top three matches
+Last indexed on Jul 14, 2018
+Markdown
+  * [MS SQL Server](#db-mssql)
+  * [PostgreSQL](#db-pg)
+  * [MySQL](#db-mysql)
+  * [SQLite](#db-sqlite)
+* [wup](https://github.com/pvorb/node-wup) — A simple web server for quick tests. Install via `npm install -g wup`, start with `wup`, go to `http://localhost:8080/`.
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
